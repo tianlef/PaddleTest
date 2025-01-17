@@ -2,9 +2,6 @@
 
 pip install -r requirements.txt
 
-#bash ${root_path}/PaddleMIX/change_paddlenlp_version.sh
-
-#bash ${root_path}/PaddleMIX/change_paddlenlp_version.sh
 
 mkdir data
 rm -rf fastdit_imagenet256_tiny/

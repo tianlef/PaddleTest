@@ -13,7 +13,7 @@ if [ ! -d "$log_dir" ]; then
 fi
 
 /bin/cp -rf ./* ${work_path}
-/bin/cp -f ../change_paddlenlp_version.sh ${work_path}
+
 cd ${work_path}
 exit_code=0
 
@@ -24,9 +24,8 @@ pip install pytest-xdist
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 pip install transformers diffusers
 python -m pip install --upgrade pip
-pip install -r requirements.txt
 pip install -e .
-bash ${root_path}/PaddleMIX/change_paddlenlp_version.sh
+pip install -r requirements.txt
 
 export http_proxy=${mix_proxy}
 export https_proxy=${mix_proxy}

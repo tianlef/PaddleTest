@@ -13,7 +13,7 @@ pip install -e .
 
 cd ..
 
-bash change_paddlenlp_version.sh
+
 
 
 # 数据集下载

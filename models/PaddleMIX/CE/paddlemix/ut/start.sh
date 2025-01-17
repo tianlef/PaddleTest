@@ -13,7 +13,7 @@ if [ ! -d "$log_dir" ]; then
 fi
 
 /bin/cp -rf ./* ${work_path}
-cp ../change_paddlenlp_version.sh ${work_path}
+
 
 cd ${work_path}
 exit_code=0
@@ -33,7 +33,7 @@ cd ${work_path}/ppdiffusers
 pip install -e .
 
 cd ${work_path}
-bash change_paddlenlp_version.sh
+
 
 export http_proxy=${mix_proxy}
 export https_proxy=${mix_proxy}

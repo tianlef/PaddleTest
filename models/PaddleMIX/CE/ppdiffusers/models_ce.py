@@ -13,8 +13,7 @@ def process_init(executed_log_path, model_num=5):
     log_dir = os.path.join(root_path, "log")
     work_path = os.getcwd()
     # 现在paddlenlp脚本
-    # shutil.copy("change_paddlenlp_version.sh", os.path.join(root_path, "PaddleMIX"))
-
+   
     # 执行 bash prepare.sh 脚本
     # subprocess.run(["bash", "prepare.sh"], check=True)
 
