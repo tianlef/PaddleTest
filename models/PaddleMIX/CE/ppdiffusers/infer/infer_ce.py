@@ -157,7 +157,7 @@ if __name__ == '__main__':
         print(f"Total number of inference scripts found: {len(scripts)}")
         record_path = sys.argv[1]
         model_num = int(sys.argv[2])
-        selected_scripts = select_scripts(scripts, model_num)
-        infer_process(record_path, model_num, scripts)
+        selected_scripts = select_scripts(scripts, model_num, record_path)
+        infer_process(selected_scripts)
     except Exception as e:
         print(e)
