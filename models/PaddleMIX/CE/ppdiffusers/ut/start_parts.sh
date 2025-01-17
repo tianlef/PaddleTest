@@ -14,6 +14,8 @@ fi
 
 /bin/cp -rf ./* ${work_path}
 cd ${work_path}
+pip install -e .
+pip install -r requirements.txt
 exit_code=0
 
 
