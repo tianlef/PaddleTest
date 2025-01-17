@@ -46,5 +46,7 @@ for subdir in */; do
     cd ..
   fi
 done
+
+bash gather_img_video_to_one_file.sh
 echo exit_code:${exit_code}
 exit ${exit_code}
