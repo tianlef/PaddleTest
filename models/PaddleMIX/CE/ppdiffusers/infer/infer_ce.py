@@ -72,13 +72,14 @@ def infer_process(model_num, selected_dirs):
     os.chdir(work_path2)
 
     subprocess.run(['python', '-m', 'pip', 'install', '--upgrade', 'pip'], check=True)
-    subprocess.run(['pip', 'install', '-r', 'requirements.txt'], check=True)
-    subprocess.run(['pip', 'install', '-e', '.'], check=True)
+    
 
     subprocess.run(['pip', 'install', 'pytest', 'safetensors', 'ftfy', 'fastcore', 'opencv-python', 'einops', 'parameterized', 'requests-mock'], check=True)
     subprocess.run(['pip', 'install', 'ligo-segments'], check=True)
     subprocess.run(['pip', 'install', 'fastdeploy-gpu-python', '-f', 'https://www.paddlepaddle.org.cn/whl/fastdeploy.html'], check=True)
-
+    subprocess.run(['pip', 'install', '-e', '.'], check=True)
+    subprocess.run(['pip', 'install', '-r', 'requirements.txt'], check=True)
+    
     # 返回工作路径
     os.chdir(work_path)
 
