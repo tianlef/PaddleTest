@@ -7,7 +7,6 @@ echo ${work_path2}/
 cd ${work_path2}
 
 python -m pip install --upgrade pip
-pip install -r requirements.txt
 pip install -e .
-
+pip install -r requirements.txt
 
