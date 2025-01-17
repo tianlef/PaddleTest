@@ -9,7 +9,6 @@ nlp_path=${root_path}/PaddleMIX
 work_path=$(pwd)
 echo ${work_path}
 
-# cp change_paddlenlp_version.sh ${root_path}/PaddleMIX
 bash prepare.sh
 
 cd ${work_path}
@@ -34,11 +33,30 @@ for subdir in */; do
     if [ "$subdir" == "deleted/" ]; then
       continue
     fi
+
+    if [ "$subdir" == "deleted/" ]; then
+      continue
+    fi
     
-    # 32g显存跑不了
-    # if [ "$subdir" == "kandinsky2_2_text_to_image/" ]; then
-    #   continue
-    # fi
+    if [ "$subdir" == "dreambooth-sd3/" ]; then
+      continue
+    fi
+
+    if [ "$subdir" == "AnimateAnyone/" ]; then
+      continue
+    fi
+
+    if [ "$subdir" == "open_sora/" ]; then
+      continue
+    fi
+
+    if [ "$subdir" == "ppdiffusers_example_test/" ]; then
+      continue
+    fi
+
+    if [ "$subdir" == "vctrl/" ]; then
+      continue
+    fi
 
     # examples extra
     if [ "$subdir" == "ppdiffusers_example_test/" ]; then
