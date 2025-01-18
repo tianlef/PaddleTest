@@ -6,6 +6,7 @@ import sys
 import json
 import pexpect
 import traceback
+import select
 # 假设我们有一个脚本列表
 def generate_all_inference_scripts():
     with open('./all.json', 'r', encoding='utf8') as f:
@@ -114,7 +115,7 @@ def infer_process(selected_dirs):
 
                 # 等待子进程输出
                 while True:
-                    rlist, _, _ = select.select([child], [], [], 0.1)
+                    rlist, _, _ = select.select([child.childfd], [], [], 0.1)
                     if rlist:
                         # 读取一行输出
                         line = child.readline().strip()
