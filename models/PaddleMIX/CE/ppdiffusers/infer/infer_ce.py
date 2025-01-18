@@ -115,7 +115,7 @@ def infer_process(selected_dirs):
 
                 # 等待子进程输出
                 while True:
-                    rlist, _, _ = select.select([child.childfd], [], [], 0.1)
+                    rlist, _, _ = select.select([child.ptyproc.fd], [], [], 0.1)
                     if rlist:
                         # 读取一行输出
                         line = child.readline().strip()
