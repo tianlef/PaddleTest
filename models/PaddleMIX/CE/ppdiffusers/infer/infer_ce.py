@@ -120,7 +120,7 @@ def infer_process(selected_dirs):
                         # 读取一行输出
                         line = child.readline().strip()
                         if line:
-                            print(line, flush=True)
+                            # print(line, flush=True)
                             log_process.write(line + "\n")
                     if child.isalive() == False:
                         break
