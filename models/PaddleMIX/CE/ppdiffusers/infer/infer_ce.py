@@ -103,7 +103,7 @@ def infer_process(selected_dirs):
 
 
     for script in selected_dirs:
-        print(f"******* Running {script} ***********")
+        print(f"******* Running {script} ***********", flush=True)
         process_log = os.path.join(log_dir, f"{script}.log")
         tmp_exit_code = -1  # 初始化为默认值
 
@@ -130,17 +130,17 @@ def infer_process(selected_dirs):
                 tmp_exit_code = child.exitstatus
 
         except Exception as e:
-            print(f"Error running script {script}: {e}")
+            traceback.print_exc()
 
         finally:
             # 记录运行结果
             with open(f"{log_dir}/infer_res.log", "a") as log_file:
                 if tmp_exit_code == 0:
                     log_file.write(f"{script} run success\n")
-                    print(f"******* Successfully running {script} ***********")
+                    print(f"******* Successfully running {script} ***********", flush=True)
                 else:
                     log_file.write(f"{script} run fail\n")
-                    print(f"******* Failed running {script} ***********")
+                    print(f"******* Failed running {script} ***********", flush=True)
             
     
     # 保存更新后的已执行目录和轮次
