@@ -5,6 +5,7 @@ import subprocess
 import sys
 import json
 import pexpect
+import traceback
 # 假设我们有一个脚本列表
 def generate_all_inference_scripts():
     with open('./all.json', 'r', encoding='utf8') as f:
@@ -46,7 +47,7 @@ def select_random_scripts(scripts, model_num, executed_log_path):
         print(f"Executed models in this epoch {executed_dirs}")
     return selected_dirs
 
-def infer_process(model_num, selected_dirs):
+def infer_process(selected_dirs):
     # 定义路径
     root_path = os.getenv('root_path')  # 获取root_path环境变量
     work_path = os.path.join(root_path, 'PaddleMIX/ppdiffusers/examples/inference/')
@@ -157,8 +158,9 @@ if __name__ == '__main__':
         # print(scripts)
         print(f"Total number of inference scripts found: {len(scripts)}")
         record_path = sys.argv[1]
-        model_num = int(sys.argv[2])
-        selected_scripts = select_scripts(scripts, model_num, record_path)
+        model_num = sys.argv[2]
+        selected_scripts = select_random_scripts(scripts, model_num, record_path)
+        print(f"Selected scripts: {selected_scripts}")
         infer_process(selected_scripts)
     except Exception as e:
-        print(e)
+        traceback.print_exc()
