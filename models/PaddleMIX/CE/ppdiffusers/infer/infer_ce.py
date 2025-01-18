@@ -128,7 +128,9 @@ def infer_process(selected_dirs):
                 # 等待子进程退出并获取退出状态
                 child.wait()
                 tmp_exit_code = child.exitstatus
-
+        except pexpect.exceptions.TIMEOUT:
+        # 如果超时，可以继续等待
+            pass
         except Exception as e:
             traceback.print_exc()
 
