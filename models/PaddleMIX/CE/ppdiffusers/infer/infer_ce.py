@@ -137,9 +137,11 @@ def infer_process(selected_dirs):
             with open(f"{log_dir}/infer_res.log", "a") as log_file:
                 if tmp_exit_code == 0:
                     log_file.write(f"{script} run success\n")
+                    print(f"******* Successfully running {script} ***********")
                 else:
                     log_file.write(f"{script} run fail\n")
-            print(f"******* Finished running {script} ***********")
+                    print(f"******* Failed running {script} ***********")
+            
     
     # 保存更新后的已执行目录和轮次
     # 输出最终的 exit_code
