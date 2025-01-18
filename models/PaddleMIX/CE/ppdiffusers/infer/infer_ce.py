@@ -111,7 +111,7 @@ def infer_process(selected_dirs):
             # 打开日志文件以记录输出
             with open(process_log, "w") as log_process:
                 # 启动子进程
-                child = pexpect.spawn(f"python {script}", encoding="utf-8", logfile=log_process, env={"PYTHONUNBUFFERED": "1"})
+                child = pexpect.spawn(f"/workspace/test_py310/bin/python {script}", encoding="utf-8", logfile=log_process, env={"PYTHONUNBUFFERED": "1"})
 
                 # 等待子进程输出
                 while True:
