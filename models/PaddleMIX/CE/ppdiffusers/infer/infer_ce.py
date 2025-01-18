@@ -110,17 +110,18 @@ def infer_process(selected_dirs):
             # 打开日志文件以记录输出
             with open(process_log, "w") as log_process:
                 # 启动子进程
-                child = pexpect.spawn(f"python {script}", encoding="utf-8", logfile=log_process)
+                child = pexpect.spawn(f"python {script}", encoding="utf-8", logfile=log_process, env={"PYTHONUNBUFFERED": "1"})
 
+                # 等待子进程输出
                 while True:
-                    try:
-                        # 尝试读取一行输出
+                    rlist, _, _ = select.select([child], [], [], 0.1)
+                    if rlist:
+                        # 读取一行输出
                         line = child.readline().strip()
-                        if not line:  # 如果没有新行，子进程可能结束
-                            break
-                        print(line)  # 实时打印到控制台
-                    except pexpect.exceptions.EOF:
-                        # 子进程结束
+                        if line:
+                            print(line, flush=True)
+                            log_process.write(line + "\n")
+                    if child.isalive() == False:
                         break
 
                 # 等待子进程退出并获取退出状态
