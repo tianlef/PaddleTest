@@ -7,6 +7,7 @@ import json
 import pexpect
 import traceback
 import select
+import signal
 # 假设我们有一个脚本列表
 def generate_all_inference_scripts():
     with open('./all.json', 'r', encoding='utf8') as f:
@@ -106,11 +107,12 @@ def infer_process(selected_dirs):
         print(f"******* Running {script} ***********", flush=True)
         process_log = os.path.join(log_dir, f"{script}.log")
         tmp_exit_code = -1  # 初始化为默认值
-
+        time_out = 6000
         try:
             # 打开日志文件以记录输出
             with open(process_log, "w") as log_process:
                 # 启动子进程
+                start_time = time.time()
                 child = pexpect.spawn(f"/workspace/test_py310/bin/python {script}", encoding="utf-8", logfile=log_process, env={"PYTHONUNBUFFERED": "1"})
 
                 # 等待子进程输出
@@ -124,6 +126,11 @@ def infer_process(selected_dirs):
                             log_process.write(line + "\n")
                     if child.isalive() == False:
                         break
+                    if time.time() - start_time > time_out:
+                        print(f"Script '{script}' exceeded timeout of {time_out} seconds. Killing it...", flush=True)
+                        child.kill(signal.SIGKILL)  # 强制终止子进程
+                        break
+
 
                 # 等待子进程退出并获取退出状态
                 child.wait()
