@@ -103,6 +103,6 @@ fi
 echo "*******ppdiffusers/deploy/sd3 inference_multi new end***********"
 
 
-
+unset FLAGS_enable_pir_api
 echo exit_code:${exit_code}
 exit ${exit_code}
