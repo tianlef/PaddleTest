@@ -38,7 +38,8 @@ export FLAGS_enable_pir_api=0
     --dtype float16 \
     --height 512 \
     --width 512 \
-    --num-inference-steps 50 --inference_optimize 1  \
+    --num-inference-steps 50 \
+    --inference_optimize 1  \
     --benchmark 1) 2>&1 | tee ${log_dir}/sd3_inference_old.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
@@ -52,10 +53,10 @@ echo "*******ppdiffusers/deploy/sd3 old inference end***********"
 # 多卡推理
 (python -m paddle.distributed.launch --gpus 0,1 text_to_image_generation-stable_diffusion_3.py \
     --dtype float16 \
-    --height 512 --width 512 \
+    --height 1024 \
+    --width 1024 \
     --num-inference-steps 50 \
     --inference_optimize 1 \
-    --inference_optimize_bp 1 \
     --benchmark 1) 2>&1 | tee ${log_dir}/sd3_inference_multi_old.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
@@ -74,7 +75,8 @@ export FLAGS_enable_pir_api=1
     --dtype float16 \
     --height 512 \
     --width 512 \
-    --num-inference-steps 50 --inference_optimize 1  \
+    --num-inference-steps 50 \
+    --inference_optimize 1  \
     --benchmark 1) 2>&1 | tee ${log_dir}/sd3_inference_new.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
@@ -88,10 +90,10 @@ echo "*******ppdiffusers/deploy/sd3 new inference end***********"
 # 多卡推理
 (python -m paddle.distributed.launch --gpus 0,1 text_to_image_generation-stable_diffusion_3.py \
     --dtype float16 \
-    --height 512 --width 512 \
+    --height 1024 \
+    --width 1024 \
     --num-inference-steps 50 \
     --inference_optimize 1 \
-    --inference_optimize_bp 1 \
     --benchmark 1) 2>&1 | tee ${log_dir}/sd3_inference_multi_new.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
