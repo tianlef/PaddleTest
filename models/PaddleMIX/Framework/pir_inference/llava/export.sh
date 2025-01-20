@@ -12,7 +12,7 @@ export PYTHONPATH=${root_path}/PaddleNLP/:${root_path}/PaddleMIX
 export FLAGS_enable_pir_api=0
 
 (python deploy/llava/export_model.py \
-    --model_name_or_path "paddlemix/llava/llava-v1.5-7b" \
+    --model_name_or_path "paddlemix/llava/llava-v1.6-7b" \
     --save_path "./llava_static_old" \
     --encode_image \
     --fp16) 2>&1 | tee ${log_dir}/llava_export_oldir0.log
@@ -26,7 +26,7 @@ fi
 echo "*******llava_export_oldir 0 oldir end***********"
 
 (python deploy/llava/export_model.py \
-    --model_name_or_path "paddlemix/llava/llava-v1.5-7b" \
+    --model_name_or_path "paddlemix/llava/llava-v1.6-7b" \
     --save_path "./llava_static" \
     --encode_text \
     --fp16) 2>&1 | tee ${log_dir}/llava_export_oldir1.log
@@ -43,7 +43,7 @@ export FLAGS_enable_pir_api=1
 
 
 (python deploy/llava/export_model.py \
-    --model_name_or_path "paddlemix/llava/llava-v1.5-7b" \
+    --model_name_or_path "paddlemix/llava/llava-v1.6-7b" \
     --save_path "./llava_static_new" \
     --encode_image \
     --fp16) 2>&1 | tee ${log_dir}/llava_export_new0.log
@@ -57,7 +57,7 @@ fi
 echo "*******llava_export_new 0 oldir end***********"
 
 (python deploy/llava/export_model.py \
-    --model_name_or_path "paddlemix/llava/llava-v1.5-7b" \
+    --model_name_or_path "paddlemix/llava/llava-v1.6-7b" \
     --save_path "./llava_static_new" \
     --encode_text \
     --fp16) 2>&1 | tee ${log_dir}/llava_export_new1.log
