@@ -17,6 +17,7 @@ exit_code=0
 
 cd ${work_path}
 
+bash prepare.sh
 bash export.sh
 exit_code=$(($exit_code + $?))
 
