@@ -27,7 +27,6 @@ else
     echo "ppdiffusers/deploy/sd15 sd15_inference_text2img fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******ppdiffusers/deploy/sd15 sd15_inference_text2img end***********"
-python infer.py --model_dir static_model/stable-diffusion-v1-5  --scheduler "ddim" --backend paddle_tensorrt --device gpu --task_name all --width 512 --height 512 --inference_steps 30 --tune True --use_fp16 False --benchmark_steps 3
 
 # img2img
 (python infer.py \
