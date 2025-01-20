@@ -8,6 +8,7 @@ import pexpect
 import traceback
 import select
 import signal
+import time
 # 假设我们有一个脚本列表
 def generate_all_inference_scripts():
     with open('./all.json', 'r', encoding='utf8') as f:
