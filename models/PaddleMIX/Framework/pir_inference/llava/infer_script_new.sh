@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python deploy/llava/run_static_predict.py --model_name_or_path "paddlemix/llava/llava-v1.6-7b" \
+python deploy/llava/run_static_predict.py --model_name_or_path "paddlemix/llava/llava-v1.6-vicuna-7b" \
 --image_file "https://bj.bcebos.com/v1/paddlenlp/models/community/GroundingDino/000000004505.jpg" \
 --first_model_path "llava_static_new/encode_image/clip"  \
 --second_model_path "llava_static_new/encode_text/llama" \
