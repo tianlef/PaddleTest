@@ -20,6 +20,7 @@ exit_code=0
 
 # 下载依赖和数据
 bash prepare.sh
+export FLAGS_prim_all=true;export FLAGS_prim_enable_dynamic=true;export FLAGS_use_cinn=true;export MIN_GRAPH_SIZE=0;export FLAGS_prim_forward_blacklist="pd_op.dropout"
 
 echo "*******class_conditional_image_generation/DiT train begin***********"
 (python  -u check_loss.py "sh 0_run_train_dit_trainer.sh") 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_train.log
@@ -68,7 +69,11 @@ fi
 echo "*******class_conditional_image_generation/DiT large train end***********"
 
 
-
+unset FLAGS_prim_all
+unset FLAGS_prim_enable_dynamic
+unset FLAGS_use_cinn
+unset MIN_GRAPH_SIZE
+unset FLAGS_prim_forward_blacklist
 
 echo exit_code:${exit_code}
 exit ${exit_code}
