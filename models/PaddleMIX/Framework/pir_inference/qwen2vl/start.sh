@@ -30,6 +30,7 @@ export FLAGS_embedding_deterministic=1
 export FLAGS_cudnn_deterministic=1
 
 export FLAGS_enable_pir_api=0
+exit_code=0
 # infernece
 (CUDA_VISIBLE_DEVICES=0 python deploy/qwen2_vl/single_image_infer.py \
     --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
