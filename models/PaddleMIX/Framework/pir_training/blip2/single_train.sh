@@ -1,6 +1,6 @@
 #!/bin/bash
 
-log_dir=${root_path}/log
+log_dir=${root_path}/pir_log
 
 exit_code=0
 
