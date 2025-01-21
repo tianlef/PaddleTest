@@ -2,19 +2,7 @@ pip install opencv-python
 pip install soundfile
 pip install decord
 
-mix_path=${root_path}/PaddeMIX
-cd ${mix_path}
-pip install -r requirements.txt
-pip install -e .
-
-cd ppdiffusers
-pip install -r requirements.txt
-pip install -e .
-
-cd ..
-
-
-
+mix_path=${root_path}/PaddleMIX
 
 # 数据集下载
 cd ${mix_path}
