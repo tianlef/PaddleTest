@@ -13,7 +13,7 @@ if [ ! -d "$log_dir" ]; then
 fi
 
 /bin/cp -rf ./* ${work_path}
-/bin/cp -rf ../check_loss.py ${work_path}
+/bin/cp -rf ../../check_loss.py ${work_path}
 
 cd ${work_path}
 exit_code=0
