@@ -16,6 +16,7 @@ cd ${root_path}/PaddleNLP
 cd csrc
 python setup_cuda.py install
 
+cd ${cur_path}
 /bin/cp -rf ./* ${work_path2}/
 
 cd ${work_path2}
