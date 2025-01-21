@@ -13,16 +13,16 @@ if [ ! -d "$log_dir" ]; then
 fi
 
 /bin/cp -rf ./* ${work_path}
+/bin/cp -rf ../check_loss.py ${work_path}
 
 cd ${work_path}
 exit_code=0
 
 # 下载依赖和数据
-# bash prepare_new.sh
 bash prepare.sh
 
 echo "*******class_conditional_image_generation/DiT train begin***********"
-(sh 0_run_train_dit_trainer.sh) 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_train.log
+(python  -u check_loss.py "sh 0_run_train_dit_trainer.sh") 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -34,7 +34,7 @@ echo "*******class_conditional_image_generation/DiT train end***********"
 
 
 echo "*******class_conditional_image_generation/DiT multi_train begin***********"
-(sh 1_run_train_dit_notrainer.sh) 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_multi_train.log
+(python  -u check_loss.py "sh 1_run_train_dit_notrainer.sh") 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_multi_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -45,7 +45,7 @@ fi
 echo "*******class_conditional_image_generation/DiT multi train end***********"
 
 echo "*******class_conditional_image_generation/DiT auto_train begin***********"
-(sh 0_run_train_dit_trainer_auto.sh) 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_auto_train.log
+(python  -u check_loss.py "sh 0_run_train_dit_trainer_auto.sh") 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_auto_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -57,7 +57,7 @@ echo "*******class_conditional_image_generation/DiT auto train end***********"
 
 
 echo "*******class_conditional_image_generation/DiT large_train begin***********"
-(sh 4_run_train_largedit_3b_trainer_auto.sh) 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_large_train.log
+(python  -u check_loss.py "sh 4_run_train_largedit_3b_trainer_auto.sh") 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_large_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
