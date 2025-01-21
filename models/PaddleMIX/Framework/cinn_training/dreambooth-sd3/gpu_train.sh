@@ -25,3 +25,8 @@ python train_dreambooth_sd3.py \
   --validation_epochs=25 \
   --seed="0" \
   --checkpointing_steps=250
+unset FLAGS_prim_all
+unset FLAGS_prim_enable_dynamic
+unset FLAGS_use_cinn
+unset MIN_GRAPH_SIZE
+unset FLAGS_prim_forward_blacklist
