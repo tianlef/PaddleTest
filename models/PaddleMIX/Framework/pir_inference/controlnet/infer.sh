@@ -14,7 +14,7 @@ rm -rf infer_op_zero_copy_infer_fp16
 
 # 旧IR导出 + 旧IR推理
 export FLAGS_enable_pir_api=0
-(python infer.py 
+(python infer.py \
     --model_dir static_model/stable-diffusion-v1-5-canny-old \
     --scheduler "ddim" \
     --backend paddle \
@@ -36,7 +36,7 @@ fi
 echo "*******ppdiffusers/deploy/controlnet controlnet_inference_all old end***********"
 
 export FLAGS_enable_pir_api=1
-(python infer.py 
+(python infer.py \
     --model_dir static_model/stable-diffusion-v1-5-canny-old \
     --scheduler "ddim" \
     --backend paddle \
@@ -59,7 +59,7 @@ echo "*******ppdiffusers/deploy/controlnet controlnet_inference_old_export_pir e
 
 
 export FLAGS_enable_pir_api=0
-(python infer.py 
+(python infer.py \
     --model_dir static_model/stable-diffusion-v1-5-canny-new \
     --scheduler "ddim" \
     --backend paddle \
@@ -81,7 +81,7 @@ fi
 echo "*******ppdiffusers/deploy/controlnet controlnet_inference_pir_export_old_ir end***********"
 
 export FLAGS_enable_pir_api=1
-(python infer.py 
+(python infer.py \
     --model_dir static_model/stable-diffusion-v1-5-canny-new \
     --scheduler "ddim" \
     --backend paddle \
