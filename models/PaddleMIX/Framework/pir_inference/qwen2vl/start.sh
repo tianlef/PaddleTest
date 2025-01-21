@@ -86,6 +86,9 @@ else
     echo "qwen2vl_inference_visual_new fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******qwen2vl_inference_visual_new end***********"
+
 unset FLAGS_enable_pir_api
+
 echo exit_code:${exit_code}
+
 exit ${exit_code}
