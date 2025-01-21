@@ -57,6 +57,7 @@ ${TRAINING_PYTHON} --log_dir ${OUTPUT_DIR}/paddle_distributed_logs \
   --max_seq_length 8192 \
   --image_resolution 512 \
   --recompute False \
+  --max_steps 100 \
   --max_grad_norm 1.0 \
   --evaluation_strategy "no" \
   --save_strategy "steps" \

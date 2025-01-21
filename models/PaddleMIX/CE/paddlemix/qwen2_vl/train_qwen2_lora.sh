@@ -51,6 +51,7 @@ ${TRAINING_PYTHON} --log_dir ${OUTPUT_DIR}/paddle_distributed_logs \
   --fp16 True \
   --fp16_opt_level "O2" \
   --num_train_epochs 1 \
+  --max_steps 100 \
   --per_device_train_batch_size ${PER_DEVICE_BATCH_SIZE} \
   --gradient_accumulation_steps ${GRADIENT_ACC} \
   --freeze_vit True \

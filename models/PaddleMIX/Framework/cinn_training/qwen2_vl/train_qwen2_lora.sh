@@ -68,6 +68,7 @@ ${TRAINING_PYTHON} --log_dir ${OUTPUT_DIR}/paddle_distributed_logs \
   --save_strategy "steps" \
   --save_steps 1000 \
   --save_total_limit 1 \
+  --max_steps 100 \
   --learning_rate 1e-8 \
   --warmup_ratio 0.1 \
   --warmup_steps 100 \
