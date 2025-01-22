@@ -6,6 +6,7 @@ log_dir=${root_path}/deploy_log
 if [ ! -d "$log_dir" ]; then
     mkdir -p "$log_dir"
 fi
+
 export PYTHONPATH=$PYTHONPATH:${cur_path}/PaddleMIX
 
 
@@ -35,7 +36,7 @@ exit_code=0
 (CUDA_VISIBLE_DEVICES=0 python deploy/qwen2_vl/single_image_infer.py \
     --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
     --dtype bfloat16 \
-    --benchmark True \) 2>&1 | tee ${log_dir}/qwen2vl_inference_old.log
+    --benchmark True) 2>&1 | tee ${log_dir}/qwen2vl_inference_old.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -65,7 +66,7 @@ export FLAGS_enable_pir_api=1
 (CUDA_VISIBLE_DEVICES=0 python deploy/qwen2_vl/single_image_infer.py \
     --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
     --dtype bfloat16 \
-    --benchmark True \) 2>&1 | tee ${log_dir}/qwen2vl_inference_new.log
+    --benchmark True) 2>&1 | tee ${log_dir}/qwen2vl_inference_new.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
