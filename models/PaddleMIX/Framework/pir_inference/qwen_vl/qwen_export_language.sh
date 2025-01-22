@@ -20,4 +20,3 @@ unset FLAGS_use_cuda_managed_memory
 unset FLAGS_allocator_strategy
 unset FLAGS_embedding_deterministic
 unset FLAGS_cudnn_deterministic
-cd ../PaddleMIX
