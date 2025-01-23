@@ -1,4 +1,5 @@
 cd ${root_path}/PaddleMIX/paddlemix/examples/GOT_OCR_2_0
+pwd
 pip install -r requirements.txt
 
 mix_path=${root_path}/PaddleMIX
