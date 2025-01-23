@@ -1,0 +1,45 @@
+#!/bin/bash
+
+cur_path=$(pwd)
+echo ${cur_path}
+
+work_path=${root_path}/PaddleMIX/
+echo ${work_path}
+
+log_dir=${root_path}/paddlemix_log
+
+if [ ! -d "$log_dir" ]; then
+    mkdir -p "$log_dir"
+fi
+
+/bin/cp -rf ./* ${work_path}
+/bin/cp -rf ../check_loss.py ${work_path}
+
+cd ${work_path}
+
+bash prepare.sh
+
+exit_code=0
+
+model_name=diffsinger
+
+case_name=predict
+
+echo "******* ${model_name}_${case_name} begin***********"
+(python paddlemix/examples/ppdocbee/ppdocbee_infer.py \
+  --model_path "PaddleMIX/PPDocBee-2B-1129" \
+  --image_file "paddlemix/demo_images/medal_table.png" \
+  --question "识别这份表格的内容") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
+else
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "******* ${model_name}_${case_name} end***********"
+
+echo exit_code:${exit_code}
+
+# cat ${log_dir}/ce_res.log
+exit ${exit_code}
