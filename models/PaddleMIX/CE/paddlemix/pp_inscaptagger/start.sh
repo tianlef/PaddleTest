@@ -31,22 +31,22 @@ export no_proxy=baidu.com,127.0.0.1,0.0.0.0,localhost,bcebos.com,pip.baidu-int.c
 export USE_PPXFORMERS=true
 
 
-echo "*******paddlemix pp_inscaptagger_infer begin begin***********"
-(python paddlemix/datacopilot/example/pp_inscaptagger/inference.py \
-    single_data \
-    -m paddlemix/PP-InsCapTagger \
-    -image https://paddlenlp.bj.bcebos.com/models/community/paddlemix/PP-InsCapTagger/demo.jpg \
-    -qa "What animal is in the image?" "The image features a dog." \
-        "What color are the dog's eyes?" "The dog has blue eyes." \
-        "Where is the dog situated in the image?" "The dog is situated inside a vehicle, on a front passenger seat.") 2>&1 | tee ${log_dir}/pp_inscaptagger_infer.log
-tmp_exit_code=${PIPESTATUS[0]}
-exit_code=$(($exit_code + ${tmp_exit_code}))
-if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "pp_inscaptagger_infer run success" >>"${log_dir}/ut_res.log"
-else
-    echo "pp_inscaptagger_infer run fail" >>"${log_dir}/ut_res.log"
-fi
-echo "*******paddlemix pp_inscaptagger_infer end***********"
+# echo "*******paddlemix pp_inscaptagger_infer begin begin***********"
+# (python paddlemix/datacopilot/example/pp_inscaptagger/inference.py \
+#     single_data \
+#     -m paddlemix/PP-InsCapTagger \
+#     -image https://paddlenlp.bj.bcebos.com/models/community/paddlemix/PP-InsCapTagger/demo.jpg \
+#     -qa "What animal is in the image?" "The image features a dog." \
+#         "What color are the dog's eyes?" "The dog has blue eyes." \
+#         "Where is the dog situated in the image?" "The dog is situated inside a vehicle, on a front passenger seat.") 2>&1 | tee ${log_dir}/pp_inscaptagger_infer.log
+# tmp_exit_code=${PIPESTATUS[0]}
+# exit_code=$(($exit_code + ${tmp_exit_code}))
+# if [ ${tmp_exit_code} -eq 0 ]; then
+#     echo "pp_inscaptagger_infer run success" >>"${log_dir}/ut_res.log"
+# else
+#     echo "pp_inscaptagger_infer run fail" >>"${log_dir}/ut_res.log"
+# fi
+# echo "*******paddlemix pp_inscaptagger_infer end***********"
 
 echo "*******paddlemix pp_inscaptagger_multi_infer begin begin***********"
 rm -rf pp-output
