@@ -16,8 +16,9 @@ fi
 /bin/cp -rf ../check_loss.py ${work_path}
 
 # 下载数据集
+bash prepare.sh
 cd ${work_path}
-# bash prepare.sh
+
 exit_code=0
 
 model_name=janus
