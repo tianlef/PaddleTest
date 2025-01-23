@@ -15,6 +15,8 @@ fi
 /bin/cp -rf ./* ${work_path}
 /bin/cp -rf ../check_loss.py ${work_path}
 
+exit_code=0
+cd ${work_path}
 model_name=llava_critic
 
 case_name=predict
