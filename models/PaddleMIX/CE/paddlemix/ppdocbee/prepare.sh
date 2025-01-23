@@ -4,6 +4,7 @@ mix_path=${root_path}/PaddleMIX
 # 数据集下载
 cd ${mix_path}
 rm -rf playground
+rm -rf playground.tar
 if [ -e "playground.tar" ]; then
     tar -xf playground.tar
     echo "playground.tar文件存在，已解压"
