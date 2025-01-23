@@ -31,3 +31,8 @@ else
     echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "******* ${model_name}_${case_name} end***********"
+
+echo exit_code:${exit_code}
+
+# cat ${log_dir}/ce_res.log
+exit ${exit_code}
