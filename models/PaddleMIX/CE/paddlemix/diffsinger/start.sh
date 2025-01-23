@@ -25,11 +25,9 @@ model_name=diffsinger
 
 case_name=predict
 
+cd ${work_path}/paddlemix/examples/diffsinger
 echo "******* ${model_name}_${case_name} begin***********"
-(python paddlemix/examples/ppdocbee/ppdocbee_infer.py \
-  --model_path "PaddleMIX/PPDocBee-2B-1129" \
-  --image_file "paddlemix/demo_images/medal_table.png" \
-  --question "识别这份表格的内容") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(bash run_predict.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
