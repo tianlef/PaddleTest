@@ -27,16 +27,16 @@ model_name=ppdocbee
 
 cd ${work_path}/paddlemix/external_ops
 
-echo "*******paddlemix ops_install begin begin***********"
-(python setup.py install) 2>&1 | tee ${log_dir}/qwen2_vl_ops_install.log
+echo "*******ops_install begin begin***********"
+(python setup.py install) 2>&1 | tee ${log_dir}/ppdocbee_ops_install.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2_vl_ops_install run success" >>"${log_dir}/ce_res.log"
+    echo "ppdocbee_ops_install run success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2_vl_ops_install run fail" >>"${log_dir}/ce_res.log"
+    echo "ppdocbee_ops_install run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix qwen2_vl_ops_install end***********"
+echo "*******ppdocbee_ops_install end***********"
 
 cd ${work_path}
 case_name=infer
