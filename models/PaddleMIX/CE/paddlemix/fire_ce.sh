@@ -2,7 +2,7 @@
 
 exit_code=0
 
-log_dir=${root_path}/paddlemix_examples_log
+log_dir=${root_path}/paddlemix_log
 work_path=$(pwd)
 echo ${work_path}
 
