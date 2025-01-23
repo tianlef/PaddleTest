@@ -21,6 +21,3 @@ unset http_proxy
 unset https_proxy
 
 wget https://paddlenlp.bj.bcebos.com/models/community/paddlemix/audio-files/zh.wav
-
- python -m pip install paddlepaddle-gpu==3.0.0b1 -i https://www.paddlepaddle.org.cn/packages/stable/cu118/
- pip install paddlenlp==3.0.0b1
