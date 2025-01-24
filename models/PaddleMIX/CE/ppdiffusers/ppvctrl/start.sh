@@ -33,14 +33,15 @@ fi
 echo "******* ${model_name}_${case_name} end***********"
 
 #下载SAM2模型权重
-rm -rf anchor/checkpoints/SAM2
-mkdir -p anchor/checkpoints/SAM2
-wget -P anchor/checkpoint/mask https://bj.bcebos.com/v1/paddlenlp/models/community/Sam/Sam2/sam2.1_hiera_large.pdparams
+
 #提取蒙版控制条件
 
 case_name=extract_mask
 echo "******* ${model_name}_${case_name} begin***********"
-(bash anchor/extract_mask.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(rm -rf anchor/checkpoints/SAM2 && \
+mkdir -p anchor/checkpoints/SAM2 && \
+wget -P anchor/checkpoints/mask https://bj.bcebos.com/v1/paddlenlp/models/community/Sam/Sam2/sam2.1_hiera_large.pdparams && \
+bash anchor/extract_mask.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -52,16 +53,16 @@ echo "******* ${model_name}_${case_name} end***********"
 
 
 #下载检测模型权重
-rm -rf anchor/checkpoints
-mkdir -p anchor/checkpoints
-wget -P anchor/checkpoints/paddle3.0_hrnet_w48_coco_wholebody_384x288 https://bj.bcebos.com/v1/dataset/PaddleMIX/xiaobin/pose_checkpoint/paddle3.0_hrnet_w48_coco_wholebody_384x288/model.pdiparams
-wget -P anchor/checkpoints/PP-YOLOE_plus-S_infer https://bj.bcebos.com/v1/dataset/PaddleMIX/xiaobin/pose_checkpoint/PP-YOLOE_plus-S_infer/inference.pdiparams
 
 #提取人体姿态控制条件
 
 case_name=extract_pose
 echo "******* ${model_name}_${case_name} begin***********"
-(bash anchor/extract_pose.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(rm -rf anchor/checkpoints && \
+mkdir -p anchor/checkpoints && \
+wget -P anchor/checkpoints/paddle3.0_hrnet_w48_coco_wholebody_384x288 https://bj.bcebos.com/v1/dataset/PaddleMIX/xiaobin/pose_checkpoint/paddle3.0_hrnet_w48_coco_wholebody_384x288/model.pdiparams && \
+wget -P anchor/checkpoints/PP-YOLOE_plus-S_infer https://bj.bcebos.com/v1/dataset/PaddleMIX/xiaobin/pose_checkpoint/PP-YOLOE_plus-S_infer/inference.pdiparams && \
+bash anchor/extract_pose.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -75,7 +76,9 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=i2v_canny
 echo "******* ${model_name}_${case_name} begin***********"
-(mkdir -p infer_outputs/canny/i2v && bash scripts/infer_cogvideox_i2v_canny_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(rm infer_outputs/canny/i2v && \
+mkdir -p infer_outputs/canny/i2v && \
+bash scripts/infer_cogvideox_i2v_canny_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -89,7 +92,9 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=t2v_canny
 echo "******* ${model_name}_${case_name} begin***********"
-(mkdir -p infer_outputs/canny/t2v && bash scripts/infer_cogvideox_t2v_canny_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(rm -rf infer_outputs/canny/t2v && \
+mkdir -p infer_outputs/canny/t2v && \
+bash scripts/infer_cogvideox_t2v_canny_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -102,7 +107,8 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=i2v_mask
 echo "******* ${model_name}_${case_name} begin***********"
-(mkdir -p infer_outputs/mask/i2v && bash scripts/infer_cogvideox_i2v_mask_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(rm -rf infer_outputs/mask/i2v && \
+mkdir -p infer_outputs/mask/i2v && bash scripts/infer_cogvideox_i2v_mask_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -114,7 +120,8 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=t2v_mask
 echo "******* ${model_name}_${case_name} begin***********"
-(mkdir -p infer_outputs/mask/t2v && bash scripts/infer_cogvideox_t2v_mask_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(rm -rf infer_outputs/mask/t2v && \
+mkdir -p infer_outputs/mask/t2v && bash scripts/infer_cogvideox_t2v_mask_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -127,7 +134,8 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=i2v_pose
 echo "******* ${model_name}_${case_name} begin***********"
-(mkdir -p infer_outputs/pose/i2v && bash scripts/infer_cogvideox_i2v_pose_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(rm -rf infer_outputs/pose/i2v && \
+mkdir -p infer_outputs/pose/i2v && bash scripts/infer_cogvideox_i2v_pose_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then

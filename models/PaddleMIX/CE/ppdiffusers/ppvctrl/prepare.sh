@@ -9,8 +9,6 @@ mkdir -p weights/Canny
 wget -P weights/canny https://bj.bcebos.com/v1/dataset/PaddleMIX/vctrl/paddle_weights/vctrl_canny_5b_i2v_vctrl-tiny.pdparams
 wget -P weights/canny https://bj.bcebos.com/v1/dataset/PaddleMIX/vctrl/paddle_weights/vctrl_canny_5b_t2v.pdparams
 
-
-
 #创建vctrl-mask模型权重目录
 rm -rf weights/mask
 mkdir -p weights/mask
@@ -19,8 +17,8 @@ mkdir -p weights/mask
 wget -P weights/mask https://bj.bcebos.com/v1/dataset/PaddleMIX/vctrl/paddle_weights/vctrl_5b_i2v_mask.pdparams
 wget -P weights/mask https://bj.bcebos.com/v1/dataset/PaddleMIX/vctrl/paddle_weights/vctrl_5b_t2v_mask.pdparams
 
+
 #创建vctrl-poses模型权重目录
-rm -rf weights/poses
 mkdir -p weights/poses
 
 #下载PP-VCtrl-5b-Pose-v1模型权重
