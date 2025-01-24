@@ -24,7 +24,7 @@ model:
       num_res_blocks: 4
 
     lossconfig:
-      target: taming.data.imagenet.ImageNetValidation
+      target: taming.modules.losses.vqperceptual.VQLPIPSWithDiscriminator
       params:
         disc_conditional: False
         disc_in_channels: 3
