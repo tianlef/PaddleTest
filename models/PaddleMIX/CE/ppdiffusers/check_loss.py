@@ -51,12 +51,12 @@ def execute_task_with_flag_detection(task_cmd, true_flag, wrong_flag):
                     # 检查是否超时
                     if capturing_traceback and time.time() - start_time > 20:
                         print("超过 20 秒，强制终止任务...")
-                        parent = psutil.Process(pid)
-        # 递归地杀死所有子进程
+                        parent = psutil.Process(process.pid)
+                        # 递归地杀死所有子进程
                         for child in parent.children(recursive=True):
                             child.terminate()
                         parent.terminate()  # 终止父进程
-                        parent.wait()  # 等待进程终止
+                        parent.wait(timeout=5)  # 等待进程终止
                         break
 
                 # 如果子进程退出，跳出循环
