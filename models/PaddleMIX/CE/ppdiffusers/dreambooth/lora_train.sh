@@ -15,7 +15,7 @@ python train_dreambooth_lora.py \
   --report_to="visualdl" \
   --lr_scheduler="constant" \
   --lr_warmup_steps=0 \
-  --max_train_steps=500 \
+  --max_train_steps=100 \
   --validation_prompt="A photo of sks dog in a bucket" \
   --validation_epochs=50 \
   --lora_rank=4 \
