@@ -9,6 +9,7 @@ import subprocess
 import time
 import sys
 import pexpect
+import psutil
 
 sys.stdout.reconfigure(line_buffering=True)
 def execute_task_with_flag_detection(task_cmd, true_flag, wrong_flag):
