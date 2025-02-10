@@ -10,7 +10,7 @@ python -u -m paddle.distributed.launch --gpus "0" scripts/trainer_stage2.py \
     --gradient_accumulation_steps 1 \
     --learning_rate 1.0e-5 \
     --weight_decay 1.0e-2 \
-    --max_steps 1000 \
+    --max_steps 10 \
     --lr_scheduler_type "constant" \
     --warmup_steps 1 \
     --seed 42 \
