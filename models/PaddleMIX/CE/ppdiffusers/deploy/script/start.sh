@@ -26,9 +26,21 @@ for subdir in */; do
     cp -f ../test_*.sh .
     clean_name="${subdir%/}"
     bash test_paddle.sh > ${log_dir}/${clean_name}_paddle.log 2>&1
-    exit_code=$((exit_code + $?))
+    tmp_exit_code=${PIPESTATUS[0]}
+    exit_code=$((exit_code + ${tmp_exit_code}))
+    if [ ${tmp_exit_code} -eq 0 ]; then
+      echo "${clean_name}_paddle success" >>"${log_dir}/ce_res.log"
+    else
+      echo "${clean_name}_paddle fail" >>"${log_dir}/ce_res.log"
+    fi
     bash test_paddle_tensorrt.sh > ${log_dir}/${clean_name}_paddle_tensorrt.log 2>&1
-    exit_code=$((exit_code + $?))
+    tmp_exit_code=${PIPESTATUS[0]}
+    exit_code=$((exit_code + ${tmp_exit_code}))
+    if [ ${tmp_exit_code} -eq 0 ]; then
+      echo "${clean_name}_paddle_tensorrt success" >>"${log_dir}/ce_res.log"
+    else
+        echo "${clean_name}_paddle_tensorrt fail" >>"${log_dir}/ce_res.log"
+    fi
     cd ..
   fi
 done
@@ -42,9 +54,21 @@ for subdir in */; do
     cp -f ../test_*.sh . 
     clean_name="${subdir%/}"
     bash test_paddle.sh > ${log_dir}/ipadapter_${clean_name}_paddle.log 2>&1
-    exit_code=$((exit_code + $?))
+    tmp_exit_code=${PIPESTATUS[0]}
+    exit_code=$((exit_code + ${tmp_exit_code}))
+    if [ ${tmp_exit_code} -eq 0 ]; then
+      echo "ipadapter_${clean_name}_paddle success" >>"${log_dir}/ce_res.log"
+    else
+        echo "ipadapter_${clean_name}_paddle fail" >>"${log_dir}/ce_res.log"
+    fi
     bash test_paddle_tensorrt.sh > ${log_dir}/ipadapter_${clean_name}_paddle_tensorrt.log 2>&1
-    exit_code=$((exit_code + $?))
+    tmp_exit_code=${PIPESTATUS[0]}
+    exit_code=$((exit_code + ${tmp_exit_code}))
+    if [ ${tmp_exit_code} -eq 0 ]; then
+      echo "ipadapter_${clean_name}_paddle_tensorrt success" >>"${log_dir}/ce_res.log"
+    else
+        echo "ipadapter_${clean_name}_paddle_tensorrt fail" >>"${log_dir}/ce_res.log"
+    fi
     cd ..
   fi
 done
