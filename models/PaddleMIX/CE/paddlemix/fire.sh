@@ -14,7 +14,7 @@ cd ${root_path}
 mkdir data
 cd data
 wget https://bj.bcebos.com/v1/paddlenlp/datasets/paddlemix/ILSVRC2012/imagenet-val.tar
-tar -xvf imagenet-val.tar
+tar -xf imagenet-val.tar
 
 cd ${root_path}/
 mkdir dataset

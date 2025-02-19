@@ -11,9 +11,9 @@ mkdir playground
 cd playground
 mkdir data 
 wget https://paddlenlp.bj.bcebos.com/datasets/paddlemix/playground/data/chartqa.tar
-tar -xvf chartqa.tar -C data
+tar -xf chartqa.tar -C data
 wget https://paddlenlp.bj.bcebos.com/datasets/paddlemix/playground/opensource.tar
-tar -xvf opensource.tar
+tar -xf opensource.tar
 
 
 

@@ -8,7 +8,7 @@ echo "*******paddlemix minigpt4_13b predict begin***********"
 
 wget https://paddlenlp.bj.bcebos.com/models/community/minigpt4-13b/model_state.pdparams
 wget https://paddlenlp.bj.bcebos.com/models/community/minigpt4-13b/minigpt4_13b.tar.gz
-tar -zxvf minigpt4_13b.tar.gz
+tar -zxf minigpt4_13b.tar.gz
 mv model_state.pdparams minigpt4_13b/
 rm -rf minigpt4_13b.tar.gz
 

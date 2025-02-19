@@ -3,10 +3,10 @@ if [ -d "./ScienceQA" ]; then
     echo "ScienceQA目录存在"
 else
     if [ -e "ScienceQA.tar" ]; then
-        tar -xvf ScienceQA.tar
+        tar -xf ScienceQA.tar
     else
         wget https://bj.bcebos.com/v1/paddlenlp/datasets/examples/ScienceQA.tar
-        tar -xvf ScienceQA.tar
+        tar -xf ScienceQA.tar
         echo "文件和目录都不存在, 下载数据集成功"
     fi
 fi
