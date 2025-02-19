@@ -81,6 +81,7 @@ else
 fi
 echo "*******tests/pipelines end***********"
 
+# pip install diffusers transformers
 echo "*******tests/community begin***********"
 (python -m pytest -v tests/community) 2>&1 | tee ${log_dir}/tests_community.log
 tmp_exit_code=${PIPESTATUS[0]}
