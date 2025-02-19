@@ -69,6 +69,7 @@ fi
 echo "*******tests/models end***********"
 
 pip install note-seq==0.0.5
+pip install torch
 echo "*******tests/pipelines begin***********"
 (python -m pytest -v tests/pipelines) 2>&1 | tee ${log_dir}/tests_pipelines.log
 tmp_exit_code=${PIPESTATUS[0]}
