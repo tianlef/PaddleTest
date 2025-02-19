@@ -24,7 +24,27 @@ pip install -e .
 
 cd ${work_path}
 
-run_list=("llava/" "qwen_vl/" "qwen2_vl/" "InternVL2/" "InternLM-XComposer2/")
+run_list=("llava/"
+  "qwen_vl/"
+  "qwen2_vl/"
+  "InternVL2/"
+  "InternLM-XComposer2/"
+  "clip"
+  "cogvlm"
+  "datacopilot"
+  "eva02"
+  "deploy"
+  "evaclip"
+  "groundingdino"
+  "imagebind"
+  "llava"
+  "minigpt4"
+  "minimonkey"
+  "sam"
+  "ut"
+  "visualglm"
+  "yolo-world"
+  )
 # 将数组转换为字符串，以便使用正则匹配
 # 遍历当前目录下的子目录
 for subdir in */; do
