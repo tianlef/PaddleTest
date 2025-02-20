@@ -18,9 +18,15 @@ fi
 cd ${work_path}
 exit_code=0
 
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+cd ${work_path}/ppdiffusers
 pip install -e .
+pip install -r requirements.txt
+
+cd ..
+python -m pip install --upgrade pip
+pip install -e .
+pip install -r requirements.txt
+
 pip install pytest safetensors ftfy fastcore opencv-python einops parameterized requests-mock
 pip install fastdeploy-gpu-python -f https://www.paddlepaddle.org.cn/whl/fastdeploy.html
 pip install pytest-xdist
@@ -29,8 +35,6 @@ pip install regex einops
 cd ${work_path}/paddlemix/appflow
 pip install -r requirements.txt
 
-cd ${work_path}/ppdiffusers
-pip install -e .
 
 cd ${work_path}
 
