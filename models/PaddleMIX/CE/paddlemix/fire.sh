@@ -20,7 +20,7 @@ cd ${root_path}/
 mkdir dataset
 cd dataset
 wget https://bj.bcebos.com/v1/paddlenlp/datasets/paddlemix/ILSVRC2012/ILSVRC2012_tiny.tar
-tar -xvf ILSVRC2012_tiny.tar
+tar -xf ILSVRC2012_tiny.tar
 
 cd ${root_path}/PaddleMIX/
 
