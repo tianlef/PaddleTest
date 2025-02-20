@@ -81,7 +81,7 @@ if [ ${tmp_exit_code} -eq 0 ]; then
 else
     echo "paddlemix qwen_vl lora run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix q wen lora end***********"
+echo "*******paddlemix qwen lora end***********"
 echo exit_code:${exit_code}
 
 # cat ${log_dir}/ce_res.log
