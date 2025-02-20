@@ -33,10 +33,7 @@ pip install -r requirements.txt
 
 cd ${work_path}
 
-run_list=("llava/"
-  "qwen_vl/"
-  "qwen2_vl/"
-  "InternVL2/"
+run_list=(
   "InternLM-XComposer2/"
   "clip"
   "cogvlm"
