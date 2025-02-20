@@ -7,12 +7,14 @@ work_path=$(pwd)
 echo ${work_path}
 
 cd ${root_path}
+rm -rf data
 mkdir data
 cd data
 wget https://bj.bcebos.com/v1/paddlenlp/datasets/paddlemix/ILSVRC2012/imagenet-val.tar
 tar -xf imagenet-val.tar
 
 cd ${root_path}/
+rm -rf dataset
 mkdir dataset
 cd dataset
 wget https://bj.bcebos.com/v1/paddlenlp/datasets/paddlemix/ILSVRC2012/ILSVRC2012_tiny.tar
