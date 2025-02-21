@@ -62,7 +62,7 @@ fi
 echo "*******paddlemix ut appflow end***********"
 
 echo "*******paddlemix ut models begin***********"
-(python -m pytest -v tests/appflow) 2>&1 | tee ${log_dir}/tests_ut_models.log
+(python -m pytest -v tests/models) 2>&1 | tee ${log_dir}/tests_ut_models.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
