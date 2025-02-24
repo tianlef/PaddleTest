@@ -54,9 +54,9 @@ else
 fi
 echo "******* ${model_name}_${case_name} end***********"
 
-case_name=distributed_train_2B
+case_name=distributed_train_sft_2B
 echo "******* ${model_name}_${case_name} begin***********"
-(sh paddlemix/examples/ppdocbee/shell/distributed_ppdocbee_infer_2B.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(sh paddlemix/examples/ppdocbee/shell/ppdocbee_sft.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -68,7 +68,7 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=distributed_train_2B
 echo "******* ${model_name}_${case_name} begin***********"
-(sh paddlemix/examples/ppdocbee/shell/distributed_ppdocbee_infer_2B.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(sh paddlemix/examples/ppdocbee/shell/ppdocbee_lora.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
