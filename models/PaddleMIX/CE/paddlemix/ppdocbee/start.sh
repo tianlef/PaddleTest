@@ -106,7 +106,7 @@ echo "******* ${model_name}_${case_name} end***********"
 case_name=infer_after_sft
 echo "******* ${model_name}_${case_name} begin***********"
 (python paddlemix/examples/ppdocbee/ppdocbee_infer.py \
-  --model_path "work_dirs/ppdocbee_public_dataset_lora" \
+  --model_path "work_dirs/ppdocbee_public_dataset" \
   --image_file "paddlemix/demo_images/medal_table.png" \
   --question "识别这份表格的内容") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
