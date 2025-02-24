@@ -9,6 +9,7 @@
     "output_dir": "./checkpoints/llava_sft_ckpts",
     "overwrite_output_dir": true,
     "recompute": true,
+    "device": "npu",
     "per_device_train_batch_size": 1,
     "gradient_accumulation_steps": 1,
     "per_device_eval_batch_size": 1,

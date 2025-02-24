@@ -9,6 +9,7 @@
   "output_dir": "./work_dirs/llava-v1.6-vicuna-7b_pretrain",
   "overwrite_output_dir": true,
   "recompute": true,
+  "device": "npu",
   "per_device_train_batch_size": 16,
   "gradient_accumulation_steps":1,
   "per_device_eval_batch_size": 1,
