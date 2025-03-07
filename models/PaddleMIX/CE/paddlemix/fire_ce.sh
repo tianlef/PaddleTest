@@ -6,32 +6,6 @@ log_dir=${root_path}/paddlemix_log
 work_path=$(pwd)
 echo ${work_path}
 
-cd ${root_path}
-rm -rf data
-mkdir data
-cd data
-wget https://bj.bcebos.com/v1/paddlenlp/datasets/paddlemix/ILSVRC2012/imagenet-val.tar
-tar -xf imagenet-val.tar
-
-cd ${root_path}/
-rm -rf dataset
-mkdir dataset
-cd dataset
-wget https://bj.bcebos.com/v1/paddlenlp/datasets/paddlemix/ILSVRC2012/ILSVRC2012_tiny.tar
-tar -xf ILSVRC2012_tiny.tar
-
-cd ${root_path}/PaddleMIX/
-
-# 测试环境需要
-pip install pexpect
-pip install einops
-cd ppdiffusers
-pip install -e .
-pip install -r requirements.txt
-cd ..
-pip install -e .
-pip install -r requirements.txt
-
 # 动态获取当前路径下的子目录名称作为所有模型
 all_models=()
 for subdir in */; do
@@ -66,6 +40,34 @@ run_list=("${fixed_run_list[@]}" "${random_run_list[@]}")
 echo "固定运行的模型: ${fixed_run_list[@]}"
 echo "随机选择的模型: ${random_run_list[@]}"
 echo "最终运行的模型: ${run_list[@]}"
+
+cp check_loss.py ${root_path}/PaddleMIX/
+cd ${root_path}
+rm -rf data
+mkdir data
+cd data
+wget https://bj.bcebos.com/v1/paddlenlp/datasets/paddlemix/ILSVRC2012/imagenet-val.tar
+tar -xf imagenet-val.tar
+
+cd ${root_path}/
+rm -rf dataset
+mkdir dataset
+cd dataset
+wget https://bj.bcebos.com/v1/paddlenlp/datasets/paddlemix/ILSVRC2012/ILSVRC2012_tiny.tar
+tar -xf ILSVRC2012_tiny.tar
+
+cd ${root_path}/PaddleMIX/
+
+# 测试环境需要
+pip install pexpect
+pip install einops
+cd ppdiffusers
+pip install -e .
+pip install -r requirements.txt
+cd ..
+pip install -e .
+pip install -r requirements.txt
+
 
 cd ${work_path}
 
