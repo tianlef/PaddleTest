@@ -32,27 +32,44 @@ cd ..
 pip install -e .
 pip install -r requirements.txt
 
+# 动态获取当前路径下的子目录名称作为所有模型
+all_models=()
+for subdir in */; do
+  subdir=${subdir%/}  # 去掉末尾的斜杠
+  all_models+=("$subdir")
+done
+
+echo "所有模型: ${all_models[@]}"
+
+fixed_run_list=(
+  "llava"
+  "qwen2_vl"
+  "InternVL2"
+)
+
+# 从所有模型中排除固定模型，得到剩余的模型
+remaining_models=()
+for model in "${all_models[@]}"; do
+  if [[ ! " ${fixed_run_list[@]} " =~ " ${model} " ]]; then
+    remaining_models+=("$model")
+  fi
+done
+
+# 随机选择一些剩余的模型
+num_random_models=5 # 每次随机运行的额外模型数量
+random_run_list=($(shuf -e "${remaining_models[@]}" -n ${num_random_models}))
+
+# 合并固定模型和随机模型
+run_list=("${fixed_run_list[@]}" "${random_run_list[@]}")
+
+
+echo "固定运行的模型: ${fixed_run_list[@]}"
+echo "随机选择的模型: ${random_run_list[@]}"
+echo "最终运行的模型: ${run_list[@]}"
 
 cd ${work_path}
 
-run_list=(
-  "InternLM-XComposer2/"
-  "clip"
-  "cogvlm"
-  "datacopilot"
-  "eva02"
-  "deploy"
-  "evaclip"
-  "groundingdino"
-  "imagebind"
-  "llava"
-  "minigpt4"
-  "minimonkey"
-  "sam"
-  "ut"
-  "visualglm"
-  "yolo-world"
-  )
+
 # 将数组转换为字符串，以便使用正则匹配
 # 遍历当前目录下的子目录
 for subdir in */; do
@@ -66,6 +83,9 @@ for subdir in */; do
     fi
   done
   if [ $found -eq 1 ]; then
+    if [ "$subdir" == "deploy/" ]; then
+      continue
+    fi
     echo "start $subdir"
     start_script_path="$subdir/start.sh"
     if [ -f "$start_script_path" ]; then
