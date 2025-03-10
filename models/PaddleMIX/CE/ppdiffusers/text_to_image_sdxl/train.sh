@@ -20,7 +20,6 @@ python -u train_text_to_image_sdxl.py \
   --max_train_steps=30 \
   --learning_rate=1e-06 --lr_scheduler="constant" --lr_warmup_steps=0 \
   --mixed_precision="fp16" \
-  --report_to="wandb" \
   --validation_prompt="a cute Sundar Pichai creature" --validation_epochs 5 \
   --checkpointing_steps=10 \
   --output_dir="sdxl-pokemon-model"
