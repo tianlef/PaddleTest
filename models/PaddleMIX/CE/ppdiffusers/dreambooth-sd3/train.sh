@@ -24,7 +24,7 @@ python train_dreambooth_sd3.py \
   --report_to="wandb" \
   --lr_scheduler="constant" \
   --lr_warmup_steps=0 \
-  --max_train_steps=10 \
+  --max_train_steps=50 \
   --validation_epochs=25 \
   --seed="0" \
   --checkpointing_steps=10 \
