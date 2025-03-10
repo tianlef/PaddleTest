@@ -14,4 +14,4 @@ unet = UNet2DConditionModel.from_pretrained(unet_path)
 
 prompt = "A pokemon with green eyes and red legs."
 image = pipe(prompt, num_inference_steps=30, guidance_scale=7.5).images[0]
-image.save("pokemon.png")
+image.save("pokemon-sft.png")
