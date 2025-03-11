@@ -10,6 +10,8 @@ import os
 dir_name = "sdxl-pokemon-model"
 for file_name in sorted(os.listdir(dir_name)):
     print(file_name)
+    if "checkpoint" not in file_name:
+        continue
     unet_path = os.path.join(dir_name, file_name)
 
     pipe = StableDiffusionXLPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0", paddle_dtype=paddle.float16)
