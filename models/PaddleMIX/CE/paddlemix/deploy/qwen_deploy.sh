@@ -20,7 +20,7 @@ export http_proxy=${proxy}
 export https_proxy=${proxy}
 
 cd ${work_path}
-bash prepare_qwen.sh
+# bash prepare_qwen.sh
 
 echo "*******paddlemix deploy qwen_ql begin***********"
 
