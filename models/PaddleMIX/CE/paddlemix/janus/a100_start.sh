@@ -15,8 +15,8 @@ fi
 /bin/cp -rf ./* ${work_path}
 /bin/cp -rf ../check_loss.py ${work_path}
 
-# 下载数据集
-bash prepare.sh
+# 依赖
+# bash prepare.sh
 cd ${work_path}
 
 exit_code=0
