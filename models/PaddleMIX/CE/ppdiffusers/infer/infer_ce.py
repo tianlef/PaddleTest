@@ -19,6 +19,8 @@ def generate_all_inference_scripts():
 def select_random_scripts(scripts, model_num, executed_log_path):
     if model_num == 'all':
         return scripts
+    else:
+        model_num = int(model_num)
     # 随机选择要执行的脚本数量（假设选择5个脚本）
     if os.path.isfile(executed_log_path):
         try:
