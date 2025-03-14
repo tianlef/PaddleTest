@@ -10,7 +10,7 @@ def process_init(executed_log_path, model_num=5):
     exit_code = 0
 
     root_path = os.getenv("root_path", ".")
-    log_dir = os.path.join(root_path, "log")
+    log_dir = os.path.join(root_path, "ppdiffusers_log")
     work_path = os.getcwd()
     # 现在paddlenlp脚本
    
