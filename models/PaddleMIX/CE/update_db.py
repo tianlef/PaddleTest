@@ -21,7 +21,10 @@ class update_db(object):
         with open(self.log_path, 'r', encoding='utf8') as f:
             for line in f.readlines():
                 line_list = line.split(' ')
-                model_name = line_list[0]
+                try:
+                   model_name = '_'.join(line_list[0:-2])
+                except:
+                    model_name = line_list[0]
                 if 'success' in line:
                     self.success_case += " " + model_name
                 else:
