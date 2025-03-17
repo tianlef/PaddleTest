@@ -12,11 +12,19 @@ class update_db(object):
         self.paddle_commit = os.environ.get('paddle_commit')
         self.mix_commit = os.environ.get('mix_commit')
         self.nlp_commit = os.environ.get('nlp_commit')
-        self.uplod_url = os.environ.get('upload_url')
+        self.upload_url = os.environ.get('upload_url')
         self.success_case = ""
         self.failure_case = ""
         self.status = True
         self.env = self.get_env_info()
+        print("start to gen result...")
+        print("task name is {}, model name is {}".format(self.task_name, self.model_name))
+        print("log address is {}".format(self.log_address))
+        print("date is {}".format(self.date))
+        print("paddle commit id is {}".format(self.paddle_commit))
+        print("mix commit id is {}".format(self.mix_commit))
+        print("nlp commit id is {}".format(self.nlp_commit))
+        print("upload url is {}".format(self.upload_url))
     
     def get_update_info(self):
         with open(self.log_path, 'r', encoding='utf8') as f:
@@ -47,11 +55,11 @@ class update_db(object):
             "log_address": self.log_address,
             "success_case": self.success_case,
             "failure_case": self.failure_case,
-            "env_info": self.get_env_info()
+            "env_info": self.env
         }
 
         proxies = {"http": None, "https": None}
-        res = requests.post(self.uplod_url, data=params, proxies=proxies)
+        res = requests.post(self.upload_url, data=params, proxies=proxies)
         result = res.json()
         if result["code"] == 200 and result["message"] == "success":
             pass
