@@ -62,7 +62,7 @@ def process_init(executed_log_path, model_num=5):
         remaining_dirs = list(all_valid_dirs)
         current_epoch += 1
 
-    # 随机选择 5 个目录
+    # 随机选择目录
     selected_dirs = random.sample(remaining_dirs, min(model_num, len(remaining_dirs)))
     print(f"Epoch {current_epoch}: Selected directories: {selected_dirs}")
 

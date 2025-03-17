@@ -16,6 +16,7 @@ class update_db(object):
         self.success_case = ""
         self.failure_case = ""
         self.status = True
+        self.env = self.get_env_info()
     
     def get_update_info(self):
         with open(self.log_path, 'r', encoding='utf8') as f:
@@ -57,6 +58,16 @@ class update_db(object):
             print("gen result success ")
         else:
             print("gen sreuslt failed, error info {}".format(result["message"]))
+
+
+if __name__ == "__main__":
+    update_db = update_db()
+    update_db.get_update_info()
+    try:
+        update_db.upload()
+    except Exception as e:
+        print(e)
+    
 
     
 
