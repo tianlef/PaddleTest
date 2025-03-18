@@ -6,7 +6,7 @@ echo ${cur_path}
 work_path=${root_path}/PaddleMIX/ppdiffusers/examples/AnimateAnyone/
 echo ${work_path}
 
-log_dir=${root_path}/log
+log_dir=${root_path}/ppdiffusers_log
 
 if [ ! -d "$log_dir" ]; then
     mkdir -p "$log_dir"

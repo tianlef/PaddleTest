@@ -2,7 +2,7 @@
 
 exit_code=0
 
-log_dir=${root_path}/log
+log_dir=${root_path}/ppdiffusers_log
 # 用于切换nlp的版本 
 nlp_path=${root_path}/PaddleMIX
 
