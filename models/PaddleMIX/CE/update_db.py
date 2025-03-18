@@ -57,7 +57,7 @@ class update_db(object):
             "failure_case": self.failure_case,
             "env_info": self.env
         }
-
+        print("params is ", params)
         proxies = {"http": None, "https": None}
         res = requests.post(self.upload_url, data=params, proxies=proxies)
         result = res.json()
