@@ -9,6 +9,7 @@ mv llava_bench_data /root/.paddlemix/datasets/
 rm -rf llava_bench_data.tar
 ln -s /root/.paddlemix/datasets/llava_bench_data ./
 
+rm -rf ScienceQA.tar
 if [ -e "ScienceQA.tar" ]; then
     tar -xf ScienceQA.tar
     echo "文件存在"
