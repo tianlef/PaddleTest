@@ -39,7 +39,7 @@ export FLAGS_allocator_strategy=auto_growth
 # echo "*******paddlemix llava finetune end***********"
 
 echo "*******paddlemix llava sft***********"
-(python  -u check_loss.py "python paddlemix/tools/supervised_finetune.py llava_v100_sft.json") 2>&1 | tee ${log_dir}/paddlemix_llava_sft.log
+(python  -u check_loss.py "python paddlemix/examples/llava/supervised_finetune.py llava_v100_sft.json") 2>&1 | tee ${log_dir}/paddlemix_llava_sft.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -51,7 +51,7 @@ echo "*******paddlemix llava sft end***********"
 
 echo "*******paddlemix llava lora***********"
 
-(python  -u check_loss.py "python paddlemix/tools/supervised_finetune.py llava_v100_lora.json") 2>&1 | tee ${log_dir}/paddlemix_llava_lora.log
+(python  -u check_loss.py "python paddlemix/examples/llava/supervised_finetune.py llava_v100_lora.json") 2>&1 | tee ${log_dir}/paddlemix_llava_lora.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -62,7 +62,7 @@ fi
 echo "*******paddlemix llava lora end***********"
 
 echo "*******paddlemix llava sft 1.5***********"
-(python  -u check_loss.py "python paddlemix/tools/supervised_finetune.py llava_v100_sft_1.5.json") 2>&1 | tee ${log_dir}/paddlemix_llava_sft_1.5.log
+(python  -u check_loss.py "python paddlemix/examples/llava/supervised_finetune.py llava_v100_sft_1.5.json") 2>&1 | tee ${log_dir}/paddlemix_llava_sft_1.5.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -74,7 +74,7 @@ echo "*******paddlemix llava 1.5 sft end***********"
 
 echo "*******paddlemix llava lora 1.5 ***********"
 
-(python  -u check_loss.py "python paddlemix/tools/supervised_finetune.py llava_v100_lora_1.5.json") 2>&1 | tee ${log_dir}/paddlemix_llava_lora.log
+(python  -u check_loss.py "python paddlemix/examples/llava/supervised_finetune.py llava_v100_lora_1.5.json") 2>&1 | tee ${log_dir}/paddlemix_llava_lora.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
