@@ -1,6 +1,8 @@
 pip install tiktoken
 pip install -r paddlemix/appflow/requirements.txt
 pip install pexpect
+rm -rf ScienceQA.tar
+rm -rf ScienceQA
 # 下载数据集
 if [ -e "ScienceQA.tar" ]; then
     tar -xf ScienceQA.tar
