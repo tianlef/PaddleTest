@@ -45,6 +45,30 @@ cd ${work_path}
 # 遍历当前目录下的子目录
 for subdir in */; do
   if [ -d "$subdir" ]; then
+
+    if [ "$subdir" == "ut/" ]; then
+      continue
+    fi
+    
+    if [ "$subdir" == "deploy/" ]; then
+      continue
+    fi
+
+    if [ "$subdir" == "blip/" ]; then
+      continue
+    fi
+
+    if [ "$subdir" == "clip/" ]; then
+      continue
+    fi
+
+    if [ "$subdir" == "coca/" ]; then
+      continue
+    fi
+
+    if [ "$subdir" == "eva02/" ]; then
+      continue
+    fi
     start_script_path="$subdir/start.sh"
 
     # 检查start.sh文件是否存在
