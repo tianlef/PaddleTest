@@ -45,7 +45,7 @@ cd ${work_path}
 # 遍历当前目录下的子目录
 for subdir in */; do
   if [ -d "$subdir" ]; then
-
+    echo "Processing directory: $subdir"
     if [ "$subdir" == "ut/" ]; then
       continue
     fi
