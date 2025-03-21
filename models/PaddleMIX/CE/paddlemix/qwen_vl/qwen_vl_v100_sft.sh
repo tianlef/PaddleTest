@@ -1,0 +1,29 @@
+MODEL_NAME="qwen-vl/qwen-vl-chat-7b"
+MASTER='127.0.0.1:8080'
+DATA="ScienceQA/train.json"
+python -m paddle.distributed.launch --master ${MASTER} --nnodes 1 --nproc_per_node 8 \
+paddlemix/examples/qwen_vl/finetune.py \
+    --model_name_or_path ${MODEL_NAME} \
+    --data_path ${DATA} \
+    --dtype 'float16' \
+    --fix_vit True \
+    --output_dir output_qwen_vl \
+    --num_train_epochs 1 \
+    --per_device_train_batch_size 1 \
+    --gradient_accumulation_steps 16 \
+    --save_steps 1000 \
+    --save_strategy "no" \
+    --save_total_limit 10 \
+    --learning_rate 1e-5 \
+    --weight_decay 0.1 \
+    --adam_beta2 0.95 \
+    --warmup_ratio 0.01 \
+    --lr_scheduler_type "cosine" \
+    --logging_steps 1 \
+    --report_to "none" \
+    --model_max_length 2048 \
+    --lazy_preprocess True \
+    --sharding "stage2" \
+    --tensor_parallel_degree 1 \
+    --sharding_parallel_degree 8 \
+    --pipeline_parallel_degree 1
