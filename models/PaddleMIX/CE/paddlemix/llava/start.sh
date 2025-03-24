@@ -84,6 +84,22 @@ else
 fi
 echo "*******paddlemix llava lora 1.5 end***********"
 
+model_name=llava
+case_name=merge_lora
+
+(python paddlemix/examples/llava/merge_lora_params.py \
+    --model_name_or_path xxx \
+    --lora_path xxxx \
+    --merge_model_path xxxx ) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
+else
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "*******${model_name}_${case_name} end***********"
+
 unset FLAGS_use_cuda_managed_memory
 unset FLAGS_allocator_strategy
 
