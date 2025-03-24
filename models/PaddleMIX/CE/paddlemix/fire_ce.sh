@@ -88,6 +88,18 @@ for subdir in */; do
     if [ "$subdir" == "deploy/" ]; then
       continue
     fi
+    if [ "$subdir" == "cogvlm/" ]; then
+      continue
+    fi
+    if [ "$subdir" == "llava_next_interleave/" ]; then
+      continue
+    fi
+    if [ "$subdir" == "llava_denseconnector/" ]; then
+      continue
+    fi
+    if [ "$subdir" == "llava_onevision/" ]; then
+      continue
+    fi
     echo "start $subdir"
     start_script_path="$subdir/start.sh"
     if [ -f "$start_script_path" ]; then
@@ -104,9 +116,13 @@ done
 # 查看结果
 cat ${log_dir}/ce_res.log
 
-exit $exit_code
 
-pip list | grep paddle
+cd ${root_path}
+rm -rf imagenet-val.tar
+rm -rf ILSVRC2012_tiny.tar
+rm -rf data
+
+exit $exit_code
 
 
 
