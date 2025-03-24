@@ -34,7 +34,7 @@ class update_db(object):
                    model_name = '_'.join(line_list[0:-2])
                 except:
                     model_name = line_list[0]
-                if 'success' in line:
+                if 'success' in line.lower():
                     self.success_case += " " + model_name
                 else:
                     self.status = False
