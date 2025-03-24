@@ -1,6 +1,6 @@
 MODEL_NAME="qwen-vl/qwen-vl-chat-7b"
 MASTER='127.0.0.1:8080'
-DATA="ScienceQA/train.json"
+DATA="sft_examples.json"
 python -m paddle.distributed.launch --master ${MASTER} --nnodes 1 --nproc_per_node 8 \
 paddlemix/examples/qwen_vl/finetune.py \
     --model_name_or_path ${MODEL_NAME} \

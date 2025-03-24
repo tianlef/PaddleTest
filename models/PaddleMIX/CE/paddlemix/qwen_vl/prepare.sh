@@ -1,17 +1,5 @@
 pip install tiktoken
 pip install -r paddlemix/appflow/requirements.txt
 pip install pexpect
-rm -rf ScienceQA.tar
-rm -rf ScienceQA
-# 下载数据集
-if [ -e "ScienceQA.tar" ]; then
-    tar -xf ScienceQA.tar
-    echo "文件存在"
-else
-    wget https://bj.bcebos.com/v1/paddlenlp/datasets/examples/ScienceQA.tar
-    tar -xf ScienceQA.tar
-    echo "文件不存在，已下载解压"
-fi
 
-cd ScienceQA
-python scienceqa2qwen.py
+wget https://bj.bcebos.com/v1/paddlenlp/models/community/qwen-vl/sft_examples.json
