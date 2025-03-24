@@ -12,3 +12,6 @@ else
     tar -xf ScienceQA.tar
     echo "文件不存在，已下载解压"
 fi
+
+cd ScienceQA
+python scienceqa2qwen.py
