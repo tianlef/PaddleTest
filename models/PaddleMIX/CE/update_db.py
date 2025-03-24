@@ -54,8 +54,8 @@ class update_db(object):
             "model_name": self.model_name,
             "log_address": self.log_address,
             "success_case": self.success_case,
-            "failure_case": self.failure_case,
-            "env_info": self.env
+            "fail_case": self.failure_case,
+            "env": self.env
         }
         print("params is ", params)
         proxies = {"http": None, "https": None}
