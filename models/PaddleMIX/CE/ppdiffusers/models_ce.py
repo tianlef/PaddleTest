@@ -23,7 +23,9 @@ def process_init(executed_log_path, model_num=5):
         "ut/", 
         "deploy/", 
         "kandinsky2_2_text_to_image/", 
-        "ppdiffusers_example_test/"
+        "ppdiffusers_example_test/",
+        "open-magvit2",
+        "ppvctrl" 
     }
 
     # 获取所有有效的子目录
