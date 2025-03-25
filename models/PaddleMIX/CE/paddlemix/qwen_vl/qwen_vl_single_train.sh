@@ -1,7 +1,7 @@
 MODEL_NAME="qwen-vl/qwen-vl-chat-7b"
 MASTER='127.0.0.1:8080'
 DATA="sft_examples.json"
-python paddlemix/examples/qwen_vl/finetune.py
+python paddlemix/examples/qwen_vl/finetune.py \
     --model_name_or_path ${MODEL_NAME} \
     --data_path ${DATA} \
     --dtype 'float16' \
