@@ -8,7 +8,7 @@ paddlemix/examples/qwen_vl/finetune.py \
     --dtype 'float16' \
     --fix_vit True \
     --output_dir output_qwen_vl \
-    --num_train_epochs 1 \
+    --num_train_epochs 10 \
     --per_device_train_batch_size 1 \
     --gradient_accumulation_steps 16 \
     --save_steps 1000 \
