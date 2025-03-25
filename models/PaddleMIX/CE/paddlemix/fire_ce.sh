@@ -79,7 +79,7 @@ for subdir in */; do
   for item in "${run_list[@]}"; do
     # echo "$item"
     # echo "$subdir"
-    if [[ "$item" == "$subdir" ]]; then
+    if [[ "${item}/" == "$subdir" ]]; then
       # echo "start $subdir"
       found=1
     fi
