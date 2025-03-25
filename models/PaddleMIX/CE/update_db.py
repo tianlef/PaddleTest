@@ -1,7 +1,7 @@
 import os
 import requests
 from datetime import datetime
-
+from zoneinfo import ZoneInfo
 class update_db(object):
     def __init__(self):
         self.task_name = os.environ.get('task_name')
