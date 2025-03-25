@@ -1,14 +1,14 @@
 MODEL_NAME="qwen-vl/qwen-vl-chat-7b"
 MASTER='127.0.0.1:8080'
 DATA="sft_examples.json"
-python -m paddle.distributed.launch --master ${MASTER} --nnodes 1 --nproc_per_node 1 \
+python -m paddle.distributed.launch --master ${MASTER} --nnodes 1 --nproc_per_node 8 \
 paddlemix/examples/qwen_vl/finetune.py \
     --model_name_or_path ${MODEL_NAME} \
     --data_path ${DATA} \
     --dtype 'float16' \
     --fix_vit True \
     --output_dir output_qwen_vl \
-    --num_train_epochs 10 \
+    --num_train_epochs 1 \
     --per_device_train_batch_size 1 \
     --gradient_accumulation_steps 16 \
     --save_steps 1000 \
