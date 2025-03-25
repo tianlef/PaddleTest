@@ -22,4 +22,7 @@ paddlemix/examples/qwen_vl/finetune.py \
     --logging_steps 1 \
     --report_to "none" \
     --model_max_length 2048 \
-    --lazy_preprocess True
+    --lazy_preprocess True \
+    --sharding "stage2" \
+    --tensor_parallel_degree 1 \
+    --sharding_parallel_degree 8
