@@ -66,7 +66,7 @@ cd ${work_path}
 
 
 
-(python -u check_loss.py "bash qwen_vl_v100_sft.sh") 2>&1 | tee ${log_dir}/qwen_vl_lora.log
+(bash qwen_vl_v100_sft.sh) 2>&1 | tee ${log_dir}/qwen_vl_fintune.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -74,8 +74,18 @@ if [ ${tmp_exit_code} -eq 0 ]; then
 else
     echo "qwen_vl finetune run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******qwen finetune end***********"
+echo "*******qwen_vl finetune end***********"
 echo exit_code:${exit_code}
 
+(bash qwen_vl_single_train.sh) 2>&1 | tee ${log_dir}/qwen_vl_single_finetune.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "qwen_vl single finetune run success" >>"${log_dir}/ce_res.log"
+else
+    echo "qwen_vl single finetune run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "*******qwen_vl single finetune end***********"
+echo exit_code:${exit_code}
 # cat ${log_dir}/ce_res.log
 exit ${exit_code}
