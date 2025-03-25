@@ -101,7 +101,8 @@ for subdir in */; do
       continue
     fi
     echo "start $subdir"
-    start_script_path="$subdir/start.sh"
+    start_script_path="${subdir}start.sh"
+    echo $start_script_path
     if [ -f "$start_script_path" ]; then
       cd $subdir
       bash start.sh
