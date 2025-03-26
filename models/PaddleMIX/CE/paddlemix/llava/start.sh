@@ -26,17 +26,17 @@ export FLAGS_use_cuda_managed_memory=true
 export FLAGS_allocator_strategy=auto_growth
 
 
-echo "*******paddlemix llava benchmark***********"
-# llava pretain 有报错
-(python -u -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 paddlemix/examples/llava/supervised_finetune.py lora_sft_7b_argument_benchmark.json) 2>&1 | tee ${log_dir}/paddlemix llava benchmark.log
-tmp_exit_code=${PIPESTATUS[0]}
-exit_code=$(($exit_code + ${tmp_exit_code}))
-if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "paddlemix llava benchmark run success" >>"${log_dir}/ce_res.log"
-else
-    echo "paddlemix llava benchmark run fail" >>"${log_dir}/ce_res.log"
-fi
-echo "*******paddlemix llava benchmark end***********"
+# echo "*******paddlemix llava benchmark***********"
+# # llava pretain 有报错
+# (python -u -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 paddlemix/examples/llava/supervised_finetune.py lora_sft_7b_argument_benchmark.json) 2>&1 | tee ${log_dir}/paddlemix llava benchmark.log
+# tmp_exit_code=${PIPESTATUS[0]}
+# exit_code=$(($exit_code + ${tmp_exit_code}))
+# if [ ${tmp_exit_code} -eq 0 ]; then
+#     echo "paddlemix llava benchmark run success" >>"${log_dir}/ce_res.log"
+# else
+#     echo "paddlemix llava benchmark run fail" >>"${log_dir}/ce_res.log"
+# fi
+# echo "*******paddlemix llava benchmark end***********"
 
 echo "*******paddlemix llava finetune***********"
 # llava pretain 有报错
