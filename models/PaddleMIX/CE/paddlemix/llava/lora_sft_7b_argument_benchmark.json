@@ -1,7 +1,7 @@
 {
     "model_name_or_path": "liuhaotian/llava-v1.6-vicuna-7b",
     "dataset": {
-      "train":[{"name": "chatml_dataset", "data_files": "ScienceQA/llava_train_part.json","chat_template":"ScienceQA/llava_chat_template.json"}]
+      "train":[{"name": "chatml_dataset", "data_files": "./llava_bench_data/ScienceQA_val_500.json","chat_template":"./llava_bench_data/chat_template.json"}]
     },
     "mixtoken": false,
     "output_dir": "./work_dirs/llava-v1.6-vicuna-7b_lora_sft",
