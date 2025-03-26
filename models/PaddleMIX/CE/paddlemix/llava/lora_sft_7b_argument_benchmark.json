@@ -27,7 +27,7 @@
     "max_length": 2048,
     "bf16": false,
     "fp16": true,
-    "fp16_opt_level": "O1",
+    "fp16_opt_level": "O2",
     "amp_master_grad": 1,
     "do_train": true,
     "do_eval": false,
