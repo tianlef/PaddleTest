@@ -100,6 +100,9 @@ for subdir in */; do
     if [ "$subdir" == "llava_onevision/" ]; then
       continue
     fi
+    if [ "$subdir" == "ut/" ]; then
+      continue
+    fi
     echo "start $subdir"
     start_script_path="${subdir}start.sh"
     echo $start_script_path
