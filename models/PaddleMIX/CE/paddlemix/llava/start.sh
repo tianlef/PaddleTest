@@ -28,7 +28,7 @@ export FLAGS_allocator_strategy=auto_growth
 
 echo "*******paddlemix llava benchmark***********"
 # llava pretain 有报错
-(python -u -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 paddlemix/examples/llava/supervised_finetune.py ../paddlemix/config/llava/v1_6/lora_sft_7b_argument_benchmark.json) 2>&1 | tee ${log_dir}/paddlemix llava benchmark.log
+(python -u -m paddle.distributed.launch --log_dir=./mylog --gpus=0,1,2,3,4,5,6,7 paddlemix/examples/llava/supervised_finetune.py ./paddlemix/config/llava/v1_6/lora_sft_7b_argument_benchmark.json) 2>&1 | tee ${log_dir}/paddlemix llava benchmark.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
