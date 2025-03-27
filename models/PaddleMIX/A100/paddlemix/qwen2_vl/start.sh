@@ -13,7 +13,7 @@ if [ ! -d "$log_dir" ]; then
 fi
 
 /bin/cp -rf ./* ${work_path}
-/bin/cp -rf ../check_loss.py ${work_path}
+/bin/cp -rf ../../Tools/check_loss.py ${work_path}
 
 # 下载数据集
 cd ${work_path}
