@@ -110,9 +110,34 @@ else
 fi
 echo "******* ${model_name}_${case_name} end***********"
 
-case_name=train_2B_lora
+
+echo "*******paddlemix qwen2_vl_sft_train begin begin***********"
+(sh paddlemix/examples/qwen2_vl/shell/baseline_2b_bs32_1e8.sh) 2>&1 | tee ${log_dir}/qwen2_vl_sft_train.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "qwen2_vl_sft_train run success" >>"${log_dir}/ce_res.log"
+else
+    echo "qwen2_vl_sft_train run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "*******paddlemix qwen2_vl_sft_train end***********"
+
+
+echo "*******paddlemix qwen2_vl_train_infer begin begin***********"
+(CUDA_VISIBLE_DEVICES=0 python qwen2vl_after_train_infer.py) 2>&1 | tee ${log_dir}/qwen2_vl_train_infer.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "qwen2_vl_train_infer run success" >>"${log_dir}/ce_res.log"
+else
+    echo "qwen2_vl_train_infer run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "*******paddlemix qwen2_vl_train_infer end***********"
+
+
+case_name=auto_2b_bs32_1e8
 echo "******* ${model_name}_${case_name} begin***********"
-(python -u check_loss.py "sh train_qwen2_lora.sh") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(sh paddlemix/examples/qwen2_vl/shell/auto_2b_bs32_1e8.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -123,30 +148,48 @@ fi
 echo "******* ${model_name}_${case_name} end***********"
 
 
-echo "*******paddlemix qwen2_vl_sft_train begin begin***********"
-(bash train_qwen2_sft.sh) 2>&1 | tee ${log_dir}/qwen2_vl_sft_train.log
+case_name=merge_auto_2b_bs32_1e8
+echo "******* ${model_name}_${case_name} begin***********"
+(python merge_auto.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2_vl_sft_train run success" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2_vl_sft_train run fail" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix qwen2_vl_sft_train end***********"
+echo "******* ${model_name}_${case_name} end***********"
 
-# V100 暂不支持此case
-echo "*******paddlemix qwen2_vl_train_infer begin begin***********"
-(python iner_qwen.py) 2>&1 | tee ${log_dir}/qwen2_vl_train_infer.log
+
+case_name=lora_train
+echo "******* ${model_name}_${case_name} begin***********"
+(sh paddlemix/examples/qwen2_vl/shell/baseline_2b_lora_bs32_1e8.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2_vl_train_infer run success" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2_vl_train_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix qwen2_vl_train_infer end***********"
-# unset http_proxy
-# unset https_proxy
+echo "******* ${model_name}_${case_name} end***********"
+
+
+case_name=merge_lora
+echo "******* ${model_name}_${case_name} begin***********"
+(python paddlemix/tools/merge_lora_params.py \
+    --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
+    --lora_path  work_dirs/baseline_330k_2b_bs32_1e8 \
+    --merge_model_path ./checkpoints/merged_model
+) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
+else
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "******* ${model_name}_${case_name} end***********"
+
 
 # # 查看结果
 # cat ${log_dir}/ce_res.log
