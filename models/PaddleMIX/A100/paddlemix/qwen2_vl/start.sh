@@ -113,7 +113,7 @@ echo "******* ${model_name}_${case_name} end***********"
 
 
 echo "*******paddlemix qwen2_vl_sft_train begin begin***********"
-(sh paddlemix/examples/qwen2_vl/shell/baseline_2b_bs32_1e8.sh) 2>&1 | tee ${log_dir}/qwen2_vl_sft_train.log
+(sh baseline_2b_bs32_1e8.sh) 2>&1 | tee ${log_dir}/qwen2_vl_sft_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -164,7 +164,7 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=lora_train
 echo "******* ${model_name}_${case_name} begin***********"
-(sh paddlemix/examples/qwen2_vl/shell/baseline_2b_lora_bs32_1e8.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(sh baseline_2b_lora_bs32_1e8.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
