@@ -46,6 +46,7 @@ cd ${root_path}
 rm -rf data
 mkdir data
 cd data
+# clip coca evaclip
 wget https://bj.bcebos.com/v1/paddlenlp/datasets/paddlemix/ILSVRC2012/imagenet-val.tar
 tar -xf imagenet-val.tar
 
@@ -53,6 +54,8 @@ cd ${root_path}/
 rm -rf dataset
 mkdir dataset
 cd dataset
+# eva02 
+
 wget https://bj.bcebos.com/v1/paddlenlp/datasets/paddlemix/ILSVRC2012/ILSVRC2012_tiny.tar
 tar -xf ILSVRC2012_tiny.tar
 
@@ -125,8 +128,6 @@ cd ${root_path}
 rm -rf imagenet-val.tar
 rm -rf ILSVRC2012_tiny.tar
 rm -rf data
-
-exit $exit_code
 
 
 
