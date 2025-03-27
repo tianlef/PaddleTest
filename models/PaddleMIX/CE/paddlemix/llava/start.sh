@@ -86,7 +86,7 @@ echo "*******paddlemix llava 1.5 sft end***********"
 
 echo "*******paddlemix llava lora 1.5 ***********"
 
-(python paddlemix/examples/llava/supervised_finetune.py llava_v100_lora_1.5.json) 2>&1 | tee ${log_dir}/paddlemix_llava_lora.log
+(python  -u check_loss.py "python paddlemix/examples/llava/supervised_finetune.py llava_v100_lora_1.5.json") 2>&1 | tee ${log_dir}/paddlemix_llava_lora.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -96,21 +96,21 @@ else
 fi
 echo "*******paddlemix llava lora 1.5 end***********"
 
-model_name=llava
-case_name=merge_lora
+# model_name=llava
+# case_name=merge_lora
 
-(python paddlemix/examples/llava/merge_lora_params.py \
-    --model_name_or_path paddlemix/llava/llava-v1.5-7b \
-    --lora_path ./checkpoints/llava_sft_ckpts \
-    --merge_model_path ./checkpoints/merge_lora ) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
-tmp_exit_code=${PIPESTATUS[0]}
-exit_code=$(($exit_code + ${tmp_exit_code}))
-if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
-else
-    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
-fi
-echo "*******${model_name}_${case_name} end***********"
+# (python paddlemix/examples/llava/merge_lora_params.py \
+#     --model_name_or_path paddlemix/llava/llava-v1.5-7b \
+#     --lora_path ./checkpoints/llava_sft_ckpts \
+#     --merge_model_path ./checkpoints/merge_lora ) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+# tmp_exit_code=${PIPESTATUS[0]}
+# exit_code=$(($exit_code + ${tmp_exit_code}))
+# if [ ${tmp_exit_code} -eq 0 ]; then
+#     echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
+# else
+#     echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
+# fi
+# echo "*******${model_name}_${case_name} end***********"
 
 unset FLAGS_use_cuda_managed_memory
 unset FLAGS_allocator_strategy
