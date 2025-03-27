@@ -6,6 +6,7 @@ echo ${cur_path}
 work_path=${root_path}/PaddleMIX
 echo ${work_path}
 
+tools_path=${root_path}/PaddleTest/models/PaddleMIX/Tools
 log_dir=${root_path}/paddlemix_log
 
 if [ ! -d "$log_dir" ]; then
@@ -13,7 +14,7 @@ if [ ! -d "$log_dir" ]; then
 fi
 
 /bin/cp -rf ./* ${work_path}
-/bin/cp -rf ../../Tools/check_loss.py ${work_path}
+/bin/cp -rf ${tools_path}/check_loss.py ${work_path}
 
 # 下载数据集
 cd ${work_path}
