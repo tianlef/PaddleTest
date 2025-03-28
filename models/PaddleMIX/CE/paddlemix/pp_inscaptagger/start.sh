@@ -42,9 +42,9 @@ echo "*******paddlemix pp_inscaptagger_infer begin begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "pp_inscaptagger_infer run success" >>"${log_dir}/ut_res.log"
+    echo "pp_inscaptagger_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "pp_inscaptagger_infer run fail" >>"${log_dir}/ut_res.log"
+    echo "pp_inscaptagger_infer run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******paddlemix pp_inscaptagger_infer end***********"
 
@@ -60,9 +60,9 @@ rm -rf pp-output
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "pp_inscaptagger_multi_infer run success" >>"${log_dir}/ut_res.log"
+    echo "pp_inscaptagger_multi_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "pp_inscaptagger_multi_infer run fail" >>"${log_dir}/ut_res.log"
+    echo "pp_inscaptagger_multi_infer run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******paddlemix pp_inscaptagger_multi_infer end***********"
 
@@ -71,7 +71,7 @@ unset https_proxy
 
 
 # # 查看结果
-cat ${log_dir}/ut_res.log
+cat ${log_dir}/ce_res.log
 echo exit_code:${exit_code}
 exit ${exit_code}
 
