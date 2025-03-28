@@ -17,4 +17,23 @@ fi
 
 model_name=llava_denseconnector
 
-case_name
+case_name=predict
+
+
+echo "******* ${model_name}_${case_name} begin***********"
+(python paddlemix/examples/llava_denseconnector/run_predict_denseconnector.py \
+    --model-path "HuanjinYao/DenseConnector-v1.5-7B" \
+    --image-file "https://bj.bcebos.com/v1/paddlenlp/models/community/GroundingDino/000000004505.jpg") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
+else
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "******* ${model_name}_${case_name} end***********"
+
+echo exit_code:${exit_code}
+
+# cat ${log_dir}/ce_res.log
+exit ${exit_code}
