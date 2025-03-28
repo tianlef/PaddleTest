@@ -177,7 +177,7 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=merge_lora
 echo "******* ${model_name}_${case_name} begin***********"
-(python paddlemix/tools/merge_lora_params.py \
+(python merge_lora_params.py \
     --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
     --lora_path  work_dirs/baseline_330k_2b_bs32_1e8 \
     --merge_model_path ./checkpoints/merged_model
