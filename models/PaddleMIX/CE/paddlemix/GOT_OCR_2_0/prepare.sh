@@ -3,9 +3,9 @@ pwd
 pip install -r requirement.txt
 
 mix_path=${root_path}/PaddleMIX
+# 数据集下载
+cd ${mix_path}
 rm -rf synthdog_en.tar 
 rm -rf synthdog_en
 wget https://paddlenlp.bj.bcebos.com/datasets/paddlemix/playground/synthdog_en.tar # 2.4G
 tar -xf synthdog_en.tar
-# 数据集下载
-cd ${mix_path}
