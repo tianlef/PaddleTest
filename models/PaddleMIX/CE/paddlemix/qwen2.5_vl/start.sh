@@ -112,7 +112,7 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=train_2B_lora
 echo "******* ${model_name}_${case_name} begin***********"
-(python -u check_loss.py "sh qwen2_5_baseline_3b_lora_bs32_1e8.sh") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(sh qwen2_5_baseline_3b_lora_bs32_1e8.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
