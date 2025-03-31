@@ -13,7 +13,7 @@ python -u -m paddle.distributed.launch --gpus "0,1" train_vae.py \
   --batch_size 1 \
   --num_workers 2 \
   --logging_steps 50 \
-  --save_steps 100 \
+  --save_steps 10 \
   --image_logging_steps 50 \
   --disc_start 50 \
   --kl_weight 0.000001 \
