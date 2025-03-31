@@ -12,4 +12,4 @@ for line in f:
         fw.write('prompt is gone' + '\n')
     with open(os.path.join('./davis_validation_fps30_frames49',prompt_file_name),'r') as pf:
         for pline in pf:
-            fw.write(pline)
+            fw.write(pline+'\n')
