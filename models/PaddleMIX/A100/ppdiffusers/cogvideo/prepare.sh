@@ -1,4 +1,4 @@
-cd ${root_path}/ppdiffusers
+cd ${root_path}/PaddleMIX/ppdiffusers
 
 rm -rf davis_validation_for_cogvideox.tar
 rm -rf davis_validation_fps30_frames49
