@@ -2,7 +2,7 @@ python -u -m paddle.distributed.launch --gpus "2,3" train_vae.py \
     --from_scratch \
     --vae_config_file config/vae.json \
     --input_size 256 256 \
-    --max_train_steps 100 \
+    --max_train_steps 10 \
     --learning_rate 1e-4 \
     --batch_size 4 \
     --num_workers 8 \

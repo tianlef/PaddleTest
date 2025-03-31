@@ -28,7 +28,7 @@ def decode_image(image):
     return image
 
 
-model_name_or_path = "./autoencoder_outputs/checkpoint-100"
+model_name_or_path = "./autoencoder_outputs/checkpoint-10"
 vae = AutoencoderKL.from_pretrained(model_name_or_path)
 image = load_image(
     "https://paddlenlp.bj.bcebos.com/models/community/CompVis/data/vermeer.jpg")
