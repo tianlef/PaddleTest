@@ -104,7 +104,7 @@ model_name=deepssek_vl2
 
 
 echo "*******paddlemix deepssek_vl2_sft_train begin begin***********"
-(sh paddlemix/examples/deepseek_vl2/shell/deepseek_vl2_tiny_sft_bs16_1e5.sh) 2>&1 | tee ${log_dir}/deepssek_vl2_sft_train.log
+(python -u check_loss.py "sh paddlemix/examples/deepseek_vl2/shell/deepseek_vl2_tiny_sft_bs16_1e5.sh") 2>&1 | tee ${log_dir}/deepssek_vl2_sft_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -118,7 +118,7 @@ echo "*******paddlemix deepssek_vl2_sft_train end***********"
 
 case_name=lora_train
 echo "******* ${model_name}_${case_name} begin***********"
-(sh paddlemix/examples/deepseek_vl2/shell/deepseek_vl2_tiny_lora_bs16_1e5.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(python -u check_loss.py "sh paddlemix/examples/deepseek_vl2/shell/deepseek_vl2_tiny_lora_bs16_1e5.sh") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
