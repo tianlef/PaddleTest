@@ -5,8 +5,8 @@ export USE_PEFT_BACKEND=True
 python examples/cogvideo/scripts/train_cogvideox_lora.py \
   --pretrained_model_name_or_path THUDM/CogVideoX-2b \
   --instance_data_root ./davis_validation_fps30_frames49 \
-  --caption_column ./davis_validation_fps30_frames49/prompts.txt \
-  --video_column ./davis_validation_fps30_frames49/videos.txt \
+  --caption_column prompts.txt \
+  --video_column videos.txt \
   --id_token DISNEY \
   --validation_prompt "a bear is walking in a zoon" \
   --validation_prompt_separator ::: \
