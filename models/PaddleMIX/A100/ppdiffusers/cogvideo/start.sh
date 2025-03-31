@@ -59,7 +59,7 @@ echo "*******${model_name}_${case_name} end***********"
 case_name="lora_train_afer_infer"
 
 echo "******* ${model_name}_${case_name} begin***********"
-(python scripts/lora_infer.py \
+(python examples/cogvideo/scripts/lora_infer.py \
       --model_path THUDM/CogVideoX-2b \
       --prompt "a bear is walking in a zoon" \
       --lora_path ./cogvideo_lora \

@@ -32,5 +32,4 @@ python examples/cogvideo/scripts/train_cogvideox_lora.py \
   --optimizer Adam \
   --adam_beta1 0.9 \
   --adam_beta2 0.95 \
-  --max_grad_norm 1.0 \
-  --report_to wandb
+  --max_grad_norm 1.0
