@@ -78,7 +78,10 @@ echo "*******${model_name}_${case_name} end***********"
 
 # # 查看结果
 # cat ${log_dir}/ce_res.log
-rm -rf ${work_path}/ubcNbili_data/*
 
+cd ${root_path}/PaddleMIX/ppdiffusers
+
+rm -rf davis_validation_for_cogvideox.tar
+rm -rf davis_validation_fps30_frames49
 echo exit_code:${exit_code}
 exit ${exit_code}
