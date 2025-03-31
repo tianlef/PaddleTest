@@ -4,7 +4,7 @@ export USE_PEFT_BACKEND=True
 
 python examples/cogvideo/scripts/train_cogvideox_lora.py \
   --pretrained_model_name_or_path THUDM/CogVideoX-2b \
-  --instance_data_root ./cogvideo_lora \
+  --instance_data_root ./davis_validation_fps30_frames49 \
   --caption_column ./davis_validation_fps30_frames49/prompts.txt \
   --video_column ./davis_validation_fps30_frames49/videos.txt \
   --id_token DISNEY \

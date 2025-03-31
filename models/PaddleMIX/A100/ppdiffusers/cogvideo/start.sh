@@ -62,7 +62,7 @@ echo "******* ${model_name}_${case_name} begin***********"
 (python examples/cogvideo/scripts/lora_infer.py \
       --model_path THUDM/CogVideoX-2b \
       --prompt "a bear is walking in a zoon" \
-      --lora_path ./cogvideo_lora \
+      --lora_path ./cogvideox-lora \
       --output_path output.mp4) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
