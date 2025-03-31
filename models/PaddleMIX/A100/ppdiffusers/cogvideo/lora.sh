@@ -2,7 +2,7 @@
 
 export USE_PEFT_BACKEND=True
 
-python scripts/train_cogvideox_lora.py \
+python examples/cogvideo/scripts/train_cogvideox_lora.py \
   --pretrained_model_name_or_path THUDM/CogVideoX-2b \
   --instance_data_root ./cogvideo_lora \
   --caption_column ./davis_validation_fps30_frames49/prompts.txt \
