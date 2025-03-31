@@ -19,7 +19,7 @@ fi
 cd ${work_path}
 exit_code=0
 
-#bash prepare.sh
+bash prepare.sh
 
 
 model_name="cogvideo"
