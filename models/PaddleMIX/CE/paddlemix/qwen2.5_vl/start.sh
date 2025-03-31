@@ -34,57 +34,57 @@ export USE_PPXFORMERS=true
 cd ${work_path}/paddlemix/external_ops
 
 echo "*******paddlemix ops_install begin begin***********"
-(python setup.py install) 2>&1 | tee ${log_dir}/qwen2_vl_ops_install.log
+(python setup.py install) 2>&1 | tee ${log_dir}/qwen2_5_vl_ops_install.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2_vl_ops_install run success" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_ops_install run success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2_vl_ops_install run fail" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_ops_install run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix qwen2_vl_ops_install end***********"
+echo "*******paddlemix qwen2_5_vl_ops_install end***********"
 
 
 cd ${work_path}
 
 # infer 部分需要A100的显卡 Tesla V100的显卡 不支持
 
-echo "*******paddlemix qwen2_vl_infer begin begin***********"
-(CUDA_VISIBLE_DEVICES=0 python paddlemix/examples/qwen2_5_vl/single_image_infer.py) 2>&1 | tee ${log_dir}/qwen2_vl_infer.log
+echo "*******paddlemix qwen2_5_vl_infer begin begin***********"
+(CUDA_VISIBLE_DEVICES=0 python paddlemix/examples/qwen2_5_vl/single_image_infer.py) 2>&1 | tee ${log_dir}/qwen2_5_vl_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2_vl_infer run success" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2_vl_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_infer run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix qwen2_vl_infer end***********"
+echo "*******paddlemix qwen2_5_vl_infer end***********"
 
 
-echo "*******paddlemix qwen2_vl_multi_image_infer begin begin***********"
-(CUDA_VISIBLE_DEVICES=0 python paddlemix/examples/qwen2_5_vl/multi_image_infer.py) 2>&1 | tee ${log_dir}/qwen2_vl_multi_image_infer.log
+echo "*******paddlemix qwen2_5_vl_multi_image_infer begin begin***********"
+(CUDA_VISIBLE_DEVICES=0 python paddlemix/examples/qwen2_5_vl/multi_image_infer.py) 2>&1 | tee ${log_dir}/qwen2_5_vl_multi_image_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2_vl_multi_image_infer run success" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_multi_image_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2_vl_multi_image_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_multi_image_infer run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix qwen2_vl_multi_image_infer end***********"
+echo "*******paddlemix qwen2_5_vl_multi_image_infer end***********"
 
 
-echo "*******paddlemix qwen2_vl_video begin begin***********"
-(CUDA_VISIBLE_DEVICES=0 python paddlemix/examples/qwen2_5_vl/video_infer.py) 2>&1 | tee ${log_dir}/qwen2_vl_video.log
+echo "*******paddlemix qwen2_5_vl_video begin begin***********"
+(CUDA_VISIBLE_DEVICES=0 python paddlemix/examples/qwen2_5_vl/video_infer.py) 2>&1 | tee ${log_dir}/qwen2_5_vl_video.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2_vl_video run success" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_video run success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2_vl_video run fail" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_video run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix qwen2_vl_video end***********"
+echo "*******paddlemix qwen2_5_vl_video end***********"
 
-model_name=qwen2_vl
+model_name=qwen2_5_vl
 
 case_name=batch_inference
 echo "******* ${model_name}_${case_name} begin***********"
@@ -123,29 +123,29 @@ fi
 echo "******* ${model_name}_${case_name} end***********"
 
 
-echo "*******paddlemix qwen2_vl_sft_train begin begin***********"
-(sh paddlemix/examples/qwen2_5_vl/shell/baseline_3b_bs32_1e8.sh) 2>&1 | tee ${log_dir}/qwen2_vl_sft_train.log
+echo "*******paddlemix qwen2_5_vl_sft_train begin begin***********"
+(sh paddlemix/examples/qwen2_5_vl/shell/baseline_3b_bs32_1e8.sh) 2>&1 | tee ${log_dir}/qwen2_5_vl_sft_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2_vl_sft_train run success" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_sft_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2_vl_sft_train run fail" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_sft_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix qwen2_vl_sft_train end***********"
+echo "*******paddlemix qwen2_5_vl_sft_train end***********"
 
 
-echo "*******paddlemix qwen2_vl_train_infer begin begin***********"
+echo "*******paddlemix qwen2_5_vl_train_infer begin begin***********"
 (CUDA_VISIBLE_DEVICES=0 python paddlemix/examples/qwen2_5_vl/single_image_infer.py \
-    --model_path work_dirs/baseline_330k_3b_bs32_1e8) 2>&1 | tee ${log_dir}/qwen2_vl_train_infer.log
+    --model_path work_dirs/baseline_330k_3b_bs32_1e8) 2>&1 | tee ${log_dir}/qwen2_5_vl_train_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2_vl_train_infer run success" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_train_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2_vl_train_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "qwen2_5_vl_train_infer run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix qwen2_vl_train_infer end***********"
+echo "*******paddlemix qwen2_5_vl_train_infer end***********"
 # unset http_proxy
 # unset https_proxy
 
