@@ -83,7 +83,7 @@ fi
 echo "*******paddlemix deepssek_vl2_multi_image_infer end***********"
 
 
-echo "*******paddlemix deepssek_vl2_video begin begin***********"
+echo "*******paddlemix deepssek_vl2_increment_prefilling_kv_cache begin begin***********"
 (python paddlemix/examples/deepseek_vl2/increment_prefilling_infer.py \
     --model_path="deepseek-ai/deepseek-vl2-tiny" \
     --image_file_1="paddlemix/demo_images/examples_image1.jpg" \
