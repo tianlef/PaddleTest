@@ -44,9 +44,9 @@ cp ${work_path}/paddlemix/demo_images/examples_image1.jpg .
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "minimonkey_picture_infer run success" >>"${log_dir}/ut_res.log"
+    echo "minimonkey_picture_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "minimonkey_picture_infer run fail" >>"${log_dir}/ut_res.log"
+    echo "minimonkey_picture_infer run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******paddlemix minimonkey_picture_infer end***********"
 
@@ -57,9 +57,9 @@ echo "*******paddlemix minimonkey_train begin begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "minimonkey_train run success" >>"${log_dir}/ut_res.log"
+    echo "minimonkey_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "minimonkey_train run fail" >>"${log_dir}/ut_res.log"
+    echo "minimonkey_train run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******paddlemix minimonkey_train end***********"
 
@@ -71,7 +71,7 @@ unset https_proxy
 # rm -rf red-panda.mp4
 # rm -rf playground
 # 查看结果
-cat ${log_dir}/ut_res.log
+cat ${log_dir}/ce_res.log
 
 echo exit_code:${exit_code}
 exit ${exit_code}
