@@ -20,7 +20,7 @@ IN_1K_DIR=${root_path}/data/imagenet-val
     --adam_beta2 0.999 \
     --adam_epsilon 1e-8 \
     --max_grad_norm 5.0 \
-    --max_steps 100 \
+    --max_steps 200 \
     --tensor_parallel_degree 1 \
     --sharding_parallel_degree 2 \
     --sharding "stage2" \
@@ -29,7 +29,7 @@ IN_1K_DIR=${root_path}/data/imagenet-val
     --logging_steps 1 \
     --do_train \
     --disable_tqdm True \
-    --save_steps 100 \
+    --save_steps 200 \
     --local_loss true \
     --gather_with_grad true \
     --pretrained_text_model ${MODEL_NAME} \
