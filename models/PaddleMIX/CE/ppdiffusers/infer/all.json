@@ -36,10 +36,10 @@
         "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"refine pre-commit\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/6f6e82a9034b0cd047b2f90eb1f867c97957aafd\">refine pre-commit</a>"
     },
     "image_mixing-clip_guided_stable_diffusion.py": {
-        "oid": "8458f37c97e648652810bfb1e848d3c9871916a5",
-        "url": "/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5",
-        "date": "2024-03-12T10:54:23.000+08:00",
-        "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"Merge upgrade_ppdiffusers0240 to develop brutal (#458)\n\n将[upgrade_ppdiffusers0240](https://github.com/PaddlePaddle/PaddleMIX/tree/upgrade_ppdiffusers0240)分支的内容合并至develop分支\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5\">Merge upgrade_ppdiffusers0240 to develop brutal (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2178548185\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/458\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/458/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/458\">#458</a><a data-pjax=\"true\" title=\"Merge upgrade_ppdiffusers0240 to develop brutal (#458)\n\n将[upgrade_ppdiffusers0240](https://github.com/PaddlePaddle/PaddleMIX/tree/upgrade_ppdiffusers0240)分支的内容合并至develop分支\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5\">)</a>"
+        "oid": "ca79227551082d4bdb70b5743e6ff1cb7cbd9588",
+        "url": "/PaddlePaddle/PaddleMIX/commit/ca79227551082d4bdb70b5743e6ff1cb7cbd9588",
+        "date": "2025-03-24T15:08:51.000+08:00",
+        "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"Fix typos in multiple files (#1153)\n\nFix typos in multiple files\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/ca79227551082d4bdb70b5743e6ff1cb7cbd9588\">Fix typos in multiple files (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2937639241\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/1153\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/1153/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/1153\">#1153</a><a data-pjax=\"true\" title=\"Fix typos in multiple files (#1153)\n\nFix typos in multiple files\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/ca79227551082d4bdb70b5743e6ff1cb7cbd9588\">)</a>"
     },
     "image_to_image_text_guided_generation-alt_diffusion.py": {
         "oid": "6f6e82a9034b0cd047b2f90eb1f867c97957aafd",
@@ -418,6 +418,12 @@
         "url": "/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5",
         "date": "2024-03-12T10:54:23.000+08:00",
         "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"Merge upgrade_ppdiffusers0240 to develop brutal (#458)\n\n将[upgrade_ppdiffusers0240](https://github.com/PaddlePaddle/PaddleMIX/tree/upgrade_ppdiffusers0240)分支的内容合并至develop分支\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5\">Merge upgrade_ppdiffusers0240 to develop brutal (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2178548185\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/458\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/458/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/458\">#458</a><a data-pjax=\"true\" title=\"Merge upgrade_ppdiffusers0240 to develop brutal (#458)\n\n将[upgrade_ppdiffusers0240](https://github.com/PaddlePaddle/PaddleMIX/tree/upgrade_ppdiffusers0240)分支的内容合并至develop分支\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5\">)</a>"
+    },
+    "text_to_video_generation-hunyuan_video.py": {
+        "oid": "9fd87ab99cb4286f1a2b86d2136b33ca6234ab59",
+        "url": "/PaddlePaddle/PaddleMIX/commit/9fd87ab99cb4286f1a2b86d2136b33ca6234ab59",
+        "date": "2025-03-06T10:54:10.000+08:00",
+        "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"add hunyuanvideo code (#1081)\n\nCo-authored-by: xuzhang &lt;westfish@126.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/9fd87ab99cb4286f1a2b86d2136b33ca6234ab59\">add hunyuanvideo code (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2880870286\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/1081\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/1081/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/1081\">#1081</a><a data-pjax=\"true\" title=\"add hunyuanvideo code (#1081)\n\nCo-authored-by: xuzhang &lt;westfish@126.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/9fd87ab99cb4286f1a2b86d2136b33ca6234ab59\">)</a>"
     },
     "text_to_video_generation-lvdm.py": {
         "oid": "0bf041bb191a310180df7c898d53e31de3b01737",
