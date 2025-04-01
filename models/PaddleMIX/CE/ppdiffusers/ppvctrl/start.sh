@@ -38,8 +38,8 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=extract_mask
 echo "******* ${model_name}_${case_name} begin***********"
-(rm -rf anchor/checkpoints/SAM2 && \
-mkdir -p anchor/checkpoints/SAM2 && \
+(rm -rf anchor/checkpoints/mask && \
+mkdir -p anchor/checkpoints/mask && \
 wget -P anchor/checkpoints/mask https://bj.bcebos.com/v1/paddlenlp/models/community/Sam/Sam2/sam2.1_hiera_large.pdparams && \
 bash anchor/extract_mask.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
