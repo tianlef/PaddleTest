@@ -64,7 +64,7 @@ fi
 echo "*******paddlemix InternVL2_video_infer end***********"
 
 model_name="InternVL2"
-case_train="pretrain_1st"
+case_name="pretrain_1st"
 (python -u check_loss.py "sh paddlemix/examples/internvl2/shell/internvl2.0/1st_pretrain/internvl2_1b_qwen2-5_0_5b_dynamic_res_pretrain.sh") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
@@ -76,7 +76,7 @@ fi
 echo "*******paddlemix ${model_name}_${case_name} end***********"
 
 model_name="InternVL2"
-case_train="pretrain_internlm-1_8b"
+case_name="pretrain_internlm-1_8b"
 (python -u check_loss.py "sh paddlemix/examples/internvl2/shell/internvl2.0/1st_pretrain/internvl2_2b_internlm2_1_8b_dynamic_res_pretrain.sh") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
@@ -88,7 +88,7 @@ fi
 echo "*******paddlemix ${model_name}_${case_name} end***********"
 
 model_name="InternVL2"
-case_train="pretrain_Qwen2.5-1.5b"
+case_name="pretrain_Qwen2.5-1.5b"
 (python -u check_loss.py "sh paddlemix/examples/internvl2/shell/internvl2.0/1st_pretrain/internvl2_2b_qwen2-5_1_5b_dynamic_res_pretrain.sh") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
@@ -102,7 +102,7 @@ echo "*******paddlemix ${model_name}_${case_name} end***********"
 
 
 model_name="InternVL2"
-case_train="fintune_multi"
+case_name="fintune_multi"
 (python -u check_loss.py "sh paddlemix/examples/internvl2/shell/internvl2.5/2nd_finetune/internvl2_5_2b_dynamic_res_2nd_finetune_full.sh") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
@@ -114,7 +114,7 @@ fi
 echo "*******paddlemix ${model_name}_${case_name} end***********"
 
 model_name="InternVL2"
-case_train="fintune_single"
+case_name="fintune_single"
 (sh paddlemix/examples/internvl2/shell/internvl2.0/2nd_finetune/internvl2_1b_qwen2_0_5b_dynamic_res_2nd_finetune_full.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
