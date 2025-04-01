@@ -8,7 +8,7 @@ echo "*******paddlemix clip eval begin***********"
 
 MODEL_NAME="paddlemix/CLIP/Vit-L-14"
 
-IN_1K_DIR=${root_path}/data/imagenet-val/
+IN_1K_DIR=${root_path}/data/imagenet-val
 
 (python run_zero_shot_eval.py \
     --per_device_eval_batch_size 1 \
