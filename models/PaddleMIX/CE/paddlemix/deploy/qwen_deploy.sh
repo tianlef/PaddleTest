@@ -19,7 +19,7 @@ cd ${root_path}/PaddleMIX/
 
 
 cd ${work_path}
-# bash prepare_qwen.sh
+bash prepare_qwen.sh
 
 echo "*******paddlemix deploy qwen_vl begin***********"
 
