@@ -7,7 +7,7 @@ exit_code=0
 echo "*******paddlemix coca train begin***********"
 
 MODEL_NAME="paddlemix/CoCa/coca_Vit-L-14/"
-IN_1K_DIR=${root_path}/data/imagenet-val/
+IN_1K_DIR=${root_path}/data/imagenet-val
 
 (python -m paddle.distributed.launch --nproc_per_node 2 run_pretrain_dist.py \
     --dataloader_num_workers=2 \
