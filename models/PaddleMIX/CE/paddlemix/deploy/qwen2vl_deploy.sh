@@ -33,8 +33,19 @@ export FLAGS_cudnn_deterministic=1
 export FLAGS_enable_pir_api=0
 exit_code=0
 # infernece
-(CUDA_VISIBLE_DEVICES=0 python deploy/qwen2_vl/single_image_infer.py \
+(python deploy/qwen2_vl/single_image_infer.py\
     --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
+    --question "Describe this image." \
+    --image_file paddlemix/demo_images/examples_image1.jpg \
+    --min_length 128 \
+    --max_length 128 \
+    --top_k 1 \
+    --top_p 0.001 \
+    --temperature 0.1 \
+    --repetition_penalty 1.05 \
+    --block_attn True \
+    --inference_model True \
+    --mode dynamic \
     --dtype bfloat16 \
     --benchmark True) 2>&1 | tee ${log_dir}/qwen2vl_inference_old.log
 tmp_exit_code=${PIPESTATUS[0]}
@@ -46,7 +57,7 @@ else
 fi
 echo "*******qwen2vl_inference_old end***********"
 
-# 多卡推理
+### 3.2. 文本&视频输入高性能推理
 (CUDA_VISIBLE_DEVICES=0 python deploy/qwen2_vl/video_infer.py \
     --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
     --dtype bfloat16 \
@@ -61,12 +72,7 @@ fi
 echo "*******qwen2vl_inference_visual_old end***********"
 
 
-
-export FLAGS_enable_pir_api=1
-(CUDA_VISIBLE_DEVICES=0 python deploy/qwen2_vl/single_image_infer.py \
-    --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
-    --dtype bfloat16 \
-    --benchmark True) 2>&1 | tee ${log_dir}/qwen2vl_inference_new.log
+(sh deploy/qwen2_vl/scripts/qwen2_vl.sh) 2>&1 | tee ${log_dir}/qwen2vl_inference_new.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
