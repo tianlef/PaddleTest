@@ -16,8 +16,7 @@ fi
 exit_code=0
 
 cd ${root_path}/PaddleMIX/
-export http_proxy=${proxy}
-export https_proxy=${proxy}
+
 
 cd ${work_path}
 # bash prepare_qwen.sh
