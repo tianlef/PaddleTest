@@ -76,9 +76,7 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=i2v_canny
 echo "******* ${model_name}_${case_name} begin***********"
-(rm infer_outputs/canny/i2v && \
-mkdir -p infer_outputs/canny/i2v && \
-bash scripts/infer_cogvideox_i2v_canny_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(bash scripts/infer_cogvideox_i2v_canny_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -92,9 +90,7 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=t2v_canny
 echo "******* ${model_name}_${case_name} begin***********"
-(rm -rf infer_outputs/canny/t2v && \
-mkdir -p infer_outputs/canny/t2v && \
-bash scripts/infer_cogvideox_t2v_canny_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(bash scripts/infer_cogvideox_t2v_canny_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -107,8 +103,7 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=i2v_mask
 echo "******* ${model_name}_${case_name} begin***********"
-(rm -rf infer_outputs/mask/i2v && \
-mkdir -p infer_outputs/mask/i2v && bash scripts/infer_cogvideox_i2v_mask_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(bash scripts/infer_cogvideox_i2v_mask_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -120,8 +115,7 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=t2v_mask
 echo "******* ${model_name}_${case_name} begin***********"
-(rm -rf infer_outputs/mask/t2v && \
-mkdir -p infer_outputs/mask/t2v && bash scripts/infer_cogvideox_t2v_mask_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(bash scripts/infer_cogvideox_t2v_mask_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -134,8 +128,7 @@ echo "******* ${model_name}_${case_name} end***********"
 
 case_name=i2v_pose
 echo "******* ${model_name}_${case_name} begin***********"
-(rm -rf infer_outputs/pose/i2v && \
-mkdir -p infer_outputs/pose/i2v && bash scripts/infer_cogvideox_i2v_pose_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(bash scripts/infer_cogvideox_i2v_pose_vctrl.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
