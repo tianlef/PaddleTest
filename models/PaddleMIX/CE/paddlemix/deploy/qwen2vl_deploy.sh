@@ -47,54 +47,40 @@ exit_code=0
     --inference_model True \
     --mode dynamic \
     --dtype bfloat16 \
-    --benchmark True) 2>&1 | tee ${log_dir}/qwen2vl_inference_old.log
+    --benchmark True) 2>&1 | tee ${log_dir}/qwen2vl_single_image_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2vl_inference_old success" >>"${log_dir}/ce_res.log"
+    echo "qwen2vl_single_image_infer success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2vl_inference_old fail" >>"${log_dir}/ce_res.log"
+    echo "qwen2vl_single_image_infer fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******qwen2vl_inference_old end***********"
+echo "*******qwen2vl_single_image_infer end***********"
 
 ### 3.2. 文本&视频输入高性能推理
 (CUDA_VISIBLE_DEVICES=0 python deploy/qwen2_vl/video_infer.py \
     --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
     --dtype bfloat16 \
-    --benchmark True) 2>&1 | tee ${log_dir}/qwen2vl_inference_visual_old.log
+    --benchmark True) 2>&1 | tee ${log_dir}/qwen2vl_video_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2vl_inference_visual_old success" >>"${log_dir}/ce_res.log"
+    echo "qwen2vl_video_infer success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2vl_inference_visual_old fail" >>"${log_dir}/ce_res.log"
+    echo "qwen2vl_video_infer fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******qwen2vl_inference_visual_old end***********"
+echo "*******qwen2vl_video_infer end***********"
 
 
-(sh deploy/qwen2_vl/scripts/qwen2_vl.sh) 2>&1 | tee ${log_dir}/qwen2vl_inference_new.log
+(sh deploy/qwen2_vl/scripts/qwen2_vl.sh) 2>&1 | tee ${log_dir}/qwen2vl_inference_scripts.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2vl_inference_new success" >>"${log_dir}/ce_res.log"
+    echo "qwen2vl_inference_scripts success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen2vl_inference_new fail" >>"${log_dir}/ce_res.log"
+    echo "qwen2vl_inference_scripts fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******qwen2vl_inference_new end***********"
-
-# 多卡推理
-(CUDA_VISIBLE_DEVICES=0 python deploy/qwen2_vl/video_infer.py \
-    --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
-    --dtype bfloat16 \
-    --benchmark True) 2>&1 | tee ${log_dir}/qwen2vl_inference_visual_new.log
-tmp_exit_code=${PIPESTATUS[0]}
-exit_code=$(($exit_code + ${tmp_exit_code}))
-if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen2vl_inference_visual_new success" >>"${log_dir}/ce_res.log"
-else
-    echo "qwen2vl_inference_visual_new fail" >>"${log_dir}/ce_res.log"
-fi
-echo "*******qwen2vl_inference_visual_new end***********"
+echo "*******qwen2vl_inference_scripts end***********"
 
 unset FLAGS_enable_pir_api
 
