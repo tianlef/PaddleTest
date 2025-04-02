@@ -22,7 +22,7 @@ cd ${cur_path}
 
 cd ${work_path2}
 
-
+python -m pip install ml_dtypes
 exit_code=0
 model_name=qwen25_vl_deploy
 case_name=fp16
