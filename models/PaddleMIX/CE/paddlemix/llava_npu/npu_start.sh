@@ -13,7 +13,9 @@ if [ ! -d "$log_dir" ]; then
 fi
 
 /bin/cp -rf ./* ${work_path}/
-/bin/cp -f ../../check_loss.py ${work_path}/
+
+tool_path=${root_path}/PaddleTest/models/PaddleMIX/Tools
+/bin/cp -f ${tool_path}/check_loss.py ${work_path}/
 exit_code=0
 
 cd ${work_path}
