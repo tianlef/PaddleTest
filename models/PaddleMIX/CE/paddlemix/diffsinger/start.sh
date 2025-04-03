@@ -3,7 +3,7 @@
 cur_path=$(pwd)
 echo ${cur_path}
 
-work_path=${root_path}/PaddleMIX/
+work_path=${root_path}/PaddleMIX/paddlemix/examples/diffsinger
 echo ${work_path}
 
 log_dir=${root_path}/paddlemix_log
@@ -39,7 +39,6 @@ echo "******* ${model_name}_${case_name} end***********"
 
 echo exit_code:${exit_code}
 
-cd paddlemix/examples/diffsinger/
 rm -rf openvpi.tar
 rm -rf openvpi
 exit ${exit_code}
