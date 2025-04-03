@@ -39,5 +39,7 @@ echo "******* ${model_name}_${case_name} end***********"
 
 echo exit_code:${exit_code}
 
-# cat ${log_dir}/ce_res.log
+cd paddlemix/examples/diffsinger/
+rm -rf openvpi.tar
+rm -rf openvpi
 exit ${exit_code}
