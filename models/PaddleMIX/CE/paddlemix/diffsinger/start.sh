@@ -14,7 +14,7 @@ fi
 
 /bin/cp -rf ./* ${work_path}
 
-cd ${cur_path}/PaddleMIX
+cd ${root_path}/PaddleMIX
 
 bash prepare.sh
 
@@ -24,7 +24,7 @@ model_name=diffsinger
 
 case_name=predict
 
-cd ${work_path}/examples/paddlemix/examples/diffsinger
+cd ${work_path}
 pip install -r requirements.txt
 echo "******* ${model_name}_${case_name} begin***********"
 (bash run_predict.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
