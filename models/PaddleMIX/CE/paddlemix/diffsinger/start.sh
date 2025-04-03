@@ -14,7 +14,7 @@ fi
 
 /bin/cp -rf ./* ${work_path}
 
-cd ${work_path}
+cd ${cur_path}/PaddleMIX
 
 bash prepare.sh
 
