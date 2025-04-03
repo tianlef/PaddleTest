@@ -40,9 +40,9 @@ echo "*******paddlemix ${model_name}_${case_name} begin begin***********"
 (python paddlemix/examples/sam2/grounded_sam2_tracking_demo.py \
        --sam2_config configs/sam2.1_hiera_l.yaml \
        --sam2_checkpoint sam2.1_hiera_large.pdparams \
-       --input_path input.mp4 \
+       --input_path ${work_path}/paddlemix/demo_images/red-panda.mp4 \
        --output_path output.mp4 \
-       --prompt "input your prompt here") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+       --prompt "get panda") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
