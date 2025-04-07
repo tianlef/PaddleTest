@@ -47,7 +47,7 @@ echo "*******paddlemix qwen2_vl_ops_install end***********"
 
 
 cd ${work_path}
-
+model_name=qwen2_vl
 # infer 部分需要A100的显卡 Tesla V100的显卡 不支持
 
 echo "*******paddlemix qwen2_vl_infer begin begin***********"
@@ -85,7 +85,7 @@ else
 fi
 echo "*******paddlemix qwen2_vl_video end***********"
 
-model_name=qwen2_vl
+
 
 case_name=batch_inference
 echo "******* ${model_name}_${case_name} begin***********"
