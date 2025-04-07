@@ -19,11 +19,10 @@ python train_dreambooth_lora_sd3.py \
   --train_batch_size=1 \
   --gradient_accumulation_steps=4 \
   --learning_rate=5e-5 \
-  --report_to="wandb" \
   --lr_scheduler="constant" \
   --lr_warmup_steps=0 \
-  --max_train_steps=10 \
+  --max_train_steps=50 \
+  --validation_prompt="A photo of sks dog in a bucket" \
   --validation_epochs=25 \
   --seed="0" \
-  --checkpointing_steps=250 \
-  --not_validation_final
+  --checkpointing_steps=25
