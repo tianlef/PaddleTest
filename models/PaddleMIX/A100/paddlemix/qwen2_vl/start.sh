@@ -136,32 +136,6 @@ fi
 echo "*******paddlemix qwen2_vl_train_infer end***********"
 
 
-case_name=auto_2b_bs32_1e8
-echo "******* ${model_name}_${case_name} begin***********"
-(sh paddlemix/examples/qwen2_vl/shell/auto_2b_bs32_1e8.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
-tmp_exit_code=${PIPESTATUS[0]}
-exit_code=$(($exit_code + ${tmp_exit_code}))
-if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
-else
-    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
-fi
-echo "******* ${model_name}_${case_name} end***********"
-
-
-case_name=merge_auto_2b_bs32_1e8
-echo "******* ${model_name}_${case_name} begin***********"
-(python merge_auto.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
-tmp_exit_code=${PIPESTATUS[0]}
-exit_code=$(($exit_code + ${tmp_exit_code}))
-if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
-else
-    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
-fi
-echo "******* ${model_name}_${case_name} end***********"
-
-
 case_name=lora_train
 echo "******* ${model_name}_${case_name} begin***********"
 (sh baseline_2b_lora_bs32_1e8.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
@@ -191,6 +165,42 @@ else
 fi
 echo "******* ${model_name}_${case_name} end***********"
 
+case_name=auto_2b_bs32_1e8
+echo "******* ${model_name}_${case_name} begin***********"
+(sh auto_2b_bs32_1e8.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
+else
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "******* ${model_name}_${case_name} end***********"
+
+
+case_name=merge_auto_2b_bs32_1e8
+echo "******* ${model_name}_${case_name} begin***********"
+(python merge_auto.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
+else
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "******* ${model_name}_${case_name} end***********"
+
+case_name=auto_lora
+echo "******* ${model_name}_${case_name} begin***********"
+(python auto_2b_lora_bs32_1e8.sh.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
+else
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "******* ${model_name}_${case_name} end***********"
 
 # # 查看结果
 # cat ${log_dir}/ce_res.log
