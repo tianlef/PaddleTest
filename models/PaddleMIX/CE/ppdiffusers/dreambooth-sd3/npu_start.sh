@@ -17,7 +17,7 @@ fi
 
 cd ${work_path}
 exit_code=0
-export ASCEND_DEVICE_ID=1
+
 bash prepare.sh
 
 # 设置NPU环境变量
@@ -56,6 +56,6 @@ echo "*******dreambooth lora infer end***********"
 
 
 rm -rf ${work_path}/dogs/
-unset ASCEND_DEVICE_ID
+
 echo exit_code:${exit_code}
 exit ${exit_code}
