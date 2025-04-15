@@ -22,4 +22,5 @@ python -u train_text_to_image_sdxl.py \
   --mixed_precision="fp16" \
   --validation_prompt="a cute Sundar Pichai creature" --validation_epochs 5 \
   --checkpointing_steps=10 \
-  --output_dir="sdxl-pokemon-model"
+  --output_dir="sdxl-pokemon-model" \
+  --not_validation_final
