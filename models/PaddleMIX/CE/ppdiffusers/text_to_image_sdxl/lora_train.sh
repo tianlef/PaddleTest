@@ -26,5 +26,5 @@ python -u train_text_to_image_lora_sdxl.py \
   --max_train_steps=30 \
   --checkpointing_steps=10 \
   --output_dir="sd-pokemon-model-lora-sdxl" \
-  --validation_prompt="cute dragon creature" --report_to="wandb"
+  --validation_prompt="cute dragon creature"
 

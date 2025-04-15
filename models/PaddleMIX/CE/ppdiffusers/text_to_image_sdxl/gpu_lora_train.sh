@@ -16,4 +16,4 @@ python -u train_text_to_image_lora_sdxl.py \
   --mixed_precision="fp16" \
   --seed=42 \
   --output_dir="sd-pokemon-model-lora-sdxl" \
-  --validation_prompt="cute dragon creature" --report_to="wandb"
+  --validation_prompt="cute dragon creature"

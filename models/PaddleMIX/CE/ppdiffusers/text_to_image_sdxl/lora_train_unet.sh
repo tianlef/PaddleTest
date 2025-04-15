@@ -24,5 +24,4 @@ python -u train_text_to_image_lora_sdxl.py \
   --checkpointing_steps=10 \
   --output_dir="sd-pokemon-model-lora-sdxl-txt" \
   --train_text_encoder \
-  --validation_prompt="cute dragon creature" --report_to="wandb" \
-  --not_validation_final
+  --validation_prompt="cute dragon creature" \
