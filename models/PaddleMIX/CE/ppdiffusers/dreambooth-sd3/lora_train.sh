@@ -22,7 +22,7 @@ python train_dreambooth_lora_sd3.py \
   --lr_scheduler="constant" \
   --lr_warmup_steps=0 \
   --max_train_steps=50 \
-  --validation_prompt="A photo of sks dog in a bucket" \
   --validation_epochs=25 \
   --seed="0" \
-  --checkpointing_steps=25
+  --checkpointing_steps=25 \
+  --not_validation_final
