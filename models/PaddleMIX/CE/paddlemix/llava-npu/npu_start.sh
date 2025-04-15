@@ -37,8 +37,7 @@ export CUSTOM_DEVICE_BLACK_LIST=set_value,set_value_with_tensor
 
 (python paddlemix/examples/llava/run_predict_multiround.py \
     --model-path "liuhaotian/llava-v1.6-vicuna-7b" \
-    --image-file "https://bj.bcebos.com/v1/paddlenlp/models/community/GroundingDino/000000004505.jpg" \
-    --fp16) 2>&1 | tee ${log_dir}/paddlemix_llava_infer.log
+    --image-file "https://bj.bcebos.com/v1/paddlenlp/models/community/GroundingDino/000000004505.jpg") 2>&1 | tee ${log_dir}/paddlemix_llava_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
