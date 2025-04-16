@@ -146,7 +146,7 @@ def infer_process(selected_dirs):
 
         finally:
             # 记录运行结果
-            with open(f"{log_dir}/infer_res.log", "a") as log_file:
+            with open(f"{log_dir}/ce_res.log", "a") as log_file:
                 if tmp_exit_code == 0:
                     log_file.write(f"{script} run success\n")
                     print(f"******* Successfully running {script} ***********", flush=True)
@@ -159,7 +159,7 @@ def infer_process(selected_dirs):
     # 输出最终的 exit_code
     print(f"Final exit code: {exit_code}")
      # 查看结果
-    ce_res_log_path = os.path.join(log_dir, "infer_res.log")
+    ce_res_log_path = os.path.join(log_dir, "ce_res.log")
     if os.path.isfile(ce_res_log_path):
         with open(ce_res_log_path, "r") as log_file:
             print(log_file.read())
