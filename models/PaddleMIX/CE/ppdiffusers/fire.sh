@@ -33,6 +33,18 @@ for subdir in */; do
     if [ "$subdir" == "deleted/" ]; then
       continue
     fi
+
+    if [ "$subdir" == "open-magvit2/" ]; then
+      continue
+    fi
+
+    if [ "$subdir" == "ppvctrl/" ]; then
+      continue
+    fi
+
+    if [ "$subdir" == "text_to_image_sdxl/" ]; then
+      continue
+    fi
     
     if [ "$subdir" == "dreambooth-sd3/" ]; then
       continue
