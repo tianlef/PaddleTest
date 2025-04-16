@@ -40,9 +40,9 @@ echo "*******tests/schedulers begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "tests/schedulers run success" >>"${log_dir}/ut_res.log"
+    echo "tests/schedulers run success" >>"${log_dir}/ce_res.log"
 else
-    echo "tests/schedulers run fail" >>"${log_dir}/ut_res.log"
+    echo "tests/schedulers run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******tests/schedulers end***********"
 
@@ -51,9 +51,9 @@ echo "*******tests/others begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "tests/others run success" >>"${log_dir}/ut_res.log"
+    echo "tests/others run success" >>"${log_dir}/ce_res.log"
 else
-    echo "tests/others run fail" >>"${log_dir}/ut_res.log"
+    echo "tests/others run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******tests/others end***********"
 
@@ -62,9 +62,9 @@ echo "*******tests/models begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "tests/models run success" >>"${log_dir}/ut_res.log"
+    echo "tests/models run success" >>"${log_dir}/ce_res.log"
 else
-    echo "tests/models run fail" >>"${log_dir}/ut_res.log"
+    echo "tests/models run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******tests/models end***********"
 
@@ -75,9 +75,9 @@ echo "*******tests/pipelines begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "tests/pipelines run success" >>"${log_dir}/ut_res.log"
+    echo "tests/pipelines run success" >>"${log_dir}/ce_res.log"
 else
-    echo "tests/pipelines run fail" >>"${log_dir}/ut_res.log"
+    echo "tests/pipelines run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******tests/pipelines end***********"
 
@@ -87,9 +87,9 @@ echo "*******tests/community begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "tests/community run success" >>"${log_dir}/ut_res.log"
+    echo "tests/community run success" >>"${log_dir}/ce_res.log"
 else
-    echo "tests/community run fail" >>"${log_dir}/ut_res.log"
+    echo "tests/community run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******tests/community end***********"
 
@@ -97,7 +97,7 @@ unset http_proxy
 unset https_proxy
 
 # # 查看结果
-cat ${log_dir}/ut_res.log
+cat ${log_dir}/ce_res.log
 
 # 查看pip list 
 pip list | grep paddle
