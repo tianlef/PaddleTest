@@ -12,8 +12,9 @@ if [ ! -d "$log_dir" ]; then
     mkdir -p "$log_dir"
 fi
 
+tools_path=${root_path}/PaddleTest/models/PaddleMIX/Tools
 /bin/cp -rf ./* ${work_path}
-
+/bin/cp -f ${tools_path}/check_loss.py ${work_path}
 cd ${work_path}
 exit_code=0
 
@@ -25,72 +26,97 @@ export https_proxy=${mix_proxy}
 
 exit_code=0
 export no_proxy=baidu.com,127.0.0.1,0.0.0.0,localhost,bcebos.com,pip.baidu-int.com,mirrors.baidubce.com,repo.baidubce.com,repo.bcm.baidubce.com,pypi.tuna.tsinghua.edu.cn,aistudio.baidu.com
-
-bash prepare.sh
 export FLAGS_use_stride_kernel=0
 export FLAGS_npu_storage_format=0 # 关闭私有格式
 export FLAGS_npu_jit_compile=0 # 关闭即时编译
 export FLAGS_npu_scale_aclnn=True # aclnn加速
 export FLAGS_npu_split_aclnn=True # aclnn加速
 export CUSTOM_DEVICE_BLACK_LIST=set_value,set_value_with_tensor 
-echo "*******paddlemix InternVL2_picture_infer begin begin***********"
-cp ${work_path}/paddlemix/demo_images/examples_image1.jpg .
+
+bash prepare.sh
+# # 准备图片做物料
+# echo "*******paddlemix InternVL2_picture_infer begin begin***********"
+# cp ${work_path}/paddlemix/demo_images/examples_image1.jpg .
 
 # (python paddlemix/examples/internvl2/chat_demo.py \
-#     --model_name_or_path "OpenGVLab/InternVL2-8B" \
-#     --image_path 'examples_image1.jpg' \
+#     --model_name_or_path "OpenGVLab/InternVL2-1B" \
+#     --image_path 'paddlemix/demo_images/examples_image1.jpg' \
 #     --text "Please describe this image in detail.") 2>&1 | tee ${log_dir}/InternVL2_picture_infer.log
 # tmp_exit_code=${PIPESTATUS[0]}
 # exit_code=$(($exit_code + ${tmp_exit_code}))
 # if [ ${tmp_exit_code} -eq 0 ]; then
-#     echo "InternVL2_picture_infer run success" >>"${log_dir}/ut_res.log"
+#     echo "InternVL2_picture_infer run success" >>"${log_dir}/ce_res.log"
 # else
-#     echo "InternVL2_picture_infer run fail" >>"${log_dir}/ut_res.log"
+#     echo "InternVL2_picture_infer run fail" >>"${log_dir}/ce_res.log"
 # fi
 # echo "*******paddlemix InternVL2_picture_infer end***********"
 
-
+# # V100不支持此case
 # echo "*******paddlemix InternVL2_video_infer begin begin***********"
 # # 准备视频做物料
 # cp ${work_path}/paddlemix/demo_images/red-panda.mp4 .
 
 # (python paddlemix/examples/internvl2/chat_demo_video.py \
-#     --model_name_or_path "OpenGVLab/InternVL2-8B" \
-#     --video_path 'red-panda.mp4' \
+#     --model_name_or_path "OpenGVLab/InternVL2-1B" \
+#     --video_path 'paddlemix/demo_images/red-panda.mp4' \
 #     --text "Please describe this video in detail.") 2>&1 | tee ${log_dir}/InternVL2_video_infer.log
 # tmp_exit_code=${PIPESTATUS[0]}
 # exit_code=$(($exit_code + ${tmp_exit_code}))
 # if [ ${tmp_exit_code} -eq 0 ]; then
-#     echo "InternVL2_video_infer run success" >>"${log_dir}/ut_res.log"
+#     echo "InternVL2_video_infer run success" >>"${log_dir}/ce_res.log"
 # else
-#     echo "InternVL2_video_infer run fail" >>"${log_dir}/ut_res.log"
+#     echo "InternVL2_video_infer run fail" >>"${log_dir}/ce_res.log"
 # fi
 # echo "*******paddlemix InternVL2_video_infer end***********"
 
-
-echo "*******paddlemix InternVL2_train begin begin***********"
-# 只测2B模型即可 32G以下显存
-(bash train_internvl2.sh) 2>&1 | tee ${log_dir}/InternVL2_train.log
+model_name="InternVL2"
+case_name="pretrain"
+(python -u check_loss.py "sh paddlemix/examples/internvl2/shell/internvl2.0/1st_pretrain/internvl2_1b_qwen2_0_5b_dynamic_res_1st_pretrain.sh") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "InternVL2_train run success" >>"${log_dir}/ut_res.log"
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
 else
-    echo "InternVL2_train run fail" >>"${log_dir}/ut_res.log"
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix InternVL2_train end***********"
+echo "*******paddlemix ${model_name}_${case_name} end***********"
+
+model_name="InternVL2"
+case_name="fintune_internvl2_1b"
+(python -u check_loss.py "sh paddlemix/examples/internvl2/shell/internvl2.0/2nd_finetune/internvl2_1b_qwen2_0_5b_dynamic_res_2nd_finetune_full.sh") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
+else
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "*******paddlemix ${model_name}_${case_name} end***********"
+
+model_name="InternVL2"
+case_name="internvl2_5_2b"
+(sh paddlemix/examples/internvl2/shell/internvl2.5/2nd_finetune/internvl2_5_2b_dynamic_res_2nd_finetune_full.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
+else
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "*******paddlemix ${model_name}_${case_name} end***********"
+
 
 echo "*******paddlemix InternVL2_after_train_infer begin begin***********"
 (python paddlemix/examples/internvl2/chat_demo.py \
-    --model_name_or_path "work_dirs/internvl_chat_v2_0/internvl2_2b_internlm2_1_8b_dynamic_res_2nd_finetune_full-1B" \
+    --model_name_or_path "work_dirs/internvl_chat_v2_5/internvl2_5_2b_dynamic_res_2nd_finetune_full" \
     --image_path 'paddlemix/demo_images/examples_image1.jpg' \
     --text "Please describe this image in detail.") 2>&1 | tee ${log_dir}/InternVL2_after_train_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "InternVL2_after_train_infer run success" >>"${log_dir}/ut_res.log"
+    echo "InternVL2_after_train_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "InternVL2_after_train_infer run fail" >>"${log_dir}/ut_res.log"
+    echo "InternVL2_after_train_infer run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******paddlemix InternVL2_after_train_infer end***********"
 
@@ -100,7 +126,7 @@ unset https_proxy
 rm -rf examples_image1.jpg
 rm -rf red-panda.mp4
 # 查看结果
-cat ${log_dir}/ut_res.log
+# cat ${log_dir}/ce_res.log
 
 echo exit_code:${exit_code}
 exit ${exit_code}
