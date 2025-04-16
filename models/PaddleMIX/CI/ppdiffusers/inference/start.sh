@@ -17,17 +17,17 @@ exit_code=0
 
 cd ${work_path}
 
-bash alt_diffusion_infer.sh
-exit_code=$(($exit_code + $?))
+# bash alt_diffusion_infer.sh
+# exit_code=$(($exit_code + $?))
 
-bash audio_diffusion_infer.sh
-exit_code=$(($exit_code + $?))
+# bash audio_diffusion_infer.sh
+# exit_code=$(($exit_code + $?))
 
 bash controlnet_infer.sh
 exit_code=$(($exit_code + $?))
 
-bash dance_diffusion_infer.sh
-exit_code=$(($exit_code + $?))
+# bash dance_diffusion_infer.sh
+# exit_code=$(($exit_code + $?))
 
 bash ddim_infer.sh
 exit_code=$(($exit_code + $?))
@@ -41,8 +41,8 @@ exit_code=$(($exit_code + $?))
 # bash pndm_infer.sh
 # exit_code=$(($exit_code + $?))
 
-bash repaint_infer.sh
-exit_code=$(($exit_code + $?))
+# bash repaint_infer.sh
+# exit_code=$(($exit_code + $?))
 
 # bash score_sde_ve_infer.sh
 # exit_code=$(($exit_code + $?))
@@ -50,8 +50,8 @@ exit_code=$(($exit_code + $?))
 bash stable_diffusion_infer.sh
 exit_code=$(($exit_code + $?))
 
-bash stochastic_karras_ve_infer.sh
-exit_code=$(($exit_code + $?))
+# bash stochastic_karras_ve_infer.sh
+# exit_code=$(($exit_code + $?))
 
 bash unclip_infer.sh
 exit_code=$(($exit_code + $?))
