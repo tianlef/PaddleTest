@@ -35,6 +35,17 @@ export USE_PPXFORMERS=True
 export RUN_SLOW=True
 # tests目前子目录 community models pipelines schedulers others community
 
+echo "*******tests/fixtures begin***********"
+(python -m pytest -v tests/fixtures) 2>&1 | tee ${log_dir}/tests_schedulers.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "tests/fixtures run success" >>"${log_dir}/ce_res.log"
+else
+    echo "tests/fixtures run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "*******tests/fixtures end***********"
+
 echo "*******tests/schedulers begin***********"
 (python -m pytest -v tests/schedulers) 2>&1 | tee ${log_dir}/tests_schedulers.log
 tmp_exit_code=${PIPESTATUS[0]}
