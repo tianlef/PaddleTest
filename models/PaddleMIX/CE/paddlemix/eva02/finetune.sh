@@ -41,7 +41,7 @@ PRETRAIN_CKPT=./model_state.pdparams
 
 OUTPUT_DIR=./output/eva02_Ti_pt_in21k_ft_in1k_p14
 
-DATA_PATH=/home/dataset/ILSVRC2012_tiny
+DATA_PATH=${root_path}/dataset/ILSVRC2012_tiny
 
 input_size=336
 batch_size=128
