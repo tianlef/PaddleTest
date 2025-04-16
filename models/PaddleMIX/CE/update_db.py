@@ -67,6 +67,7 @@ class update_db(object):
         print("params is ", params)
         proxies = {"http": None, "https": None}
         res = requests.post(self.upload_url, data=params, proxies=proxies)
+        print("response is ", res)
         result = res.json()
         if result["code"] == 200 and result["message"] == "success":
             pass
