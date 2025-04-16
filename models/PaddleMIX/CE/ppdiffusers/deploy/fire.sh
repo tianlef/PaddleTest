@@ -31,6 +31,10 @@ for subdir in */; do
       continue
     fi
 
+    if [ "$subdir" == "svd/" ]; then
+      continue
+    fi
+
     if [ "$subdir" == "sd15/" ]; then
       continue
     fi
