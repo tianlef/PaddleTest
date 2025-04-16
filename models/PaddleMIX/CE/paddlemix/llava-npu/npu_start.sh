@@ -28,7 +28,7 @@ export FLAGS_allocator_strategy=auto_growth
 export ASCEND_RT_VISIBLE_DEVICES=8
 export FLAGS_npu_storage_format=0
 export FLAGS_use_stride_kernel=0
-export FLAGS_npu_jit_compile=0
+export FLAGS_npu_jit_compile=1
 export FLAGS_npu_scale_aclnn=True
 export FLAGS_npu_split_aclnn=True
 export FLAGS_allocator_strategy=auto_growth
@@ -47,7 +47,6 @@ else
 fi
 echo "*******paddlemix llava infer end***********"
 
-echo "*******paddlemix llava finetune***********"
 
 echo "*******paddlemix llava sft 1.5***********"
 (python  -u check_loss.py "python paddlemix/examples/llava/supervised_finetune.py llava_v100_sft_1.5.json") 2>&1 | tee ${log_dir}/paddlemix_llava_sft_1.5.log
