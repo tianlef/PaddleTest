@@ -43,11 +43,16 @@ class update_db(object):
                     self.failure_case += " " + model_name
     
     def get_env_info(self):
-        return {
-            "paddle": self.paddle_commit,
-            "mix": self.mix_commit,
-            "nlp": self.nlp_commit
-        }
+        commit = ""
+        commit += "paddle: " + self.paddle_commit + ","
+        commit += "mix: " + self.mix_commit + ","
+        commit += "nlp: " + self.nlp_commit
+        return commit
+        # return {
+        #     "paddle": self.paddle_commit,
+        #     "mix": self.mix_commit,
+        #     "nlp": self.nlp_commit
+        # }
     
     def upload(self):
         params = {
