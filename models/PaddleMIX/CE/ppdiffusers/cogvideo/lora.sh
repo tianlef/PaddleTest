@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export USE_PEFT_BACKEND=True
-
+pip install decord
 python examples/cogvideo/scripts/train_cogvideox_lora.py \
   --pretrained_model_name_or_path THUDM/CogVideoX-2b \
   --instance_data_root ./davis_validation_fps30_frames49 \

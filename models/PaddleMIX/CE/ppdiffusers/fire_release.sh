@@ -12,14 +12,8 @@ bash prepare.sh
 
 cd ${work_path}
 test_list=(
-    "class_conditional_image_generation/DiT/"
-    "controlnet/"
-    "consistency_distillation/"
-    "dreambooth/"
-    "stable_diffusion/"
-    "text_to_image/"
-    "text_to_image_laion400m/"
-    "cogvideo/"
+    "class_conditional_image_generation_DiT/"
+    "ppvctrl"
 )
 # 遍历当前目录下的子目录
 for subdir in */; do
