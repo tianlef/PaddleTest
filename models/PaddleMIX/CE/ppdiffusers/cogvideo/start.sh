@@ -20,7 +20,8 @@ cd ${work_path}
 exit_code=0
 
 bash prepare.sh
-
+pip install decord
+pip install imageio
 
 model_name="cogvideo"
 case_name="infer"
