@@ -3,6 +3,10 @@
 cur_path=$(pwd)
 echo ${cur_path}
 
+cd ${root_path}/PaddleMIX
+pip install -e .
+
+
 work_path=${root_path}/PaddleMIX/ppdiffusers/examples/ppvctrl/
 echo ${work_path}
 
@@ -18,6 +22,7 @@ cd ${work_path}
 exit_code=0
 
 bash prepare.sh
+
 model_name=ppvctrl
 case_name=extract_canny
 
