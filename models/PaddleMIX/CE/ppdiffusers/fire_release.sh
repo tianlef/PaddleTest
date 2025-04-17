@@ -12,9 +12,8 @@ bash prepare.sh
 
 cd ${work_path}
 test_list=(
-    "class_conditional_image_generation_DiT/"
-    "ppvctrl"
-    "cogvideo"
+    "ppvctrl/"
+    "cogvideo/"
 )
 # 遍历当前目录下的子目录
 for subdir in */; do
