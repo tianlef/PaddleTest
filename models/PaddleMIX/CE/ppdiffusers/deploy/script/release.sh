@@ -25,7 +25,6 @@ test_list=(
 for subdir in */; do
   if [ -d "$subdir" ]; then
     echo "Testing $subdir"
-    cd "$subdir"
     found=false
     for var in "${test_list[@]}"; do 
       if [[ "$subdir" == "$var" ]]; then
@@ -34,6 +33,7 @@ for subdir in */; do
       fi
     done
     if $found; then
+      cd "$subdir"
       echo "Copying test scripts to $subdir"
       cp -f ../test_*.sh .
       clean_name="${subdir%/}"
