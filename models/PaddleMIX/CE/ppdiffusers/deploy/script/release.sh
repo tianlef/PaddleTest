@@ -58,7 +58,6 @@ for subdir in */; do
     else
         echo "subdir is not a test directory: $subdir"
     fi
-  fi
 done
 
 # cd ${work_path}/ipadapter
