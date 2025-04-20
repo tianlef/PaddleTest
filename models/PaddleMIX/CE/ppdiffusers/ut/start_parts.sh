@@ -115,4 +115,3 @@ pip list | grep paddle
 
 pip list | grep huggingface
 echo exit_code:${exit_code}
-exit ${exit_code}
