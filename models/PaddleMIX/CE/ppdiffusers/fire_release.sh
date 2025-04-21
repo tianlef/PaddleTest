@@ -15,7 +15,7 @@ test_list=(
     "autoencoder_vae/"
     "controlnet/"
     "ip_adapter/"
-    "navit"
+    "navit/"
     "t2i_adapter/"
     "text_to_image_mscoco_uvit/"
     "text_to_video_lvdm/"
