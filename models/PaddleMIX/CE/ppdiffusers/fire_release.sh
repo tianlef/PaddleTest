@@ -12,7 +12,15 @@ bash prepare.sh
 
 cd ${work_path}
 test_list=(
-    "class_conditional_image_generation_DiT/"
+    "autoencoder_vae/"
+    "controlnet/"
+    "ip_adapter/"
+    "navit"
+    "t2i_adapter/"
+    "text_to_image_mscoco_uvit/"
+    "text_to_video_lvdm/"
+    "video_tokenizer_magvit2/"
+    "textual_inversion/"
 )
 # 遍历当前目录下的子目录
 for subdir in */; do
