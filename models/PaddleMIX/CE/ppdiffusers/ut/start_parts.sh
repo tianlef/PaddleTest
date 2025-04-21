@@ -36,7 +36,7 @@ export RUN_SLOW=True
 # tests目前子目录 community models pipelines schedulers others community
 
 echo "*******tests/fixtures begin***********"
-(python -m pytest -v tests/fixtures) 2>&1 | tee ${log_dir}/tests_schedulers.log
+(python -m pytest -v tests/fixtures) 2>&1 | tee ${log_dir}/tests_fixtures.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then

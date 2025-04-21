@@ -43,10 +43,21 @@ class update_db(object):
                     self.failure_case += " " + model_name
     
     def get_env_info(self):
-        commit = ""
-        commit += "paddle: " + self.paddle_commit + ","
-        commit += "mix: " + self.mix_commit + ","
-        commit += "nlp: " + self.nlp_commit
+        if not self.paddle_commit:
+            # raise ValueError("paddle_commit is empty")
+            pass
+        else:
+            commit += "paddle: " + self.paddle_commit + ","
+        if not self.mix_commit:
+            # raise ValueError("mix_commit is empty")
+            pass
+        else:
+            commit += "mix: " + self.mix_commit + ","
+        if not self.nlp_commit:
+            # raise ValueError("nlp_commit is empty")
+            pass
+        else:
+            commit += "nlp: " + self.nlp_commit
         return commit
         # return {
         #     "paddle": self.paddle_commit,
