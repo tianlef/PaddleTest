@@ -43,6 +43,7 @@ class update_db(object):
                     self.failure_case += " " + model_name
     
     def get_env_info(self):
+        commit = ""
         if not self.paddle_commit:
             # raise ValueError("paddle_commit is empty")
             pass
