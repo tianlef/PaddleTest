@@ -5,6 +5,7 @@ echo ${cur_path}
 
 work_path=${root_path}/PaddleMIX/ppdiffusers/deploy
 echo ${work_path}
+work_path1=${root_path}/PaddleMIX/ppdiffusers/deploy/ipadapter
 
 log_dir=${root_path}/deploy_log
 
@@ -14,6 +15,7 @@ fi
 
 echo "Copying files to ${work_path}"
 /bin/cp -rf ./* ${work_path}/
+/bin/cp -rf ./* ${work_path1}/
 exit_code=0
 
 cd ${work_path}
