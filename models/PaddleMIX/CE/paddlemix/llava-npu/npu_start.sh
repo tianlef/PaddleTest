@@ -35,21 +35,26 @@ export FLAGS_allocator_strategy=auto_growth
 export CUSTOM_DEVICE_BLACK_LIST=set_value,set_value_with_tensor
 
 
-# (python paddlemix/examples/llava/run_predict_multiround.py \
-#     --model-path "liuhaotian/llava-v1.6-vicuna-7b" \
-#     --image-file "https://bj.bcebos.com/v1/paddlenlp/models/community/GroundingDino/000000004505.jpg") 2>&1 | tee ${log_dir}/paddlemix_llava_infer.log
-# tmp_exit_code=${PIPESTATUS[0]}
-# exit_code=$(($exit_code + ${tmp_exit_code}))
-# if [ ${tmp_exit_code} -eq 0 ]; then
-#     echo "paddlemix llava infer run success" >>"${log_dir}/ce_res.log"
-# else
-#     echo "paddlemix llava infer run fail" >>"${log_dir}/ce_res.log"
-# fi
-# echo "*******paddlemix llava infer end***********"
-
+(python paddlemix/examples/llava/run_predict_multiround.py \
+    --model-path "liuhaotian/llava-v1.6-vicuna-7b" \
+    --image-file "https://bj.bcebos.com/v1/paddlenlp/models/community/GroundingDino/000000004505.jpg" \
+       --fp16) 2>&1 | tee ${log_dir}/paddlemix_llava_infer.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "paddlemix llava infer run success" >>"${log_dir}/ce_res.log"
+else
+    echo "paddlemix llava infer run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "*******paddlemix llava infer end***********"
+`
 
 echo "*******paddlemix llava sft 1.5***********"
-(python  -u check_loss.py "python paddlemix/examples/llava/supervised_finetune.py llava_v100_sft_1.5.json") 2>&1 | tee ${log_dir}/paddlemix_llava_sft_1.5.log
+sed -i 's|"chat_template":"chat_template.json"|"chat_template":"ScienceQA/llava_chat_template.json"|' paddlemix/config/llava/v1_5/lora_sft_argument.json
+sed -i 's|"data_files": "train.json"|"data_files": "ScienceQA/llava_train_part.json"|' paddlemix/config/llava/v1_5/lora_sft_argument.json
+sed -i 's|"data_files": "val.json"|"data_files": "ScienceQA/llava_val_part.json"|' paddlemix/config/llava/v1_5/lora_sft_argument.json
+sed -i 's|"num_train_epochs": 1|"max_steps": 10|' paddlemix/config/llava/v1_5/lora_sft_argument.json
+(python  -u check_loss.py "python paddlemix/examples/llava/supervised_finetune.py paddlemix/config/llava/v1_5/lora_sft_argument.json") 2>&1 | tee ${log_dir}/paddlemix_llava_sft_1.5.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -61,7 +66,11 @@ echo "*******paddlemix llava 1.5 sft end***********"
 
 echo "*******paddlemix llava lora 1.5 ***********"
 
-(python  -u check_loss.py "python paddlemix/examples/llava/supervised_finetune.py llava_v100_lora_1.5.json") 2>&1 | tee ${log_dir}/paddlemix_llava_lora.log
+sed -i 's|"chat_template":"chat_template.json"|"chat_template":"ScienceQA/llava_chat_template.json"|' paddlemix/config/llava/v1_5/sft_argument.json
+sed -i 's|"data_files": "train.json"|"data_files": "ScienceQA/llava_train_part.json"|' paddlemix/config/llava/v1_5/sft_argument.json
+sed -i 's|"data_files": "val.json"|"data_files": "ScienceQA/llava_val_part.json"|' paddlemix/config/llava/v1_5/sft_argument.json
+sed -i 's|"num_train_epochs": 1|"max_steps": 10|' paddlemix/config/llava/v1_5/sft_argument.json
+(python  -u check_loss.py "python paddlemix/examples/llava/supervised_finetune.py paddlemix/config/llava/v1_5/sft_argument.json") 2>&1 | tee ${log_dir}/paddlemix_llava_lora.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
