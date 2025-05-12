@@ -90,15 +90,15 @@ echo "*******paddlemix deepssek_vl2_increment_prefilling_kv_cache begin begin***
     --image_file_2="paddlemix/demo_images/examples_image2.jpg" \
     --image_file_3="paddlemix/demo_images/twitter3.jpeg" \
     --question="Can you tell me what are in the images?" \
-    --dtype="bfloat16") 2>&1 | tee ${log_dir}/deepssek_vl2_video.log
+    --dtype="bfloat16") 2>&1 | tee ${log_dir}/deepssek_vl2_increment_prefilling_kv_cache.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "deepssek_vl2_video run success" >>"${log_dir}/ce_res.log"
+    echo "deepssek_vl2_increment_prefilling_kv_cache run success" >>"${log_dir}/ce_res.log"
 else
-    echo "deepssek_vl2_video run fail" >>"${log_dir}/ce_res.log"
+    echo "deepssek_vl2_increment_prefilling_kv_cache run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******paddlemix deepssek_vl2_video end***********"
+echo "*******paddlemix deepssek_vl2_increment_prefilling_kv_cache end***********"
 
 model_name=deepssek_vl2
 
