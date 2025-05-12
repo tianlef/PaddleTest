@@ -118,7 +118,7 @@ echo "*******paddlemix deepssek_vl2_sft_train end***********"
 
 case_name=lora_train
 echo "******* ${model_name}_${case_name} begin***********"
-(python -u check_loss.py "sh paddlemix/examples/deepseek_vl2/shell/deepseek_vl2_tiny_lora_bs16_1e5.sh") 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(bash deepseekvl2_lora_train.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -127,6 +127,19 @@ else
     echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "******* ${model_name}_${case_name} end***********"
+
+case_name=lora_merge
+echo "******* ${model_name}_${case_name} begin***********"
+(bash deepseekvl2_lora_merge.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
+else
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
+fi
+echo "******* ${model_name}_${case_name} end***********"
+
 
 
 # # 查看结果
