@@ -34,7 +34,7 @@ echo "*******class_conditional_image_generation/DiT train end***********"
 
 
 echo "*******class_conditional_image_generation/DiT multi_train begin***********"
-(bash test_1_run_train_dit_notrainer.sh) 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_multi_train.log
+(python  -u check_loss.py "bash test_1_run_train_dit_notrainer.sh") 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_multi_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
