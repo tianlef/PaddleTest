@@ -94,15 +94,15 @@ else
 fi
 
 
-# echo "*******class_conditional_image_generation/DiT infer_generate begin***********"
-# (python generate_infer_test.py) 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_infer_generate.log
-# tmp_exit_code=${PIPESTATUS[0]}
-# exit_code=$(($exit_code + ${tmp_exit_code}))
-# if [ ${tmp_exit_code} -eq 0 ]; then
-#     echo "class_conditional_image_generation/DiT infer_generate run success" >>"${log_dir}/ce_res.log"
-# else
-#     echo "class_conditional_image_generation/DiT infer_generate run fail" >>"${log_dir}/ce_res.log"
-# fi
+echo "*******class_conditional_image_generation/DiT infer_generate begin***********"
+(python generate_infer_test.py) 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_infer_generate.log
+tmp_exit_code=${PIPESTATUS[0]}
+exit_code=$(($exit_code + ${tmp_exit_code}))
+if [ ${tmp_exit_code} -eq 0 ]; then
+    echo "class_conditional_image_generation/DiT infer_generate run success" >>"${log_dir}/ce_res.log"
+else
+    echo "class_conditional_image_generation/DiT infer_generate run fail" >>"${log_dir}/ce_res.log"
+fi
 
 
 
