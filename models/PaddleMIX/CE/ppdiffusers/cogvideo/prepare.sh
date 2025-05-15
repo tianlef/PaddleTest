@@ -6,3 +6,5 @@ wget https://bj.bcebos.com/v1/dataset/PaddleMIX/davis_validation_for_cogvideox.t
 tar -xvf davis_validation_for_cogvideox.tar
 
 python prompt.py
+
+pip install imageio-ffmpeg
