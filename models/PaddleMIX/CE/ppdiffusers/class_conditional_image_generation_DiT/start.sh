@@ -26,11 +26,11 @@ echo "*******class_conditional_image_generation/DiT train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "class_conditional_image_generation/DiT train run success" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "class_conditional_image_generation/DiT train run fail" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******class_conditional_image_generation/DiT train end***********"
+echo "*******class_conditional_image_generation_DiT_train train end***********"
 
 
 echo "*******class_conditional_image_generation/DiT multi_train begin***********"
@@ -38,22 +38,22 @@ echo "*******class_conditional_image_generation/DiT multi_train begin***********
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "class_conditional_image_generation/DiT multi train run success" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_multi_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "class_conditional_image_generation/DiT multi train run fail" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_multi_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******class_conditional_image_generation/DiT multi train end***********"
+echo "*******class_conditional_image_generation_DiT_multi_train end***********"
 
 echo "*******class_conditional_image_generation/DiT auto_train begin***********"
 (bash test_0_run_train_dit_trainer_auto.sh) 2>&1 | tee ${log_dir}/class_conditional_image_generation_DiT_auto_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "class_conditional_image_generation/DiT auto train run success" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_auto_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "class_conditional_image_generation/DiT auto train run fail" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_auto_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******class_conditional_image_generation/DiT auto train end***********"
+echo "*******class_conditional_image_generation_DiT_auto_train end***********"
 
 
 echo "*******class_conditional_image_generation/DiT infer begin***********"
@@ -61,9 +61,9 @@ echo "*******class_conditional_image_generation/DiT infer begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "class_conditional_image_generation/DiT infer run success" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "class_conditional_image_generation/DiT infer run fail" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_infer run fail" >>"${log_dir}/ce_res.log"
 fi
 
 echo "*******class_conditional_image_generation/DiT transfer begin***********"
@@ -75,9 +75,9 @@ echo "*******class_conditional_image_generation/DiT transfer begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "class_conditional_image_generation/DiT transfer run success" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_transfer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "class_conditional_image_generation/DiT transfer run fail" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_transfer run fail" >>"${log_dir}/ce_res.log"
 fi
 
 
@@ -86,9 +86,9 @@ echo "*******class_conditional_image_generation/DiT infer_generate begin********
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "class_conditional_image_generation/DiT infer_generate run success" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_infer_generate run success" >>"${log_dir}/ce_res.log"
 else
-    echo "class_conditional_image_generation/DiT infer_generate run fail" >>"${log_dir}/ce_res.log"
+    echo "class_conditional_image_generation_DiT_infer_generate run fail" >>"${log_dir}/ce_res.log"
 fi
 
 

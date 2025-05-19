@@ -27,9 +27,9 @@ echo "*******dreambooth_sd3 train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth_sd3 train run success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_sd3_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth_sd3 train run fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_sd3_train run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******dreambooth_sd3 train end***********"
 
@@ -41,11 +41,11 @@ echo "*******dreambooth_sd3 infer begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth_sd3 infer run success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_sd3_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth_sd3 infer run fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_sd3_infer run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******dreambooth_sd3 infer end***********"
+echo "*******dreambooth_sd3_infer end***********"
 
 # Lora训练
 echo "*******dreambooth_sd3 lora train begin***********"
@@ -53,11 +53,11 @@ echo "*******dreambooth_sd3 lora train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth_sd3 lora train run success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_sd3_lora_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth_sd3 lora train run fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_sd3_lora_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******dreambooth_sd3 lora train end***********"
+echo "*******dreambooth_sd3_lora_train end***********"
 
 # Lora推理
 echo "*******dreambooth_sd3 lora infer begin***********"
@@ -65,11 +65,11 @@ echo "*******dreambooth_sd3 lora infer begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth_sd3 lora infer run success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_sd3_lora_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth_sd3 lora infer run fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_sd3_lora_infer run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******dreambooth_sd3 lora infer end***********"
+echo "*******dreambooth_sd3_lora_infer end***********"
 
 # # 查看结果
 # cat ${log_dir}/ce_res.log

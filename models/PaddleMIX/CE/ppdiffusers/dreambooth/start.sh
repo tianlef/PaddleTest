@@ -24,11 +24,11 @@ echo "*******dreambooth singe_train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth singe_train run success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_singe_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth singe_train run fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_singe_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******dreambooth singe_train end***********"
+echo "*******dreambooth_singe_train end***********"
 
 # 单机训练的结果进行推理
 echo "******dreambooth singe infer begin***********"
@@ -36,9 +36,9 @@ echo "******dreambooth singe infer begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth single_infer run success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_single_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth single_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_single_infer run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******dreambooth singe infer end***********"
 
@@ -48,11 +48,11 @@ echo "*******dreambooth muti_train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth multi_train run success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_multi_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth multi_train run fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_multi_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******dreambooth multi_train end***********"
+echo "*******dreambooth_multi_train end***********"
 
 # 多机训练的结果进行推理
 echo "*******dreambooth multi infer begin***********"
@@ -60,11 +60,11 @@ echo "*******dreambooth multi infer begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth multi_infer run success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_multi_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth multi_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_multi_infer run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******dreambooth multi infer end***********"
+echo "*******dreambooth_multi_infer end***********"
 
 # 给模型引入先验知识（图片）一同训练
 echo "*******dreambooth train_with_class begin***********"
@@ -72,11 +72,11 @@ echo "*******dreambooth train_with_class begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth train_with_class run success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_train_with_class run success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth train_with_class run fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_train_with_class run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******dreambooth train_with_class end***********"
+echo "*******dreambooth_train_with_class end***********"
 
 # 给模型引入先验知识（图片）一同训练的结果进行推理
 echo "*******dreambooth infer_with_class begin***********"
@@ -84,11 +84,11 @@ echo "*******dreambooth infer_with_class begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth infer_with_class success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_infer_with_class success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth infer_with_class fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_infer_with_class fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******dreambooth infer_with_class end***********"
+echo "*******dreambooth_infer_with_class end***********"
 
 # lora train
 echo "*******dreambooth lora_train begin***********"
@@ -96,11 +96,11 @@ echo "*******dreambooth lora_train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth lora_train success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_lora_train success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth lora_train fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_lora_train fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******dreambooth lora_train end***********"
+echo "*******dreambooth_lora_train end***********"
 
 # lora train
 echo "*******dreambooth lora_infer begin***********"
@@ -108,11 +108,11 @@ echo "*******dreambooth lora_infer begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "dreambooth lora_infer success" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_lora_infer success" >>"${log_dir}/ce_res.log"
 else
-    echo "dreambooth lora_infer fail" >>"${log_dir}/ce_res.log"
+    echo "dreambooth_lora_infer fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******dreambooth lora_lora_infer  end***********"
+echo "*******dreambooth_lora_infer  end***********"
 
 # # 查看结果
 # cat ${log_dir}/ce_res.log
