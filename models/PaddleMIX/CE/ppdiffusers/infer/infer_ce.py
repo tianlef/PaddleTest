@@ -95,22 +95,18 @@ def infer_process(selected_dirs):
     os.environ['FLAGS_embedding_deterministic'] = '1'
     os.environ['FLAGS_cudnn_deterministic'] = '1'
 
-    # 执行接下来的操作（如模型推理等）
     exit_code = 0
     
-
-    # 你可以继续根据需要添加其他的 脚本执行或操作
-    # 例如运行某些 文件
-    # subprocess.run(['python', 'your_script.py'], check=True)
 
     print(f"Exit code: {exit_code}")
 
 
     for script in selected_dirs:
         print(f"******* Running {script} ***********", flush=True)
-        process_log = os.path.join(log_dir, f"{script}.log")
+        script_name = script.split(".")[0]
+        process_log = os.path.join(log_dir, f"{script_name}.log")
         tmp_exit_code = -1  # 初始化为默认值
-        time_out = 6000
+        time_out = 60000
         try:
             # 打开日志文件以记录输出
             with open(process_log, "w") as log_process:
@@ -133,8 +129,6 @@ def infer_process(selected_dirs):
                         print(f"Script '{script}' exceeded timeout of {time_out} seconds. Killing it...", flush=True)
                         child.kill(signal.SIGKILL)  # 强制终止子进程
                         break
-
-
                 # 等待子进程退出并获取退出状态
                 child.wait()
                 tmp_exit_code = child.exitstatus
@@ -148,11 +142,11 @@ def infer_process(selected_dirs):
             # 记录运行结果
             with open(f"{log_dir}/ce_res.log", "a") as log_file:
                 if tmp_exit_code == 0:
-                    log_file.write(f"{script} run success\n")
-                    print(f"******* Successfully running {script} ***********", flush=True)
+                    log_file.write(f"{script_name} run success\n")
+                    print(f"******* {script_name} run success***********", flush=True)
                 else:
-                    log_file.write(f"{script} run fail\n")
-                    print(f"******* Failed running {script} ***********", flush=True)
+                    log_file.write(f"{script_name} run fail\n")
+                    print(f"******* {script_name} run fail***********", flush=True)
             
     
     # 保存更新后的已执行目录和轮次

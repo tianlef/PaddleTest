@@ -35,12 +35,6 @@
         "date": "2023-08-14T14:27:48.000Z",
         "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"refine pre-commit\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/6f6e82a9034b0cd047b2f90eb1f867c97957aafd\">refine pre-commit</a>"
     },
-    "image_mixing-clip_guided_stable_diffusion.py": {
-        "oid": "ca79227551082d4bdb70b5743e6ff1cb7cbd9588",
-        "url": "/PaddlePaddle/PaddleMIX/commit/ca79227551082d4bdb70b5743e6ff1cb7cbd9588",
-        "date": "2025-03-24T15:08:51.000+08:00",
-        "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"Fix typos in multiple files (#1153)\n\nFix typos in multiple files\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/ca79227551082d4bdb70b5743e6ff1cb7cbd9588\">Fix typos in multiple files (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2937639241\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/1153\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/1153/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/1153\">#1153</a><a data-pjax=\"true\" title=\"Fix typos in multiple files (#1153)\n\nFix typos in multiple files\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/ca79227551082d4bdb70b5743e6ff1cb7cbd9588\">)</a>"
-    },
     "image_to_image_text_guided_generation-alt_diffusion.py": {
         "oid": "6f6e82a9034b0cd047b2f90eb1f867c97957aafd",
         "url": "/PaddlePaddle/PaddleMIX/commit/6f6e82a9034b0cd047b2f90eb1f867c97957aafd",
@@ -58,6 +52,12 @@
         "url": "/PaddlePaddle/PaddleMIX/commit/6f6e82a9034b0cd047b2f90eb1f867c97957aafd",
         "date": "2023-08-14T14:27:48.000Z",
         "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"refine pre-commit\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/6f6e82a9034b0cd047b2f90eb1f867c97957aafd\">refine pre-commit</a>"
+    },
+    "image_to_image_text_guided_generation-flux.py": {
+        "oid": "c0477747c3c8713f2bb28f7e791d8680b24c0463",
+        "url": "/PaddlePaddle/PaddleMIX/commit/c0477747c3c8713f2bb28f7e791d8680b24c0463",
+        "date": "2025-04-17T10:45:03.000+08:00",
+        "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"Fix for release (#1226)\n\nCo-authored-by: 吕文玉 &lt;wenyu.lyu@gmail.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/c0477747c3c8713f2bb28f7e791d8680b24c0463\">Fix for release (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2999065802\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/1226\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/1226/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/1226\">#1226</a><a data-pjax=\"true\" title=\"Fix for release (#1226)\n\nCo-authored-by: 吕文玉 &lt;wenyu.lyu@gmail.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/c0477747c3c8713f2bb28f7e791d8680b24c0463\">)</a>"
     },
     "image_to_image_text_guided_generation-kandinsky.py": {
         "oid": "8458f37c97e648652810bfb1e848d3c9871916a5",
@@ -257,6 +257,12 @@
         "date": "2023-09-26T15:37:51.000+08:00",
         "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"upgrade ppdiffusers0193 (#35)\n\nCo-authored-by: yujun &lt;573009727@qq.com&gt;\r\nCo-authored-by: LokeZhou &lt;aishenghuoaiqq@163.com&gt;\r\nCo-authored-by: CrazyBoyM &lt;ai-lab@foxmail.com&gt;\r\nCo-authored-by: Ke Bai &lt;35400185+CrazyBoyM@users.noreply.github.com&gt;\r\nCo-authored-by: nemonameless@qq.com@github.com &lt;nemonameless@qq.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/0bf041bb191a310180df7c898d53e31de3b01737\">upgrade ppdiffusers0193 (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"1830873662\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/35\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/35/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/35\">#35</a><a data-pjax=\"true\" title=\"upgrade ppdiffusers0193 (#35)\n\nCo-authored-by: yujun &lt;573009727@qq.com&gt;\r\nCo-authored-by: LokeZhou &lt;aishenghuoaiqq@163.com&gt;\r\nCo-authored-by: CrazyBoyM &lt;ai-lab@foxmail.com&gt;\r\nCo-authored-by: Ke Bai &lt;35400185+CrazyBoyM@users.noreply.github.com&gt;\r\nCo-authored-by: nemonameless@qq.com@github.com &lt;nemonameless@qq.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/0bf041bb191a310180df7c898d53e31de3b01737\">)</a>"
     },
+    "text_to_image_generation-flux.py": {
+        "oid": "c0477747c3c8713f2bb28f7e791d8680b24c0463",
+        "url": "/PaddlePaddle/PaddleMIX/commit/c0477747c3c8713f2bb28f7e791d8680b24c0463",
+        "date": "2025-04-17T10:45:03.000+08:00",
+        "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"Fix for release (#1226)\n\nCo-authored-by: 吕文玉 &lt;wenyu.lyu@gmail.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/c0477747c3c8713f2bb28f7e791d8680b24c0463\">Fix for release (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2999065802\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/1226\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/1226/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/1226\">#1226</a><a data-pjax=\"true\" title=\"Fix for release (#1226)\n\nCo-authored-by: 吕文玉 &lt;wenyu.lyu@gmail.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/c0477747c3c8713f2bb28f7e791d8680b24c0463\">)</a>"
+    },
     "text_to_image_generation-kandinsky.py": {
         "oid": "8458f37c97e648652810bfb1e848d3c9871916a5",
         "url": "/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5",
@@ -329,12 +335,6 @@
         "date": "2024-03-12T10:54:23.000+08:00",
         "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"Merge upgrade_ppdiffusers0240 to develop brutal (#458)\n\n将[upgrade_ppdiffusers0240](https://github.com/PaddlePaddle/PaddleMIX/tree/upgrade_ppdiffusers0240)分支的内容合并至develop分支\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5\">Merge upgrade_ppdiffusers0240 to develop brutal (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2178548185\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/458\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/458/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/458\">#458</a><a data-pjax=\"true\" title=\"Merge upgrade_ppdiffusers0240 to develop brutal (#458)\n\n将[upgrade_ppdiffusers0240](https://github.com/PaddlePaddle/PaddleMIX/tree/upgrade_ppdiffusers0240)分支的内容合并至develop分支\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5\">)</a>"
     },
-    "text_to_image_generation-stable_diffusion_paddle_inference.py": {
-        "oid": "77498418ac49fadd23bbd6f7abda0d7f5b1bc01e",
-        "url": "/PaddlePaddle/PaddleMIX/commit/77498418ac49fadd23bbd6f7abda0d7f5b1bc01e",
-        "date": "2024-10-18T14:18:32.000+08:00",
-        "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"[PPDiffusers]fix bugs and release 0.29.0 (#742)\n\nCo-authored-by: nifeng &lt;nemonameless@qq.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/77498418ac49fadd23bbd6f7abda0d7f5b1bc01e\">[PPDiffusers]fix bugs and release 0.29.0 (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2590972916\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/742\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/742/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/742\">#742</a><a data-pjax=\"true\" title=\"[PPDiffusers]fix bugs and release 0.29.0 (#742)\n\nCo-authored-by: nifeng &lt;nemonameless@qq.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/77498418ac49fadd23bbd6f7abda0d7f5b1bc01e\">)</a>"
-    },
     "text_to_image_generation-stable_diffusion_safe.py": {
         "oid": "6f6e82a9034b0cd047b2f90eb1f867c97957aafd",
         "url": "/PaddlePaddle/PaddleMIX/commit/6f6e82a9034b0cd047b2f90eb1f867c97957aafd",
@@ -402,10 +402,10 @@
         "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"Merge upgrade_ppdiffusers0240 to develop brutal (#458)\n\n将[upgrade_ppdiffusers0240](https://github.com/PaddlePaddle/PaddleMIX/tree/upgrade_ppdiffusers0240)分支的内容合并至develop分支\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5\">Merge upgrade_ppdiffusers0240 to develop brutal (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2178548185\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/458\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/458/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/458\">#458</a><a data-pjax=\"true\" title=\"Merge upgrade_ppdiffusers0240 to develop brutal (#458)\n\n将[upgrade_ppdiffusers0240](https://github.com/PaddlePaddle/PaddleMIX/tree/upgrade_ppdiffusers0240)分支的内容合并至develop分支\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5\">)</a>"
     },
     "text_to_image_generation_largedit_3b.py": {
-        "oid": "feb686fa36036d2ab09e41cbf0425c858fad8846",
-        "url": "/PaddlePaddle/PaddleMIX/commit/feb686fa36036d2ab09e41cbf0425c858fad8846",
-        "date": "2024-03-13T11:42:27.000Z",
-        "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"add largedit_t2i 3B ldm pipeline\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/feb686fa36036d2ab09e41cbf0425c858fad8846\">add largedit_t2i 3B ldm pipeline</a>"
+        "oid": "6a47a837c52aeb7533ce4a92085b9c305e766926",
+        "url": "/PaddlePaddle/PaddleMIX/commit/6a47a837c52aeb7533ce4a92085b9c305e766926",
+        "date": "2025-04-25T11:55:22.000+08:00",
+        "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"add gpu memory of largedit_3b (#1249)\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/6a47a837c52aeb7533ce4a92085b9c305e766926\">add gpu memory of largedit_3b (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3018858521\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/1249\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/1249/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/1249\">#1249</a><a data-pjax=\"true\" title=\"add gpu memory of largedit_3b (#1249)\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/6a47a837c52aeb7533ce4a92085b9c305e766926\">)</a>"
     },
     "text_to_image_generation_mixture_tiling-stable_diffusion.py": {
         "oid": "8458f37c97e648652810bfb1e848d3c9871916a5",
@@ -420,16 +420,22 @@
         "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"Merge upgrade_ppdiffusers0240 to develop brutal (#458)\n\n将[upgrade_ppdiffusers0240](https://github.com/PaddlePaddle/PaddleMIX/tree/upgrade_ppdiffusers0240)分支的内容合并至develop分支\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5\">Merge upgrade_ppdiffusers0240 to develop brutal (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2178548185\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/458\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/458/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/458\">#458</a><a data-pjax=\"true\" title=\"Merge upgrade_ppdiffusers0240 to develop brutal (#458)\n\n将[upgrade_ppdiffusers0240](https://github.com/PaddlePaddle/PaddleMIX/tree/upgrade_ppdiffusers0240)分支的内容合并至develop分支\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/8458f37c97e648652810bfb1e848d3c9871916a5\">)</a>"
     },
     "text_to_video_generation-hunyuan_video.py": {
-        "oid": "9fd87ab99cb4286f1a2b86d2136b33ca6234ab59",
-        "url": "/PaddlePaddle/PaddleMIX/commit/9fd87ab99cb4286f1a2b86d2136b33ca6234ab59",
-        "date": "2025-03-06T10:54:10.000+08:00",
-        "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"add hunyuanvideo code (#1081)\n\nCo-authored-by: xuzhang &lt;westfish@126.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/9fd87ab99cb4286f1a2b86d2136b33ca6234ab59\">add hunyuanvideo code (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"2880870286\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/1081\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/1081/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/1081\">#1081</a><a data-pjax=\"true\" title=\"add hunyuanvideo code (#1081)\n\nCo-authored-by: xuzhang &lt;westfish@126.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/9fd87ab99cb4286f1a2b86d2136b33ca6234ab59\">)</a>"
+        "oid": "542bd788bf6e05fd94f32200b60c101841693702",
+        "url": "/PaddlePaddle/PaddleMIX/commit/542bd788bf6e05fd94f32200b60c101841693702",
+        "date": "2025-04-21T10:01:18.000+08:00",
+        "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"add hunyuanvideo readme &amp; fix bug in attention_processor.py (#1232)\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/542bd788bf6e05fd94f32200b60c101841693702\">add hunyuanvideo readme &amp; fix bug in attention_processor.py (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3004755219\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/1232\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/1232/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/1232\">#1232</a><a data-pjax=\"true\" title=\"add hunyuanvideo readme &amp; fix bug in attention_processor.py (#1232)\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/542bd788bf6e05fd94f32200b60c101841693702\">)</a>"
     },
     "text_to_video_generation-lvdm.py": {
         "oid": "0bf041bb191a310180df7c898d53e31de3b01737",
         "url": "/PaddlePaddle/PaddleMIX/commit/0bf041bb191a310180df7c898d53e31de3b01737",
         "date": "2023-09-26T15:37:51.000+08:00",
         "shortMessageHtmlLink": "<a data-pjax=\"true\" title=\"upgrade ppdiffusers0193 (#35)\n\nCo-authored-by: yujun &lt;573009727@qq.com&gt;\r\nCo-authored-by: LokeZhou &lt;aishenghuoaiqq@163.com&gt;\r\nCo-authored-by: CrazyBoyM &lt;ai-lab@foxmail.com&gt;\r\nCo-authored-by: Ke Bai &lt;35400185+CrazyBoyM@users.noreply.github.com&gt;\r\nCo-authored-by: nemonameless@qq.com@github.com &lt;nemonameless@qq.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/0bf041bb191a310180df7c898d53e31de3b01737\">upgrade ppdiffusers0193 (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"1830873662\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/35\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/35/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/35\">#35</a><a data-pjax=\"true\" title=\"upgrade ppdiffusers0193 (#35)\n\nCo-authored-by: yujun &lt;573009727@qq.com&gt;\r\nCo-authored-by: LokeZhou &lt;aishenghuoaiqq@163.com&gt;\r\nCo-authored-by: CrazyBoyM &lt;ai-lab@foxmail.com&gt;\r\nCo-authored-by: Ke Bai &lt;35400185+CrazyBoyM@users.noreply.github.com&gt;\r\nCo-authored-by: nemonameless@qq.com@github.com &lt;nemonameless@qq.com&gt;\" class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/0bf041bb191a310180df7c898d53e31de3b01737\">)</a>"
+    },
+    "text_to_video_generation-mochi.py": {
+        "oid": "085d21a2710bd834f7def9ac62196d463268465d",
+        "url": "/PaddlePaddle/PaddleMIX/commit/085d21a2710bd834f7def9ac62196d463268465d",
+        "date": "2025-05-13T20:14:09.000+08:00",
+        "shortMessageHtmlLink": "<a data-pjax=\"true\" title='【Hackathon 8th No.35】Add Mochi-1 for PaddleMix (#1238)\n\n新增了mochi-1的组网推理工作，代码/精度基本与torch对齐，torch模型在84帧推理pipeline下（未开启enable_model_cpu_offload/开启enable_vae_tiling），显存稳定在36G左右，paddle复现方面，在使用low_cpu_mem_usage=True,\nmap_location=\"cpu\"并开启enable_vae_tiling情况下，transformer阶段在27G左右，vae峰值在39G左右' class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/085d21a2710bd834f7def9ac62196d463268465d\">【Hackathon 8th No.35】Add Mochi-1 for PaddleMix (</a><a class=\"issue-link js-issue-link\" data-error-text=\"Failed to load title\" data-id=\"3009741824\" data-permission-text=\"Title is private\" data-url=\"https://github.com/PaddlePaddle/PaddleMIX/issues/1238\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/PaddlePaddle/PaddleMIX/pull/1238/hovercard\" href=\"https://github.com/PaddlePaddle/PaddleMIX/pull/1238\">#1238</a><a data-pjax=\"true\" title='【Hackathon 8th No.35】Add Mochi-1 for PaddleMix (#1238)\n\n新增了mochi-1的组网推理工作，代码/精度基本与torch对齐，torch模型在84帧推理pipeline下（未开启enable_model_cpu_offload/开启enable_vae_tiling），显存稳定在36G左右，paddle复现方面，在使用low_cpu_mem_usage=True,\nmap_location=\"cpu\"并开启enable_vae_tiling情况下，transformer阶段在27G左右，vae峰值在39G左右' class=\"Link--secondary\" href=\"/PaddlePaddle/PaddleMIX/commit/085d21a2710bd834f7def9ac62196d463268465d\">)</a>"
     },
     "text_to_video_generation-synth.py": {
         "oid": "8458f37c97e648652810bfb1e848d3c9871916a5",

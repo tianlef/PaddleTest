@@ -44,9 +44,9 @@ echo "*******ppdiffusers ut tests begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "ppdiffusers ut tests  run success" >>"${log_dir}/ut_res.log"
+    echo "tests_ut  run success" >>"${log_dir}/ut_res.log"
 else
-    echo "ppdiffusers ut tests  run fail" >>"${log_dir}/ut_res.log"
+    echo "tests_ut tests  run fail" >>"${log_dir}/ut_res.log"
 fi
 echo "*******ppdiffusers ut tests end***********"
 

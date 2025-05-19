@@ -24,8 +24,7 @@ exit_code=0
 
 export http_proxy=${mix_proxy}
 export https_proxy=${mix_proxy}
-# rm -rf tests/pipelines/test_pipelines.py
-# rm -rf tests/pipelines/stable_diffusion/test_stable_diffusion_pix2pix_zero.py
+
 
 exit_code=0
 
@@ -35,74 +34,74 @@ export USE_PPXFORMERS=True
 export RUN_SLOW=True
 # tests目前子目录 community models pipelines schedulers others community
 
-echo "*******tests/fixtures begin***********"
+echo "*******tests_fixtures begin***********"
 (python -m pytest -v tests/fixtures) 2>&1 | tee ${log_dir}/tests_fixtures.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "tests/fixtures run success" >>"${log_dir}/ce_res.log"
+    echo "tests_fixtures run success" >>"${log_dir}/ce_res.log"
 else
-    echo "tests/fixtures run fail" >>"${log_dir}/ce_res.log"
+    echo "tests_fixtures run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******tests/fixtures end***********"
+echo "*******tests_fixtures end***********"
 
-echo "*******tests/schedulers begin***********"
+echo "*******tests_schedulers begin***********"
 (python -m pytest -v tests/schedulers) 2>&1 | tee ${log_dir}/tests_schedulers.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "tests/schedulers run success" >>"${log_dir}/ce_res.log"
+    echo "tests_schedulers run success" >>"${log_dir}/ce_res.log"
 else
-    echo "tests/schedulers run fail" >>"${log_dir}/ce_res.log"
+    echo "tests_schedulers run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******tests/schedulers end***********"
+echo "*******tests_schedulers end***********"
 
-echo "*******tests/others begin***********"
+echo "*******tests_others begin***********"
 (python -m pytest -v tests/others) 2>&1 | tee ${log_dir}/tests_others.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "tests/others run success" >>"${log_dir}/ce_res.log"
+    echo "tests_others run success" >>"${log_dir}/ce_res.log"
 else
-    echo "tests/others run fail" >>"${log_dir}/ce_res.log"
+    echo "tests_others run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******tests/others end***********"
+echo "*******tests_others end***********"
 
-echo "*******tests/models begin***********"
+echo "*******tests_models begin***********"
 (python -m pytest -v tests/models) 2>&1 | tee ${log_dir}/tests_models.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "tests/models run success" >>"${log_dir}/ce_res.log"
+    echo "tests_models run success" >>"${log_dir}/ce_res.log"
 else
-    echo "tests/models run fail" >>"${log_dir}/ce_res.log"
+    echo "tests_models run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******tests/models end***********"
+echo "*******tests_models end***********"
 
 pip install note-seq==0.0.5
 pip install torch
-echo "*******tests/pipelines begin***********"
+echo "*******tests_pipelines begin***********"
 (python -m pytest -v tests/pipelines) 2>&1 | tee ${log_dir}/tests_pipelines.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "tests/pipelines run success" >>"${log_dir}/ce_res.log"
+    echo "tests_pipelines run success" >>"${log_dir}/ce_res.log"
 else
-    echo "tests/pipelines run fail" >>"${log_dir}/ce_res.log"
+    echo "tests_pipelines run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******tests/pipelines end***********"
+echo "*******tests_pipelines end***********"
 
 # pip install diffusers transformers
-echo "*******tests/community begin***********"
+echo "*******tests_community begin***********"
 (python -m pytest -v tests/community) 2>&1 | tee ${log_dir}/tests_community.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "tests/community run success" >>"${log_dir}/ce_res.log"
+    echo "tests_community run success" >>"${log_dir}/ce_res.log"
 else
-    echo "tests/community run fail" >>"${log_dir}/ce_res.log"
+    echo "tests_community run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******tests/community end***********"
+echo "*******tests_community end***********"
 
 unset http_proxy
 unset https_proxy
