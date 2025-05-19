@@ -25,13 +25,13 @@ export FLAGS_use_cuda_managed_memory=true
 export FLAGS_allocator_strategy=auto_growth
 
 echo "*******paddlemix datacopilot importoutput***********"
-(python importoutput.py) 2>&1 | tee ${log_dir}/paddlemix_datacopilot_importoutput.log
+(python importoutput.py) 2>&1 | tee ${log_dir}/datacopilot_importoutput.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "paddlemix datacopilot importoutput run success" >>"${log_dir}/ce_res.log"
+    echo "datacopilot_importoutput run success" >>"${log_dir}/ce_res.log"
 else
-    echo "paddlemix datacopilot importoutput run fail" >>"${log_dir}/ce_res.log"
+    echo "datacopilot_importoutput run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******paddlemix datacopilot importoutput end***********"
 

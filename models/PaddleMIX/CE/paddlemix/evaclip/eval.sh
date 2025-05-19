@@ -18,13 +18,13 @@ IN_1K_DIR=${root_path}/data/imagenet-val
     --pretrained_text_model EVA02-CLIP-L-14 \
     --classification_eval ${IN_1K_DIR} \
     --output_dir "output" \
-    --disable_tqdm True) 2>&1 | tee ${log_dir}/run_mix_evaclip_eval.log
+    --disable_tqdm True) 2>&1 | tee ${log_dir}/evaclip_eval.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "paddlemix evaclip eval run success" >>"${log_dir}/ce_res.log"
+    echo "evaclip_eval run success" >>"${log_dir}/ce_res.log"
 else
-    echo "paddlemix evaclip eval run fail" >>"${log_dir}/ce_res.log"
+    echo "evaclip_eval run fail" >>"${log_dir}/ce_res.log"
 fi
 
 echo "*******paddlemix evaclip eval end***********"

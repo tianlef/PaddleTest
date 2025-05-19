@@ -18,14 +18,14 @@ IN_1K_DIR=${root_path}/data/imagenet-val
     --pretrained_text_model coca_Vit-L-14 \
     --classification_eval ${IN_1K_DIR} \
     --output_dir "output" \
-    --disable_tqdm True) 2>&1 | tee ${log_dir}/run_mix_coca_eval.log
+    --disable_tqdm True) 2>&1 | tee ${log_dir}/coca_eval.log
 
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "paddlemix coca eval run success" >>"${log_dir}/ce_res.log"
+    echo "coca_eval run success" >>"${log_dir}/ce_res.log"
 else
-    echo "paddlemix coca eval run fail" >>"${log_dir}/ce_res.log"
+    echo "coca_eval run fail" >>"${log_dir}/ce_res.log"
 fi
 
 echo "*******paddlemix coca eval end***********"

@@ -95,13 +95,13 @@ TRAINING_PYTHON="python -m paddle.distributed.launch --master ${MASTER} --nnodes
   --fp16_opt_level ${FP16_OPT_LEVEL} \
   --seed ${seed} \
   --recompute True \
-  --bf16 ${USE_AMP}) 2>&1 | tee ${log_dir}/run_mix_eva02_pretrain.log
+  --bf16 ${USE_AMP}) 2>&1 | tee ${log_dir}/eva02_pretrain.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-  echo "paddlemix eva02 pretrain run success" >>"${log_dir}/ce_res.log"
+  echo "eva02_pretrain run success" >>"${log_dir}/ce_res.log"
 else
-  echo "paddlemix eva02 pretrain run fail" >>"${log_dir}/ce_res.log"
+  echo "eva02_pretrain run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******paddlemix eva02 pretrain end***********"
 

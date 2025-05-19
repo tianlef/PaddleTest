@@ -25,13 +25,13 @@ PRETRAIN_CKPT=None
   --dataloader_num_workers ${num_workers} \
   --output_dir ${OUTPUT_DIR} \
   --recompute True \
-  --fp16 False) 2>&1 | tee ${log_dir}/run_mix_eva02_eval.log
+  --fp16 False) 2>&1 | tee ${log_dir}/eva02_eval.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-  echo "paddlemix eva02 eval run success" >>"${log_dir}/ce_res.log"
+  echo "eva02_eval run success" >>"${log_dir}/ce_res.log"
 else
-  echo "paddlemix eva02 eval run fail" >>"${log_dir}/ce_res.log"
+  echo "eva02_eval run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******paddlemix eva02 eval end***********"
 

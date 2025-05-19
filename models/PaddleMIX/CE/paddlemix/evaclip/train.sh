@@ -41,13 +41,13 @@ IN_1K_DIR=${root_path}/data/imagenet-val/
     --local_loss true \
     --gather_with_grad true \
     --pretrained_text_model ${MODEL_NAME} \
-    --classification_eval ${IN_1K_DIR}) 2>&1 | tee ${log_dir}/run_mix_evaclip_train.log
+    --classification_eval ${IN_1K_DIR}) 2>&1 | tee ${log_dir}/evaclip_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "paddlemix evaclip train run success" >>"${log_dir}/ce_res.log"
+    echo "evaclip_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "paddlemix evaclip train run fail" >>"${log_dir}/ce_res.log"
+    echo "evaclip_train run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******paddlemix evaclip train end***********"
 
