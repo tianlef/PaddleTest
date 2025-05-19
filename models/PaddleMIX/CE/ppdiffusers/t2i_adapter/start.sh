@@ -26,11 +26,11 @@ echo "*******t2i-adapter singe_train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "t2i-adapter singe_train run success" >>"${log_dir}/ce_res.log"
+    echo "t2i-adapter_singe_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "t2i-adapter singe_train run fail" >>"${log_dir}/ce_res.log"
+    echo "t2i-adapter_singe_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******t2i-adapter singe_train end***********"
+echo "*******t2i-adapter_singe_train end***********"
 
 # 单机训练的结果进行推理
 echo "******t2i-adapter singe infer begin***********"
@@ -38,11 +38,11 @@ echo "******t2i-adapter singe infer begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "t2i-adapter single_infer run success" >>"${log_dir}/ce_res.log"
+    echo "t2i-adapter_single_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "t2i-adapter single_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "t2i-adapter_single_infer run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******t2i-adapter singe infer end***********"
+echo "*******t2i-adapter_single_infer end***********"
 
 # 多机训练
 echo "*******t2i-adapter muti_train begin***********"
@@ -50,11 +50,11 @@ echo "*******t2i-adapter muti_train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "t2i-adapter multi_train run success" >>"${log_dir}/ce_res.log"
+    echo "t2i-adapter_multi_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "t2i-adapter multi_train run fail" >>"${log_dir}/ce_res.log"
+    echo "t2i-adapter_multi_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******t2i-adapter multi_train end***********"
+echo "*******t2i-adapter_multi_train end***********"
 
 # 多机训练的结果进行推理
 echo "*******t2i-adapter multi infer begin***********"
@@ -62,11 +62,11 @@ echo "*******t2i-adapter multi infer begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "t2i-adapter multi_infer run success" >>"${log_dir}/ce_res.log"
+    echo "t2i-adapter_multi_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "t2i-adapter multi_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "t2i-adapter_multi_infer run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******t2i-adapter multi infer end***********"
+echo "*******t2i-adapter_multi_infer end***********"
 
 # # 查看结果
 # cat ${log_dir}/ce_res.log

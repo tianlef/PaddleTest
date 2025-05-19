@@ -20,16 +20,16 @@ exit_code=0
 # 下载依赖和数据
 bash prepare.sh
 
-echo "*******video_tokenizer/magvit2 begin***********"
+echo "*******video_tokenizer_magvit2_test begin***********"
 (python example.py) 2>&1 | tee ${log_dir}/video_tokenizer_magvit2_test.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "video_tokenizer/magvit2 run success" >>"${log_dir}/ce_res.log"
+    echo "video_tokenizer_magvit2_test run success" >>"${log_dir}/ce_res.log"
 else
-    echo "video_tokenizer/magvit2 run fail" >>"${log_dir}/ce_res.log"
+    echo "video_tokenizer_magvit2_test run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******video_tokenizer/magvit2 end***********"
+echo "*******video_tokenizer_magvit2_test end***********"
 
 echo exit_code:${exit_code}
 exit ${exit_code}

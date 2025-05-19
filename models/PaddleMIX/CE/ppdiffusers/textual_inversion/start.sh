@@ -19,52 +19,52 @@ exit_code=0
 
 bash prepare.sh
 # 单机训练
-echo "*******textual_inversion singe_train begin***********"
+echo "*******textual_inversion_singe_train begin***********"
 (bash single_train.sh) 2>&1 | tee ${log_dir}/textual_inversion_singe_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "textual_inversion singe_train run success" >>"${log_dir}/ce_res.log"
+    echo "textual_inversion_singe_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "textual_inversion singe_train run fail" >>"${log_dir}/ce_res.log"
+    echo "textual_inversion_singe_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******textual_inversion singe_train end***********"
+echo "*******textual_inversion_singe_train end***********"
 
 # 单机训练的结果进行推理
-echo "******textual_inversion singe infer begin***********"
+echo "******textual_inversion_singe infer begin***********"
 (python infer_with_output.py 2>&1) | tee ${log_dir}/textual_inversion_single_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "textual_inversion single_infer run success" >>"${log_dir}/ce_res.log"
+    echo "textual_inversion_single_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "textual_inversion single_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "textual_inversion_single_infer run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******textual_inversion singe infer end***********"
+echo "*******textual_inversion_singe_infer end***********"
 
 # 多机训练
-echo "*******textual_inversion muti_train begin***********"
+echo "*******textual_inversion_muti_train begin***********"
 (bash multi_train.sh) 2>&1 | tee ${log_dir}/textual_inversion_multi_train.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "textual_inversion multi_train run success" >>"${log_dir}/ce_res.log"
+    echo "textual_inversion_multi_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "textual_inversion multi_train run fail" >>"${log_dir}/ce_res.log"
+    echo "textual_inversion_multi_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******textual_inversion multi_train end***********"
+echo "*******textual_inversion_multi_train end***********"
 
 # 多机训练的结果进行推理
-echo "*******textual_inversion multi infer begin***********"
+echo "*******textual_inversion_multi infer begin***********"
 (python infer_with_output.py) 2>&1 | tee ${log_dir}/textual_inversion_multi_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "textual_inversion multi_infer run success" >>"${log_dir}/ce_res.log"
+    echo "textual_inversion_multi_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "textual_inversion multi_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "textual_inversion_multi_infer run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******textual_inversion multi infer end***********"
+echo "*******textual_inversion_multi infer end***********"
 
 # # 查看结果
 # cat ${log_dir}/ce_res.log
