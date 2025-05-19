@@ -22,13 +22,13 @@ rm -rf minigpt4_7b.tar.gz
     --top_k 0 \
     --repetition_penalty 1.0 \
     --length_penalty 0.0 \
-    --temperature 1.0) 2>&1 | tee ${log_dir}/run_minigpt4_7b_predict.log
+    --temperature 1.0) 2>&1 | tee ${log_dir}/minigpt4_7b_predict.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "paddlemix minigpt4_7b predict run success" >>"${log_dir}/ce_res.log"
+    echo "minigpt4_7b_predict run success" >>"${log_dir}/ce_res.log"
 else
-    echo "paddlemix minigpt4_7b predict run fail" >>"${log_dir}/ce_res.log"
+    echo "minigpt4_7b_predict run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******paddlemix minigpt4_7b predict end***********"
 

@@ -70,9 +70,9 @@ cd ${work_path}
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen_vl finetune run success" >>"${log_dir}/ce_res.log"
+    echo "qwen_vl_fintune run success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen_vl finetune run fail" >>"${log_dir}/ce_res.log"
+    echo "qwen_vl_fintune run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******qwen_vl finetune end***********"
 echo exit_code:${exit_code}
@@ -81,9 +81,9 @@ echo exit_code:${exit_code}
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "qwen_vl single finetune run success" >>"${log_dir}/ce_res.log"
+    echo "qwen_vl_single_finetune run success" >>"${log_dir}/ce_res.log"
 else
-    echo "qwen_vl single finetune run fail" >>"${log_dir}/ce_res.log"
+    echo "qwen_vl_single_finetune run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******qwen_vl single finetune end***********"
 echo exit_code:${exit_code}

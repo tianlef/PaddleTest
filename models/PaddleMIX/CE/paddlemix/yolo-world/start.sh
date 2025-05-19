@@ -34,13 +34,13 @@ echo "*******paddlemix yolo-world infer***********"
     --text bus\
     --topk=3 \
     --threshold=0.6 \
-    --output_dir=./yolo_output) 2>&1 | tee ${log_dir}/paddlemix_yolo-world_infer.log
+    --output_dir=./yolo_output) 2>&1 | tee ${log_dir}/yoloworld_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "paddlemix yolo-world infer run success" >>"${log_dir}/ce_res.log"
+    echo "yoloworld_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "paddlemix yolo-world infer run fail" >>"${log_dir}/ce_res.log"
+    echo "yoloworld_infer run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******paddlemix yolo-world infer end***********"
 

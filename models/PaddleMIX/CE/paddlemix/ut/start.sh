@@ -55,9 +55,9 @@ echo "*******paddlemix ut appflow begin begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "paddlemix ut appflow  run success" >>"${log_dir}/ut_res.log"
+    echo "tests_ut_appflow  run success" >>"${log_dir}/ut_res.log"
 else
-    echo "paddlemix ut appflow  run fail" >>"${log_dir}/ut_res.log"
+    echo "tests_ut_appflow  run fail" >>"${log_dir}/ut_res.log"
 fi
 echo "*******paddlemix ut appflow end***********"
 
@@ -66,9 +66,9 @@ echo "*******paddlemix ut models begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "paddlemix ut models run success" >>"${log_dir}/ut_res.log"
+    echo "tests_ut_models run success" >>"${log_dir}/ut_res.log"
 else
-    echo "paddlemix ut models run fail" >>"${log_dir}/ut_res.log"
+    echo "tests_ut_models run fail" >>"${log_dir}/ut_res.log"
 fi
 echo "*******paddlemix ut models end***********"
 
