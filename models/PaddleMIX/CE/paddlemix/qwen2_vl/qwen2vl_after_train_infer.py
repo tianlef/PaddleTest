@@ -21,7 +21,7 @@ from paddlemix.processors.qwen2_vl_processing import (
     process_vision_info,
 )
 
-MODEL_NAME = "work_dirs/basline_330k_2b_bs32_1e8"
+MODEL_NAME = "work_dirs/baseline_330k_2b_bs32_1e8"
 model = Qwen2VLForConditionalGeneration.from_pretrained(MODEL_NAME, dtype="bfloat16")
 
 image_processor = Qwen2VLImageProcessor()

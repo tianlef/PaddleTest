@@ -14,9 +14,9 @@
 
 set -x
 
-GPUS=${GPUS:-2}
+GPUS=${GPUS:-8}
 BATCH_SIZE=${BATCH_SIZE:-32}
-PER_DEVICE_BATCH_SIZE=${PER_DEVICE_BATCH_SIZE:-1}
+PER_DEVICE_BATCH_SIZE=${PER_DEVICE_BATCH_SIZE:-2}
 
 GRADIENT_ACC=$((BATCH_SIZE / PER_DEVICE_BATCH_SIZE / GPUS))
 tensor_parallel_degree=${tensor_parallel_degree:-1}
@@ -26,7 +26,7 @@ export PYTHONPATH="${PYTHONPATH}:$(pwd)"
 export MASTER_PORT=34229
 export TF_CPP_MIN_LOG_LEVEL=3
 
-OUTPUT_DIR='work_dirs/basline_330k_2b_bs32_1e8'
+OUTPUT_DIR='work_dirs/baseline_330k_2b_bs32_1e8'
 
 if [ ! -d "$OUTPUT_DIR" ]; then
   mkdir -p "$OUTPUT_DIR"
@@ -36,7 +36,7 @@ TRAINING_MODEL_RESUME="None"
 TRAINER_INSTANCES='127.0.0.1'
 MASTER='127.0.0.1:8080'
 
-meta_path="paddlemix/examples/qwen2_vl/configs/baseline_6data_330k.json"
+meta_path="paddlemix/examples/qwen2_vl/configs/demo_chartqa_500.json"
 
 TRAINING_PYTHON="python -m paddle.distributed.launch --master ${MASTER} --nnodes 1 --nproc_per_node ${GPUS} --rank 0 --ips ${TRAINER_INSTANCES} --run_mode=collective"
 ${TRAINING_PYTHON} --log_dir ${OUTPUT_DIR}/paddle_distributed_logs \
@@ -48,10 +48,10 @@ ${TRAINING_PYTHON} --log_dir ${OUTPUT_DIR}/paddle_distributed_logs \
   --meta_path ${meta_path} \
   --overwrite_output_dir True \
   --dataloader_num_workers 8 \
-  --fp16 True \
+  --bf16 True \
+  --fp16 False \
   --fp16_opt_level "O2" \
   --num_train_epochs 1 \
-  --max_steps 100 \
   --per_device_train_batch_size ${PER_DEVICE_BATCH_SIZE} \
   --gradient_accumulation_steps ${GRADIENT_ACC} \
   --freeze_vit True \
@@ -75,11 +75,12 @@ ${TRAINING_PYTHON} --log_dir ${OUTPUT_DIR}/paddle_distributed_logs \
   --sharding_parallel_degree=${sharding_parallel_degree} \
   --pipeline_parallel_degree=1 \
   --sep_parallel_degree=1 \
-  --sharding="stage1" \
+  --sharding="stage2" \
   --amp_master_grad=1 \
   --hybrid_parallel_topo_order="sharding_first" \
   --lora True \
-  --lora_rank=12 \
-  --lora_alpha=256 \
+  --lora_rank=8 \
+  --lora_alpha=32 \
   --lora_dropout=0.0 \
-  --lora_target_modules="model.layers.*q_proj.*,model.layers.*k_proj.*,model.layers.*v_proj.*,model.layers.*gate_proj.*,model.layers.*up_proj.*,model.layers.*down_proj.*,model.layers.*o_proj.*"
+  --lora_target_modules="model.layers.*q_proj.*,model.layers.*k_proj.*,model.layers.*v_proj.*,model.layers.*gate_proj.*,model.layers.*up_proj.*,model.layers.*down_proj.*,model.layers.*o_proj.*" \
+  2>&1 | tee -a "${OUTPUT_DIR}/training_log.txt"
