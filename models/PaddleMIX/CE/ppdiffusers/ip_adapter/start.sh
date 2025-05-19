@@ -26,11 +26,11 @@ echo "*******ip_adapter singe_train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "ip_adapter singe_train run success" >>"${log_dir}/ce_res.log"
+    echo "ip_adapter_singe_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "ip_adapter singe_train run fail" >>"${log_dir}/ce_res.log"
+    echo "ip_adapter_singe_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******ip_adapter singe_train end***********"
+echo "*******ip_adapter_singe_train end***********"
 
 
 # 多机训练
@@ -39,11 +39,11 @@ echo "*******ip_adapter muti_train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "ip_adapter multi_train run success" >>"${log_dir}/ce_res.log"
+    echo "ip_adapter_multi_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "ip_adapter multi_train run fail" >>"${log_dir}/ce_res.log"
+    echo "ip_adapter_multi_train run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******ip_adapter multi_train end***********"
+echo "*******ip_adapter_multi_train end***********"
 
 
 # # 查看结果

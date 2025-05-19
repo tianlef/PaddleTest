@@ -36,11 +36,11 @@ tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 # 检查infer.py的返回状态
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "lora dreambooth_infer run success" >>"${log_dir}/ce_res.log"
+    echo "lora_dreambooth_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "lora dreambooth_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "lora_dreambooth_infer run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******lora dreambooth_infer end***********"
+echo "*******lora_dreambooth_infer end***********"
 rm -rf ${work_path}/dreambooth/lora_dream_outputs/*
 rm -rf ${work_path}/dreambooth/dogs/
 

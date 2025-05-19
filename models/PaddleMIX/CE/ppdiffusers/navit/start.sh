@@ -23,11 +23,11 @@ echo "*******navit begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "navit run success" >>"${log_dir}/ce_res.log"
+    echo "navit_test run success" >>"${log_dir}/ce_res.log"
 else
-    echo "navit run fail" >>"${log_dir}/ce_res.log"
+    echo "navit_test run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******navit end***********"
+echo "*******navit_test end***********"
 
 echo exit_code:${exit_code}
 exit ${exit_code}

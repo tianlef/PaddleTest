@@ -51,9 +51,9 @@ exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
     echo "open_sora_image_condiction_video run success" >>"${log_dir}/ce_res.log"
 else
-    echo "open_sora image_condiction_video run fail" >>"${log_dir}/ce_res.log"
+    echo "open_sora_image_condiction_video run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******open_sora image_condiction_video end***********"
+echo "*******open_sora_image_condiction_video end***********"
 
 
 echo "*******open_sora video_connection begin***********"
@@ -63,7 +63,7 @@ exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
     echo "open_sora_video_connection run success" >>"${log_dir}/ce_res.log"
 else
-    echo "open_sora video_connection run fail" >>"${log_dir}/ce_res.log"
+    echo "open_sora_video_connection run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******open_sora video_connection end***********"
 
@@ -76,7 +76,7 @@ exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
     echo "open_sora_video_extend_edit run success" >>"${log_dir}/ce_res.log"
 else
-    echo "open_sora video_extend_edit run fail" >>"${log_dir}/ce_res.log"
+    echo "open_sora_video_extend_edit run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******open_sora video_extend_edit end***********"
 
