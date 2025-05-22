@@ -61,7 +61,7 @@ echo "*******stable_diffusion muti_train end***********"
 # 多机训练的结果进行推理
 echo "*******stable_diffusion multi infer begin***********"
 rm -rf astronaut_rides_horse.png
-(python infer.py) 2>&1 | tee ${log_dir}/stable_diffusion_muti_infer.log
+(python infer.py) 2>&1 | tee ${log_dir}/stable_diffusion_multi_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
