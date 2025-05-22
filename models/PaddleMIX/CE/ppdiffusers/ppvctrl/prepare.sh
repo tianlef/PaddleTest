@@ -1,6 +1,6 @@
 pip install -r requirements.txt
 pip install paddlex==3.0.0b2
-
+pip install moviepy
 #创建vctrl-canny模型权重目录
 rm -rf weights/canny
 mkdir -p weights/Canny
