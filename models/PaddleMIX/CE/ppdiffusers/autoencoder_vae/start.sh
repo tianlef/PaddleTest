@@ -26,9 +26,9 @@ echo "*******autoencoder_vae singe_train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "autoencoder_vae singe_train run success" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_singe_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "autoencoder_vae singe_train run fail" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_singe_train run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******autoencoder_vae singe_train end***********"
 
@@ -38,9 +38,9 @@ echo "******autoencoder_vae singe infer begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "autoencoder_vae single_infer run success" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_single_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "autoencoder_vae single_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_single_infer run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******autoencoder_vae singe infer end***********"
 
@@ -50,9 +50,9 @@ echo "*******autoencoder_vae muti_train begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "autoencoder_vae multi_train run success" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_multi_train run success" >>"${log_dir}/ce_res.log"
 else
-    echo "autoencoder_vae multi_train run fail" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_multi_train run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******autoencoder_vae multi_train end***********"
 
@@ -62,9 +62,9 @@ echo "*******autoencoder_vae multi infer begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "autoencoder_vae multi_infer run success" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_multi_infer run success" >>"${log_dir}/ce_res.log"
 else
-    echo "autoencoder_vae multi_infer run fail" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_multi_infer run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******autoencoder_vae multi infer end***********"
 
@@ -74,9 +74,9 @@ echo "*******autoencoder_vae singe_train_from_zero begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "autoencoder_vae single_train_zero run success" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_single_train_zero run success" >>"${log_dir}/ce_res.log"
 else
-    echo "autoencoder_vae single_train_zero run fail" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_single_train_zero run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******autoencoder_vae single_train_zero end***********"
 
@@ -86,9 +86,9 @@ echo "*******autoencoder_vae multi_train_from_zero begin***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "autoencoder_vae multi_train_zero run success" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_multi_train_zero run success" >>"${log_dir}/ce_res.log"
 else
-    echo "autoencoder_vae multi_train_zero run fail" >>"${log_dir}/ce_res.log"
+    echo "autoencoder_vae_multi_train_zero run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******autoencoder_vae multi_train_zero end***********"
 
