@@ -30,8 +30,8 @@ index=$((RANDOM % len))
 echo "Randomly selected model: ${choose_list[$index]}"
 random=${choose_list[$index]}
 # controlnet
-cd {random}
-random_name="${random}//\//_"
+cd ${random}
+random_name="${random//\//_}"
 (bash scripts/benchmark_paddle_deploy.sh) 2>&1 | tee ${log_dir}/${random_name}_paddle.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
