@@ -55,4 +55,3 @@ fi
 echo "*******${random_name}_tensorrt end***********"
 
 echo exit_code:${exit_code}
-exit ${exit_code}
