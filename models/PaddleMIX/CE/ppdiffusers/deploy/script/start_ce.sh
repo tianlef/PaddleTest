@@ -36,9 +36,9 @@ random_name="${random//\//_}"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "${random_name}_paddle  success" >>"${log_dir}/ce_res.log"
+    echo "${random_name}_paddle  run success" >>"${log_dir}/ce_res.log"
 else
-    echo "${random_name}_paddle  fail" >>"${log_dir}/ce_res.log"
+    echo "${random_name}_paddle  run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******${random_name}_paddle end***********"
 
@@ -48,9 +48,9 @@ echo "*******${random_name}_paddle end***********"
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "${random_name}_tensorrt  success" >>"${log_dir}/ce_res.log"
+    echo "${random_name}_tensorrt  run success" >>"${log_dir}/ce_res.log"
 else
-    echo "${random_name}_tensorrt  fail" >>"${log_dir}/ce_res.log"
+    echo "${random_name}_tensorrt  run fail" >>"${log_dir}/ce_res.log"
 fi
 echo "*******${random_name}_tensorrt end***********"
 
