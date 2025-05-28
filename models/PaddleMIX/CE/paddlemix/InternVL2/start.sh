@@ -14,6 +14,7 @@ fi
 
 tools_path=${root_path}/PaddleTest/models/PaddleMIX/Tools
 /bin/cp -rf ./gpu/* ${work_path}
+/bin/cp -rf ./prepare.sh ${tools_path}
 /bin/cp -f ${tools_path}/check_loss.py ${work_path}
 cd ${work_path}
 exit_code=0
