@@ -21,9 +21,6 @@ exit_code=0
 
 export http_proxy=${mix_proxy}
 export https_proxy=${mix_proxy}
-
-
-exit_code=0
 export no_proxy=baidu.com,127.0.0.1,0.0.0.0,localhost,bcebos.com,pip.baidu-int.com,mirrors.baidubce.com,repo.baidubce.com,repo.bcm.baidubce.com,pypi.tuna.tsinghua.edu.cn,aistudio.baidu.com
 
 bash prepare.sh

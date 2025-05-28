@@ -5,9 +5,6 @@ pip install decord
 
 
 
-
-# 数据集下载
-cd ${mix_path}
 rm -rf playground
 mkdir playground
 cd playground
