@@ -84,7 +84,7 @@ echo "*******paddlemix ${model_name}_${case_name} end***********"
 
 echo "*******paddlemix InternVL2_after_train_infer begin begin***********"
 (python paddlemix/examples/internvl2/chat_demo.py \
-    --model_name_or_path "work_dirs/internvl2-1B" \
+    --model_name_or_path "work_dirs/internvl_chat_v2_5/internvl2_5_2b_dynamic_res_2nd_finetune_full" \
     --image_path 'paddlemix/demo_images/examples_image1.jpg' \
     --text "Please describe this image in detail.") 2>&1 | tee ${log_dir}/InternVL2_after_train_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
