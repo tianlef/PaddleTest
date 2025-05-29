@@ -15,6 +15,7 @@ fi
 
 /bin/cp -rf ./gpu/* ${work_path}
 /bin/cp -rf ./prepare.sh ${work_path}
+/bin/cp -rf ./download.sh ${work_path}
 
 cd ${work_path}
 exit_code=0
