@@ -15,14 +15,12 @@ fi
 
 /bin/cp -rf ./gpu/* ${work_path}
 /bin/cp -rf ./prepare.sh ${work_path}
+
 cd ${work_path}
 exit_code=0
 
 export http_proxy=${mix_proxy}
 export https_proxy=${mix_proxy}
-
-
-exit_code=0
 export no_proxy=baidu.com,127.0.0.1,0.0.0.0,localhost,bcebos.com,pip.baidu-int.com,mirrors.baidubce.com,repo.baidubce.com,repo.bcm.baidubce.com,pypi.tuna.tsinghua.edu.cn,aistudio.baidu.com
 
 bash prepare.sh
@@ -84,7 +82,7 @@ echo "*******paddlemix ${model_name}_${case_name} end***********"
 
 echo "*******paddlemix InternVL2_after_train_infer begin begin***********"
 (python paddlemix/examples/internvl2/chat_demo.py \
-    --model_name_or_path "work_dirs/internvl_chat_v2_5/internvl2_5_2b_dynamic_res_2nd_finetune_full" \
+    --model_name_or_path "work_dirs/internvl2-1B" \
     --image_path 'paddlemix/demo_images/examples_image1.jpg' \
     --text "Please describe this image in detail.") 2>&1 | tee ${log_dir}/InternVL2_after_train_infer.log
 tmp_exit_code=${PIPESTATUS[0]}
@@ -101,6 +99,8 @@ unset https_proxy
 
 # 查看结果
 # cat ${log_dir}/ce_res.log
-
+rm -rf LLaVA-Pretrain
+rm -rf LLaVA-Pretrain.tar
+rm -rf playground
 echo exit_code:${exit_code}
 exit ${exit_code}

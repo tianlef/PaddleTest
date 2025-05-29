@@ -99,6 +99,8 @@ unset https_proxy
 
 # 查看结果
 # cat ${log_dir}/ce_res.log
-
+rm -rf LLaVA-Pretrain
+rm -rf LLaVA-Pretrain.tar
+rm -rf playground
 echo exit_code:${exit_code}
 exit ${exit_code}
