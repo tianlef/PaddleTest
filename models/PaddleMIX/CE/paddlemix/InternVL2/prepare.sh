@@ -5,6 +5,8 @@ pip install decord
 
 # pretrain model data
 cd ${root_path}/PaddleMIX
+rm -rf LLaVA-Pretrain
+rm -rf LLaVA-Pretrain.tar
 bash download.sh https://paddlenlp.bj.bcebos.com//datasets/paddlemix/LLaVA/LLaVA-Pretrain.tar # 27 G
 # wget --progress=dot:mega -O internvl2_download.log https://paddlenlp.bj.bcebos.com//datasets/paddlemix/LLaVA/LLaVA-Pretrain.tar # 27 G
 tar -xf LLaVA-Pretrain.tar
@@ -13,6 +15,7 @@ bash download.sh https://paddlenlp.bj.bcebos.com//datasets/paddlemix/LLaVA/blip_
 # wget --progress=dot:mega -O internvl2_download.log   https://paddlenlp.bj.bcebos.com//datasets/paddlemix/LLaVA/blip_laion_cc_sbu_558k.jsonl
 
 # sft/lora model data
+rm -rf playground
 mkdir playground
 cd playground
 mkdir data 
