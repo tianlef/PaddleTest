@@ -111,25 +111,9 @@ def infer_process(selected_dirs):
             # 打开日志文件以记录输出
             with open(process_log, "w") as log_process:
                 # 启动子进程
-                start_time = time.time()
                 child = pexpect.spawn(f"/workspace/test_py310/bin/python {script}", encoding="utf-8", logfile=log_process, env={"PYTHONUNBUFFERED": "1"})
-
                 # 等待子进程输出
-                while True:
-                    rlist, _, _ = select.select([child.ptyproc.fd], [], [], 0.1)
-                    if rlist:
-                        # 读取一行输出
-                        line = child.readline().strip()
-                        if line:
-                            # print(line, flush=True)
-                            log_process.write(line + "\n")
-                    if child.isalive() == False:
-                        break
-                    if time.time() - start_time > time_out:
-                        print(f"Script '{script}' exceeded timeout of {time_out} seconds. Killing it...", flush=True)
-                        child.kill(signal.SIGKILL)  # 强制终止子进程
-                        break
-                # 等待子进程退出并获取退出状态
+                child.expect(pexpect.EOF, timeout=time_out)  # 等待子进程完全输出完
                 child.wait()
                 tmp_exit_code = child.exitstatus
         except pexpect.exceptions.TIMEOUT:
