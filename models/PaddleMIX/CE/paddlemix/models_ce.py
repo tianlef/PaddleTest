@@ -10,19 +10,13 @@ def process_init(executed_log_path, model_num=5):
     exit_code = 0
 
     root_path = os.getenv("root_path", ".")
-    log_dir = os.path.join(root_path, "ppdiffusers_log")
+    log_dir = os.path.join(root_path, "paddlemix_log")
     work_path = os.getcwd()
-    # 现在paddlenlp脚本
-   
-    # 执行 bash prepare.sh 脚本
-    # subprocess.run(["bash", "prepare.sh"], check=True)
 
     # executed_log_path = os.path.join(root_path, "executed_dirs.json")  # 用于记录已执行的目录和轮次
     skip_dirs = {
-        "infer/", 
         "ut/", 
-        "deploy/", 
-        "ppdiffusers_example_test/"
+        "deploy/"
     }
 
     # 获取所有有效的子目录

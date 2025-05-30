@@ -16,8 +16,6 @@ done
 echo "所有模型: ${all_models[@]}"
 
 fixed_run_list=(
-  "llava"
-  "qwen2_vl"
   "InternVL2"
 )
 
@@ -89,18 +87,6 @@ for subdir in */; do
   done
   if [ $found -eq 1 ]; then
     if [ "$subdir" == "deploy/" ]; then
-      continue
-    fi
-    if [ "$subdir" == "cogvlm/" ]; then
-      continue
-    fi
-    if [ "$subdir" == "llava_next_interleave/" ]; then
-      continue
-    fi
-    if [ "$subdir" == "llava_denseconnector/" ]; then
-      continue
-    fi
-    if [ "$subdir" == "llava_onevision/" ]; then
       continue
     fi
     if [ "$subdir" == "ut/" ]; then
