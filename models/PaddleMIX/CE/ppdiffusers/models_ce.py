@@ -12,10 +12,6 @@ def process_init(executed_log_path, model_num=5):
     root_path = os.getenv("root_path", ".")
     log_dir = os.path.join(root_path, "ppdiffusers_log")
     work_path = os.getcwd()
-    # 现在paddlenlp脚本
-   
-    # 执行 bash prepare.sh 脚本
-    # subprocess.run(["bash", "prepare.sh"], check=True)
 
     # executed_log_path = os.path.join(root_path, "executed_dirs.json")  # 用于记录已执行的目录和轮次
     skip_dirs = {
@@ -93,9 +89,6 @@ def process_init(executed_log_path, model_num=5):
     if os.path.isfile(ce_res_log_path):
         with open(ce_res_log_path, "r") as log_file:
             print(log_file.read())
-
-    # 退出脚本
-    exit(exit_code)
 
 if __name__ == '__main__':
     try:
