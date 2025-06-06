@@ -88,9 +88,6 @@ def process_init(executed_log_path, model_num=5):
         with open(ce_res_log_path, "r") as log_file:
             print(log_file.read())
 
-    # 退出脚本
-    exit(exit_code)
-
 if __name__ == '__main__':
     try:
         print("Starting script...")
