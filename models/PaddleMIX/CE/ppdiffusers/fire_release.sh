@@ -13,11 +13,16 @@ bash prepare.sh
 cd ${work_path}
 test_list=(
     "autoencoder_vae/"
+    "class_conditional_image_generation_DiT/"
+    "consistency_distillation/"
     "controlnet/"
     "ip_adapter/"
     "navit/"
-    "t2i_adapter/"
+    "stable_diffusion/"
+    "text_to_image/"
+    "text_to_image_laion400m/"
     "text_to_image_mscoco_uvit/"
+    "t2i_adapter/"
     "text_to_video_lvdm/"
     "video_tokenizer_magvit2/"
     "textual_inversion/"
