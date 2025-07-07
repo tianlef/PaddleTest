@@ -1,14 +1,11 @@
 import random
 import os
-import shutil
 import subprocess
 import sys
 import json
 import pexpect
 import traceback
-import select
-import signal
-import time
+
 # 假设我们有一个脚本列表
 def generate_all_inference_scripts():
     with open('./all.json', 'r', encoding='utf8') as f:
@@ -57,7 +54,6 @@ def infer_process(selected_dirs):
     root_path = os.getenv('root_path')  # 获取root_path环境变量
     work_path = os.path.join(root_path, 'PaddleMIX/ppdiffusers/examples/inference/')
     work_path2 = os.path.join(root_path, 'PaddleMIX/ppdiffusers/')
-    work_path3 = os.path.join(root_path, 'PaddleTest/models/PaddleMIX/CE/ppdiffusers')
     log_dir = os.path.join(root_path, 'infer_log')
 
     # 打印路径
@@ -73,19 +69,6 @@ def infer_process(selected_dirs):
    
     command = f"cp -rf ./* {work_path}/"
     subprocess.run(command, shell=True, check=True)
-
-    # 安装依赖
-    os.chdir(work_path2)
-
-    subprocess.run(['python', '-m', 'pip', 'install', '--upgrade', 'pip'], check=True)
-    
-
-    subprocess.run(['pip', 'install', 'pytest', 'safetensors', 'ftfy', 'fastcore', 'opencv-python', 'einops', 'parameterized', 'requests-mock'], check=True)
-    subprocess.run(['pip', 'install', 'ligo-segments'], check=True)
-    subprocess.run(['pip', 'install', 'fastdeploy-gpu-python', '-f', 'https://www.paddlepaddle.org.cn/whl/fastdeploy.html'], check=True)
-    subprocess.run(['pip', 'install', '-e', '.'], check=True)
-    subprocess.run(['pip', 'install', '-r', 'requirements.txt'], check=True)
-    
     # 返回工作路径
     os.chdir(work_path)
 
