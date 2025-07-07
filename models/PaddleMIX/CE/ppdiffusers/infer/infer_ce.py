@@ -1,10 +1,98 @@
 import random
 import os
-import subprocess
 import sys
 import json
-import pexpect
 import traceback
+import subprocess
+import shlex
+import time
+
+def infer_process(selected_dirs):
+    # 定义路径
+    root_path = os.getenv('root_path')  # 获取root_path环境变量
+    work_path = os.path.join(root_path, 'PaddleMIX/ppdiffusers/examples/inference/')
+    work_path2 = os.path.join(root_path, 'PaddleMIX/ppdiffusers/')
+    log_dir = os.path.join(root_path, 'infer_log')
+
+    # 打印路径
+    print(f"Current work path: {work_path}")
+    print(f"Secondary work path: {work_path2}")
+    print(f"Log directory: {log_dir}")
+
+    # 创建日志目录
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+    # 复制文件
+    command = f"cp -rf ./* {work_path}/"
+    subprocess.run(command, shell=True, check=True)
+    # 返回工作路径
+    os.chdir(work_path)
+
+    # 设置环境变量
+    os.environ['FLAGS_use_cuda_managed_memory'] = 'true'
+    os.environ['FLAGS_allocator_strategy'] = 'auto_growth'
+    os.environ['FLAGS_embedding_deterministic'] = '1'
+    os.environ['FLAGS_cudnn_deterministic'] = '1'
+
+    exit_code = 0
+
+    for script in selected_dirs:
+        print(f"******* Running {script} ***********", flush=True)
+        script_name = script.split(".")[0]
+        process_log = os.path.join(log_dir, f"{script_name}.log")
+        tmp_exit_code = -1  # 初始化为默认值
+        timeout_seconds = 3600  # 10分钟超时
+
+        try:
+            with open(process_log, "w", encoding="utf-8") as log_process:
+                cmd = f"/workspace/test_py310/bin/python {script}"
+                result = subprocess.run(
+                    shlex.split(cmd),
+                    stdout=log_process,
+                    stderr=subprocess.STDOUT,
+                    env=os.environ,
+                    timeout=timeout_seconds
+                )
+                tmp_exit_code = result.returncode
+
+        except subprocess.TimeoutExpired:
+            tmp_exit_code = -2
+            with open(process_log, "a", encoding="utf-8") as log_process:
+                log_process.write(f"\n[ERROR] Timeout after {timeout_seconds} seconds while running {script}\n")
+            print(f"******* {script_name} run timeout ***********", flush=True)
+
+        except Exception as e:
+            tmp_exit_code = -3
+            with open(process_log, "a", encoding="utf-8") as log_process:
+                log_process.write(f"\n[ERROR] Exception while running {script}: {str(e)}\n")
+            print(f"******* {script_name} run exception ***********", flush=True)
+            import traceback
+            traceback.print_exc()
+
+        finally:
+            with open(f"{log_dir}/ce_res.log", "a", encoding="utf-8") as log_file:
+                if tmp_exit_code == 0:
+                    log_file.write(f"{script_name} run success\n")
+                    print(f"******* {script_name} run success ***********", flush=True)
+                else:
+                    log_file.write(f"{script_name} run fail\n")
+                    print(f"******* {script_name} run fail ***********", flush=True)
+
+            # 这里可以加个短暂延时，让显存有时间释放
+            time.sleep(5)
+
+    # 输出最终的 exit_code
+    print(f"Final exit code: {exit_code}")
+
+    # 查看结果日志
+    ce_res_log_path = os.path.join(log_dir, "ce_res.log")
+    if os.path.isfile(ce_res_log_path):
+        with open(ce_res_log_path, "r", encoding="utf-8") as log_file:
+            print(log_file.read())
+
+    # 退出脚本
+    exit(exit_code)
+
 
 # 假设我们有一个脚本列表
 def generate_all_inference_scripts():
@@ -49,83 +137,83 @@ def select_random_scripts(scripts, model_num, executed_log_path):
         print(f"Executed models in this epoch {executed_dirs}")
     return selected_dirs
 
-def infer_process(selected_dirs):
-    # 定义路径
-    root_path = os.getenv('root_path')  # 获取root_path环境变量
-    work_path = os.path.join(root_path, 'PaddleMIX/ppdiffusers/examples/inference/')
-    work_path2 = os.path.join(root_path, 'PaddleMIX/ppdiffusers/')
-    log_dir = os.path.join(root_path, 'infer_log')
+# def infer_process(selected_dirs):
+#     # 定义路径
+#     root_path = os.getenv('root_path')  # 获取root_path环境变量
+#     work_path = os.path.join(root_path, 'PaddleMIX/ppdiffusers/examples/inference/')
+#     work_path2 = os.path.join(root_path, 'PaddleMIX/ppdiffusers/')
+#     log_dir = os.path.join(root_path, 'infer_log')
 
-    # 打印路径
-    print(f"Current work path: {work_path}")
-    print(f"Secondary work path: {work_path2}")
-    print(f"Log directory: {log_dir}")
+#     # 打印路径
+#     print(f"Current work path: {work_path}")
+#     print(f"Secondary work path: {work_path2}")
+#     print(f"Log directory: {log_dir}")
 
-    # 创建日志目录
-    if not os.path.exists(log_dir):
-        os.makedirs(log_dir)
-    # 复制文件
-    # 执行的时候不再对paddlenlp的脚本进行更改 只在环境设置中更改paddlenlp的脚本
+#     # 创建日志目录
+#     if not os.path.exists(log_dir):
+#         os.makedirs(log_dir)
+#     # 复制文件
+#     # 执行的时候不再对paddlenlp的脚本进行更改 只在环境设置中更改paddlenlp的脚本
    
-    command = f"cp -rf ./* {work_path}/"
-    subprocess.run(command, shell=True, check=True)
-    # 返回工作路径
-    os.chdir(work_path)
+#     command = f"cp -rf ./* {work_path}/"
+#     subprocess.run(command, shell=True, check=True)
+#     # 返回工作路径
+#     os.chdir(work_path)
 
-    # 设置环境变量
-    os.environ['FLAGS_use_cuda_managed_memory'] = 'true'
-    os.environ['FLAGS_allocator_strategy'] = 'auto_growth'
-    os.environ['FLAGS_embedding_deterministic'] = '1'
-    os.environ['FLAGS_cudnn_deterministic'] = '1'
+#     # 设置环境变量
+#     os.environ['FLAGS_use_cuda_managed_memory'] = 'true'
+#     os.environ['FLAGS_allocator_strategy'] = 'auto_growth'
+#     os.environ['FLAGS_embedding_deterministic'] = '1'
+#     os.environ['FLAGS_cudnn_deterministic'] = '1'
 
-    exit_code = 0
+#     exit_code = 0
     
 
-    print(f"Exit code: {exit_code}")
+#     print(f"Exit code: {exit_code}")
 
 
-    for script in selected_dirs:
-        print(f"******* Running {script} ***********", flush=True)
-        script_name = script.split(".")[0]
-        process_log = os.path.join(log_dir, f"{script_name}.log")
-        tmp_exit_code = -1  # 初始化为默认值
-        time_out = 60000
-        try:
-            # 打开日志文件以记录输出
-            with open(process_log, "w") as log_process:
-                # 启动子进程
-                child = pexpect.spawn(f"/workspace/test_py310/bin/python {script}", encoding="utf-8", logfile=log_process, env={"PYTHONUNBUFFERED": "1"})
-                # 等待子进程输出
-                child.expect(pexpect.EOF, timeout=time_out)  # 等待子进程完全输出完
-                child.wait()
-                tmp_exit_code = child.exitstatus
-        except pexpect.exceptions.TIMEOUT:
-        # 如果超时，可以继续等待
-            pass
-        except Exception as e:
-            traceback.print_exc()
+#     for script in selected_dirs:
+#         print(f"******* Running {script} ***********", flush=True)
+#         script_name = script.split(".")[0]
+#         process_log = os.path.join(log_dir, f"{script_name}.log")
+#         tmp_exit_code = -1  # 初始化为默认值
+#         time_out = 60000
+#         try:
+#             # 打开日志文件以记录输出
+#             with open(process_log, "w") as log_process:
+#                 # 启动子进程
+#                 child = pexpect.spawn(f"/workspace/test_py310/bin/python {script}", encoding="utf-8", logfile=log_process, env={"PYTHONUNBUFFERED": "1"})
+#                 # 等待子进程输出
+#                 child.expect(pexpect.EOF, timeout=time_out)  # 等待子进程完全输出完
+#                 child.wait()
+#                 tmp_exit_code = child.exitstatus
+#         except pexpect.exceptions.TIMEOUT:
+#         # 如果超时，可以继续等待
+#             pass
+#         except Exception as e:
+#             traceback.print_exc()
 
-        finally:
-            # 记录运行结果
-            with open(f"{log_dir}/ce_res.log", "a") as log_file:
-                if tmp_exit_code == 0:
-                    log_file.write(f"{script_name} run success\n")
-                    print(f"******* {script_name} run success***********", flush=True)
-                else:
-                    log_file.write(f"{script_name} run fail\n")
-                    print(f"******* {script_name} run fail***********", flush=True)
+#         finally:
+#             # 记录运行结果
+#             with open(f"{log_dir}/ce_res.log", "a") as log_file:
+#                 if tmp_exit_code == 0:
+#                     log_file.write(f"{script_name} run success\n")
+#                     print(f"******* {script_name} run success***********", flush=True)
+#                 else:
+#                     log_file.write(f"{script_name} run fail\n")
+#                     print(f"******* {script_name} run fail***********", flush=True)
             
     
-    # 保存更新后的已执行目录和轮次
-    # 输出最终的 exit_code
-    print(f"Final exit code: {exit_code}")
-     # 查看结果
-    ce_res_log_path = os.path.join(log_dir, "ce_res.log")
-    if os.path.isfile(ce_res_log_path):
-        with open(ce_res_log_path, "r") as log_file:
-            print(log_file.read())
-    # 退出脚本
-    exit(exit_code)
+#     # 保存更新后的已执行目录和轮次
+#     # 输出最终的 exit_code
+#     print(f"Final exit code: {exit_code}")
+#      # 查看结果
+#     ce_res_log_path = os.path.join(log_dir, "ce_res.log")
+#     if os.path.isfile(ce_res_log_path):
+#         with open(ce_res_log_path, "r") as log_file:
+#             print(log_file.read())
+#     # 退出脚本
+#     exit(exit_code)
 
 
 if __name__ == '__main__':
