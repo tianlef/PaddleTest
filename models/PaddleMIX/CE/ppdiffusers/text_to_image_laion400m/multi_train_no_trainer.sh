@@ -2,7 +2,7 @@
 
 rm -rf ./laion400m_pretrain_output_no_trainer
 
-python -u -m paddle.distributed.launch --gpus "0,1" train_txt2img_laion400m_no_trainer.py \
+python -u -m paddle.distributed.launch --gpus "1,2" train_txt2img_laion400m_no_trainer.py \
   --output_dir ./laion400m_pretrain_output_no_trainer \
   --per_device_train_batch_size 1 \
   --gradient_accumulation_steps 2 \
