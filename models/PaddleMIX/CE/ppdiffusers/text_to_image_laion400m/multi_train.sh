@@ -2,7 +2,7 @@
 
 rm -rf ./laion400m_pretrain_output_trainer
 
-python -u -m paddle.distributed.launch --gpus "0,1" train_txt2img_laion400m_trainer.py \
+python -u -m paddle.distributed.launch --gpus "1,2" train_txt2img_laion400m_trainer.py \
   --do_train \
   --output_dir ./laion400m_pretrain_output_trainer \
   --per_device_train_batch_size 1 \
