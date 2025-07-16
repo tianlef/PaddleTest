@@ -20,16 +20,16 @@ exit_code=0
 model_name="huanyuanVideo"
 case_name="infer"
 
-echo "*******${model_name}_{case_name} begin***********"
-(python ${root_path}/PaddleMIX/ppdiffusers/examples/inference/text_to_video_generation-hunyuan_video.py) 2>&1 | tee ${log_dir}/${model_name}_{case_name}.log
+echo "*******${model_name}_${case_name} begin***********"
+(python ${root_path}/PaddleMIX/ppdiffusers/examples/inference/text_to_video_generation-hunyuan_video.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "${model_name}_{case_name} run success" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
 else
-    echo "${model_name}_{case_name} run fail" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******${model_name}_{case_name} end***********"
+echo "*******${model_name}_${case_name} end***********"
 
 echo exit_code:${exit_code}
 exit ${exit_code}

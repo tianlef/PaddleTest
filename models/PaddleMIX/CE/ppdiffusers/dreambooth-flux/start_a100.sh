@@ -27,40 +27,40 @@ export FLAGS_use_fused_rmsnorm="yes"
 model_name="flux"
 case_name="train"
 
-echo "*******${model_name}_{case_name} begin***********"
-(bash train.sh) 2>&1 | tee ${log_dir}/${model_name}_{case_name}.log
+echo "*******${model_name}_${case_name} begin***********"
+(bash train.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "${model_name}_{case_name} run success" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
 else
-    echo "${model_name}_{case_name} run fail" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******${model_name}_{case_name} end***********"
+echo "*******${model_name}_${case_name} end***********"
 
 case_name="infer"
-echo "*******${model_name}_{case_name} begin***********"
-(python inference.py) 2>&1 | tee ${log_dir}/${model_name}_{case_name}.log
+echo "*******${model_name}_${case_name} begin***********"
+(python inference.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "${model_name}_{case_name} run success" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
 else
-    echo "${model_name}_{case_name} run fail" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******${model_name}_{case_name} end***********"
+echo "*******${model_name}_${case_name} end***********"
 
 case_name="pipeline_infer"
-echo "*******${model_name}_{case_name} begin***********"
-(python ${root_path}/ppdiffusers/examples/inference/text_to_image_generation-flux.py) 2>&1 | tee ${log_dir}/${model_name}_{case_name}.log
+echo "*******${model_name}_${case_name} begin***********"
+(python ${root_path}/ppdiffusers/examples/inference/text_to_image_generation-flux.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
-    echo "${model_name}_{case_name} run success" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run success" >>"${log_dir}/ce_res.log"
 else
-    echo "${model_name}_{case_name} run fail" >>"${log_dir}/ce_res.log"
+    echo "${model_name}_${case_name} run fail" >>"${log_dir}/ce_res.log"
 fi
-echo "*******${model_name}_{case_name} end***********"
+echo "*******${model_name}_${case_name} end***********"
 
 
 echo exit_code:${exit_code}
