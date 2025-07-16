@@ -1,0 +1,1 @@
+cd ${root_path}/PaddleMIX/ppdiffusers/examples/

@@ -1,3 +1,5 @@
+
+
 export MODEL_NAME="black-forest-labs/FLUX.1-dev"
 export INSTANCE_DIR="dog"
 export OUTPUT_DIR="trained-flux-lora"

@@ -1,0 +1,26 @@
+python -u -m paddle.distributed.launch --gpus "0,1,2,3,4,5,6,7" train_pcm_lora_sd3_adv.py \
+    --data_path "./cc3m" \
+    --pretrained_teacher_model stabilityai/stable-diffusion-3-medium-diffusers \
+    --output_dir "outputs/lora_64_fuyun_PCM_sd3_202503191011" \
+    --tracker_project_nam "lora_64_formal_fuyun_PCM_sd3_202503191011" \
+    --mixed_precision "fp16" \
+    --resolution "1024" \
+    --lora_rank "32" \
+    --learning_rate "5e-6" \
+    --loss_type "huber" \
+    --adam_weight_decay "1e-3" \
+    --max_train_steps "1000" \
+    --dataloader_num_workers "16" \
+    --w_min "4" \
+    --w_max "5" \
+    --validation_steps "1000" \
+    --checkpointing_steps "1000" \
+    --checkpoints_total_limit "10" \
+    --train_batch_size "2" \
+    --gradient_accumulation_steps "1" \
+    --resume_from_checkpoint "latest" \
+    --seed "453645634" \
+    --num_euler_timesteps "100" \
+    --multiphase "4" \
+    --adv_weight "0.1" \
+    --adv_lr "1e-5"
