@@ -12,6 +12,7 @@ echo ${work_path}
 
 cd ${work_path}
 test_list=(
+    "wan21/"
     "dreambooth-flux/"
     "training-free/"
     "training-free-tgate/"

@@ -8,7 +8,8 @@ echo ${work_path}
 
 
 log_dir=${root_path}/ppdiffusers_log
-
+pip install diffusers
+pip install imageio-ffmpeg
 if [ ! -d "$log_dir" ]; then
     mkdir -p "$log_dir"
 fi
