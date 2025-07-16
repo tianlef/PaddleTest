@@ -8,7 +8,7 @@ log_dir=${root_path}/ppdiffusers_log
 work_path=$(pwd)
 echo ${work_path}
 
-bash prepare.sh
+#bash prepare.sh
 
 cd ${work_path}
 test_list=(
