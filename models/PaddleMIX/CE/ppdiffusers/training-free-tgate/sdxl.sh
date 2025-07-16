@@ -1,4 +1,4 @@
-python main.py \
+python text_to_image_generation_tgate.py \
     --prompt 'Astronaut in a jungle, cold color palette, muted colors, detailed, 8k' \
     --model 'sdxl' \
     --gate_step 10 \

@@ -1,4 +1,4 @@
-python main.py \
+python text_to_image_generation_tgate.py \
     --prompt 'An alpaca made of colorful building blocks, cyberpunk.' \
     --model 'pixart_alpha' \
     --gate_step 15 \

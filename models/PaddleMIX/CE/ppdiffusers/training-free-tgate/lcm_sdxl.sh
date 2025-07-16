@@ -1,4 +1,4 @@
-python main.py \
+python text_to_image_generation_tgate.py \
     --prompt 'Self-portrait oil painting, a beautiful cyborg with golden hair, 8k' \
     --model 'lcm_sdxl' \
     --gate_step 1 \

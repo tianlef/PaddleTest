@@ -24,7 +24,7 @@ model_name="trainfree"
 case_name="blockdance" 
 
 echo "*******${model_name}_${case_name} begin***********"
-(cd ${work_path}/blockdance && python text_to_image_generation-flux-blockdance.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(cd ${work_path}/blockdance && python text_to_image_generation_blockdance_flux.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -39,7 +39,7 @@ echo "*******${model_name}_${case_name} end***********"
 case_name="pab" 
 
 echo "*******${model_name}_${case_name} begin***********"
-(cd ${work_path}/pab && python text_to_image_generation-flux-pab.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(cd ${work_path}/pab && python text_to_image_generation_pab_flux.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -51,7 +51,7 @@ echo "*******${model_name}_${case_name} end***********"
 
 case_name="sortblock" 
 echo "*******${model_name}_${case_name} begin***********"
-(cd ${work_path}/sortblock && python diffusers_sorttaylor_flux.py ) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(cd ${work_path}/sortblock && python text_to_image_generation_sortblock_flux.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -64,7 +64,7 @@ echo "*******${model_name}_${case_name} end***********"
 
 case_name="taylorseer" 
 echo "*******${model_name}_${case_name} begin***********"
-(cd ${work_path}/taylorseer && python diffusers_taylorseer_flux.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(cd ${work_path}/taylorseer && python text_to_image_generation_taylorseer_flux.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
@@ -77,7 +77,7 @@ echo "*******${model_name}_${case_name} end***********"
 
 case_name="teacache" 
 echo "*******${model_name}_${case_name} begin***********"
-(cd ${work_path}/teacache && python text_to_image_generation-flux-teacache.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(cd ${work_path}/teacache && python text_to_image_generation_teacache_flux.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
