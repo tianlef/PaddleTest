@@ -1,5 +1,6 @@
 pip install -r requirements.txt
 
+export CHECKPOINT_PATH=.
 wget https://nvlabs-fi-cdn.nvidia.com/edm/fid-refs/imagenet-64x64.npz -O $CHECKPOINT_PATH/imagenet_fid_refs_edm.npz
 
 ###### download the imagenet-64x64 lmdb
