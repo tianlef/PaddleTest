@@ -1,6 +1,8 @@
 pip install -r requirements.txt
 
-export CHECKPOINT_PATH=.
+rm -rf ./datas
+mkdir -p ./datas
+export CHECKPOINT_PATH=./datas
 wget https://nvlabs-fi-cdn.nvidia.com/edm/fid-refs/imagenet-64x64.npz -O $CHECKPOINT_PATH/imagenet_fid_refs_edm.npz
 
 ###### download the imagenet-64x64 lmdb
@@ -17,7 +19,7 @@ wget  https://huggingface.co/tianweiy/DMD2/resolve/main/data/laion/captions_laio
 # evaluation prompts
 wget  https://huggingface.co/tianweiy/DMD2/resolve/main/data/coco/captions_coco14_test.pkl?download=true -O $CHECKPOINT_PATH/captions_coco14_test.pkl
 
-
+export CHECKPOINT_PATH=./ckpts
 #lora
 mkdir $CHECKPOINT_PATH/sdxl_vae_latents_laion_500k
 # real dataset

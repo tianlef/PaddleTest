@@ -12,10 +12,7 @@ echo ${work_path}
 
 cd ${work_path}
 test_list=(
-    "wan21/"
-    "dreambooth-flux/"
-    "training-free/"
-    "training-free-tgate/"
+    "dmd2/"
 )
 # 遍历当前目录下的子目录
 for subdir in */; do
