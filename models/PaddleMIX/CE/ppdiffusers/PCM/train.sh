@@ -9,12 +9,12 @@ python -u -m paddle.distributed.launch --gpus "0,1,2,3,4,5,6,7" train_pcm_lora_s
     --learning_rate "5e-6" \
     --loss_type "huber" \
     --adam_weight_decay "1e-3" \
-    --max_train_steps "100" \
+    --max_train_steps "10000" \
     --dataloader_num_workers "16" \
     --w_min "4" \
     --w_max "5" \
-    --validation_steps "100" \
-    --checkpointing_steps "100" \
+    --validation_steps "5000" \
+    --checkpointing_steps "5000" \
     --checkpoints_total_limit "10" \
     --train_batch_size "2" \
     --gradient_accumulation_steps "1" \
