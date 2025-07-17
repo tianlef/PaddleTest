@@ -1,5 +1,5 @@
 python -u -m paddle.distributed.launch --gpus "0,1,2,3,4,5,6,7" train_pcm_lora_sd3_adv.py \
-    --data_path "./cc3m" \
+    --data_path "./cc3m/cc3m-train-0000" \
     --pretrained_teacher_model stabilityai/stable-diffusion-3-medium-diffusers \
     --output_dir "outputs/lora_64_fuyun_PCM_sd3_202503191011" \
     --tracker_project_nam "lora_64_formal_fuyun_PCM_sd3_202503191011" \
