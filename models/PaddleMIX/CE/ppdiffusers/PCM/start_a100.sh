@@ -38,7 +38,7 @@ echo "*******${model_name}_${case_name} end***********"
 
 case_name="infer"
 echo "*******${model_name}_${case_name} begin***********"
-(bash train.sh) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(python infer.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then

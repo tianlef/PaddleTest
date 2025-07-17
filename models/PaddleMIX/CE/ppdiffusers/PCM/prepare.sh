@@ -1,1 +1,2 @@
+rm -rf pcm_deterministic_4step_shift3.pdparams
 wget https://paddlenlp.bj.bcebos.com/models/community/pcm_paddle/pcm_deterministic_4step_shift3.pdparams
