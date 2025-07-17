@@ -23,5 +23,4 @@ python -u -m paddle.distributed.launch --gpus "0,1,2,3,4,5,6,7" train_pcm_lora_s
     --num_euler_timesteps "100" \
     --multiphase "4" \
     --adv_weight "0.1" \
-    --adv_lr "1e-5" \
-    --report_to wandb \
+    --adv_lr "1e-5"
