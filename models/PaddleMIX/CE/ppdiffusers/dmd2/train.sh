@@ -1,4 +1,7 @@
 #!/bin/bash
+cd ops
+python setup.py install
+cd ..
 wandb offline
 CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 python -m paddle.distributed.launch edm/train_edm.py \
     --generator_lr 2e-6 \
@@ -10,6 +13,11 @@ CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 python -m paddle.distributed.launch edm/train
     --log_iters 500 \
     --resolution 64 \
     --label_dim 1000 \
+    --model_id "stabilityai/stable-diffusion-xl-base-1.0" \
+    --wandb_iters 100 \
+    --wandb_entity dmd2 \
+    --wandb_project sdxl \
+    --wandb_name "sdxl_cond999_8node_lr5e-7_denoising4step_diffusion1000_gan5e-3_guidance8_noinit_noode_backsim_scratch" \
     --dataset_name "imagenet" \
     --seed 1 \
     --model_id datas/edm-imagenet-64x64-cond-adm.pdparams \
