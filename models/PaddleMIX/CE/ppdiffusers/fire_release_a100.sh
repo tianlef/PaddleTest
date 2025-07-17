@@ -12,7 +12,7 @@ echo ${work_path}
 
 cd ${work_path}
 test_list=(
-    "huanyuanVideo/"
+    "PCM/"
 )
 # 遍历当前目录下的子目录
 for subdir in */; do
