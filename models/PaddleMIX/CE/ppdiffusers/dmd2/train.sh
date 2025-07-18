@@ -12,7 +12,7 @@ CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 python -m paddle.distributed.launch edm/train
     --initialie_generator \
     --log_iters 500 \
     --resolution 64 \
-    --label_dim 1000 \
+    --label_dim 100 \
     --dataset_name "imagenet" \
     --seed 1 \
     --model_id datas/edm-imagenet-64x64-cond-adm.pdparams \

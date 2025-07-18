@@ -8,7 +8,7 @@ python -m paddle.distributed.launch train_sd.py \
     --batch_size 1 \
     --grid_size 1 \
     --initialie_generator \
-    --log_iters 1000 \
+    --log_iters 100 \
     --resolution 1024 \
     --latent_resolution 128 \
     --seed 10 \
