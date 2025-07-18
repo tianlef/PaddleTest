@@ -1,4 +1,5 @@
 wandb offline
+rm -rf output/sdxl_cond999_8node_lr5e-7_denoising4step_diffusion1000_gan5e-3_guidance8_noinit_noode_backsim_scratch
 USE_PEFT_BACKEND=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
 python -m paddle.distributed.launch train_sd.py \
     --generator_lr 5e-5 \

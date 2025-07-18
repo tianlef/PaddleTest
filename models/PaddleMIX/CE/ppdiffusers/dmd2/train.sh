@@ -3,6 +3,7 @@ cd ops
 python setup.py install
 cd ..
 wandb offline
+rm -rf output/imagenet_gan_classifier_genloss3e-3_diffusion1000_lr2e-6_scratch 
 CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 python -m paddle.distributed.launch edm/train_edm.py \
     --generator_lr 2e-6 \
     --guidance_lr 2e-6 \
@@ -12,7 +13,7 @@ CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 python -m paddle.distributed.launch edm/train
     --initialie_generator \
     --log_iters 100 \
     --resolution 64 \
-    --label_dim 100 \
+    --label_dim 1000 \
     --dataset_name "imagenet" \
     --seed 1 \
     --model_id datas/edm-imagenet-64x64-cond-adm.pdparams \
