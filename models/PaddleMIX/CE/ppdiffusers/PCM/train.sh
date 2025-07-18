@@ -16,7 +16,7 @@ python -u -m paddle.distributed.launch --gpus "0,1,2,3,4,5,6,7" train_pcm_lora_s
     --validation_steps "1000" \
     --checkpointing_steps "2000" \
     --checkpoints_total_limit "10" \
-    --train_batch_size "2" \
+    --train_batch_size "1" \
     --gradient_accumulation_steps "1" \
     --resume_from_checkpoint "latest" \
     --seed "453645634" \
