@@ -1,6 +1,6 @@
 wandb offline
 USE_PEFT_BACKEND=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
-python -m paddle.distributed.launch  train_sd.py \
+python -m paddle.distributed.launch train_sd.py \
     --generator_lr 5e-5 \
     --guidance_lr 5e-5 \
     --train_iters 200000 \
@@ -11,15 +11,15 @@ python -m paddle.distributed.launch  train_sd.py \
     --log_iters 1000 \
     --resolution 1024 \
     --latent_resolution 128 \
+    --seed 10 \
+    --real_guidance_scale 8 \
+    --fake_guidance_scale 1.0 \
+    --max_grad_norm 10.0 \
     --model_id "stabilityai/stable-diffusion-xl-base-1.0" \
     --wandb_iters 100 \
     --wandb_entity dmd2 \
     --wandb_project sdxl \
     --wandb_name "sdxl_cond999_8node_lr5e-7_denoising4step_diffusion1000_gan5e-3_guidance8_noinit_noode_backsim_scratch" \
-    --seed 10 \
-    --real_guidance_scale 8 \
-    --fake_guidance_scale 1.0 \
-    --max_grad_norm 10.0 \
     --dfake_gen_update_ratio 5 \
     --sdxl \
     --gsp \
@@ -35,5 +35,5 @@ python -m paddle.distributed.launch  train_sd.py \
     --denoising_timestep 1000 \
     --backward_simulation \
     --train_prompt_path ckpts/captions_laion_score6.25.pkl \
-    --real_image_path ckpts \
+    --real_image_path ckpts/sdxl_vae_latents_laion_500k_lmdb \
     --generator_lora

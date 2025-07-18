@@ -1,6 +1,6 @@
 export PYTHONPATH=./:$PWD/../../scripts/fid_clip_score/:$PYTHONPATH USE_PEFT_BACKEND=1
 python -u sdxl/test_sdxl_single_ckpt.py  \
-    --checkpoint_path output/sdxl_cond999_8node_lr5e-7_denoising4step_diffusion1000_gan5e-3_guidance8_noinit_noode_backsim_scratch \
+    --checkpoint_path ./sdxl_cond999_8node_lr5e-5_denoising4step_diffusion1000_gan5e-3_guidance8_noinit_noode_backsim_scratch_lora.pdparams \
     --conditioning_timestep 999 \
     --num_step 4 \
     --wandb_entity dmd2 \
