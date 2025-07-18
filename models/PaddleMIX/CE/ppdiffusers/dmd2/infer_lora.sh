@@ -11,5 +11,5 @@ python -u sdxl/test_sdxl_single_ckpt.py  \
     --ref_dir ckpts/coco10k/subset \
     --anno_path  ckpts/coco10k/all_prompts.pkl \
     --total_eval_samples 10000 \
-    --wandb_name YOUR_WANDB_NAME \
+    --wandb_name dmd2 \
     --generator_lora
