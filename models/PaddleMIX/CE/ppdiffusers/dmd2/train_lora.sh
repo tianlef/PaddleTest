@@ -3,7 +3,7 @@ USE_PEFT_BACKEND=1 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
 python -m paddle.distributed.launch train_sd.py \
     --generator_lr 5e-5 \
     --guidance_lr 5e-5 \
-    --train_iters 200000 \
+    --train_iters 2000 \
     --output_path  output/sdxl_cond999_8node_lr5e-7_denoising4step_diffusion1000_gan5e-3_guidance8_noinit_noode_backsim_scratch \
     --batch_size 1 \
     --grid_size 1 \
@@ -35,5 +35,5 @@ python -m paddle.distributed.launch train_sd.py \
     --denoising_timestep 1000 \
     --backward_simulation \
     --train_prompt_path ckpts/captions_laion_score6.25.pkl \
-    --real_image_path ckpts/sdxl_vae_latents_laion_500k_lmdb \
+    --real_image_path ckpts \
     --generator_lora

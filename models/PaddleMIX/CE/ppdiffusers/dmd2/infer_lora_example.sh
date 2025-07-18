@@ -5,11 +5,11 @@ python -u sdxl/test_sdxl_single_ckpt.py  \
     --num_step 4 \
     --wandb_entity dmd2 \
     --wandb_project dmd2 \
-    --num_train_timesteps 1000 \
+    --num_train_timesteps 100 \
     --seed 10 \
     --eval_res 512 \
     --ref_dir ckpts/coco10k/subset \
     --anno_path  ckpts/coco10k/all_prompts.pkl \
-    --total_eval_samples 10000 \
+    --total_eval_samples 1000 \
     --wandb_name YOUR_WANDB_NAME \
     --generator_lora
