@@ -5,7 +5,7 @@ python -u sdxl/test_sdxl_single_ckpt.py  \
     --num_step 4 \
     --wandb_entity dmd2 \
     --wandb_project dmd2 \
-    --num_train_timesteps 100 \
+    --num_train_timesteps 10 \
     --seed 10 \
     --eval_res 512 \
     --ref_dir ckpts/coco10k/subset \
