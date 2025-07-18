@@ -10,7 +10,7 @@ CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 python -m paddle.distributed.launch edm/train
     --output_path output/imagenet_gan_classifier_genloss3e-3_diffusion1000_lr2e-6_scratch \
     --batch_size 24 \
     --initialie_generator \
-    --log_iters 500 \
+    --log_iters 100 \
     --resolution 64 \
     --label_dim 100 \
     --dataset_name "imagenet" \
