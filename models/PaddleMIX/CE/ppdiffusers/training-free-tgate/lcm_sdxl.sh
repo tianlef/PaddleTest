@@ -6,4 +6,4 @@ python text_to_image_generation_tgate.py \
     --fi_interval 1 \
     --warm_up 0 \
     --saved_path './generated_tmp/lcm_sdxl/' \
-    --inference_step 4
+    --inference_step 4 \

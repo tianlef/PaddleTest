@@ -6,4 +6,4 @@ python text_to_image_generation_tgate.py \
     --fi_interval 1 \
     --warm_up 2 \
     --saved_path './generated_tmp/pixart_alpha/' \
-    --inference_step 25
+    --inference_step 25 \

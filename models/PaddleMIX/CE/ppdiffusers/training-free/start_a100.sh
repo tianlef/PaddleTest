@@ -38,7 +38,7 @@ echo "*******${model_name}_${case_name} end***********"
 case_name="firstblock_taylorseer" 
 
 echo "*******${model_name}_${case_name} begin***********"
-(cd ${work_path}/firstblock_taylorseer && python python text_to_image_generation_firstblock_taylor_predict_flux.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
+(cd ${work_path}/firstblock_taylorseer && python text_to_image_generation_firstblock_taylor_predict_flux.py) 2>&1 | tee ${log_dir}/${model_name}_${case_name}.log
 tmp_exit_code=${PIPESTATUS[0]}
 exit_code=$(($exit_code + ${tmp_exit_code}))
 if [ ${tmp_exit_code} -eq 0 ]; then
