@@ -1,0 +1,33 @@
+python -u -m paddle.distributed.launch --gpus "0,1,2,3,4,5,6,7" train_flux_lightning_lora.py \
+    --data_path "./laion-45w" \
+    --file_list_path "./filelist_hwge1024_pwatermarkle0.5.txt" \
+    --pretrained_teacher_model "black-forest-labs/FLUX.1-dev" \
+    --output_dir outputs/lora_flux_lightning \
+    --tracker_project_name lora_flux_lightning \
+    --mixed_precision "bf16" \
+    --fp16_opt_level "O2" \
+    --resolution "1024" \
+    --lora_rank "32" \
+    --learning_rate "5e-6" \
+    --loss_type "huber" \
+    --adam_weight_decay "1e-3" \
+    --max_train_steps "28652" \
+    --dataloader_num_workers "32" \
+    --guidance_scale "3.5" \
+    --validation_steps "20000" \
+    --checkpointing_steps "1000" \
+    --checkpoints_total_limit "30" \
+    --train_batch_size "1" \
+    --gradient_accumulation_steps "1" \
+    --resume_from_checkpoint "latest" \
+    --seed "453645634" \
+    --num_euler_timesteps "100" \
+    --multiphase "4" \
+    --gradient_checkpointing \
+    --adv_weight 0.1 \
+    --adv_lr 1e-5 \
+    --pre_alloc_memory 76 \
+    --use_dmd_loss \
+    --dmd_weight 0.01 \
+    --apply_reflow_loss \
+    --reflow_loss_weight 0.01
