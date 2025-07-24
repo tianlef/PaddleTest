@@ -14,7 +14,6 @@ cd ${work_path}
 test_list=(
     "training-free/"
     "training-free-tgate/"
-    "flux_lighting/"
 )
 # 遍历当前目录下的子目录
 for subdir in */; do
