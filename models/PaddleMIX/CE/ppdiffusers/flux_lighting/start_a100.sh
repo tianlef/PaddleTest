@@ -57,9 +57,9 @@ else
 fi
 echo "*******${model_name}_${case_name} end***********"
 
-rm -rf paddle_lora_weights.safetensors
-rm -rf laion-45w
-rm -rf filelist_hwge1024_pwatermarkle0.5.txt
-rm -rf laion-45w.tar.gz
+# rm -rf paddle_lora_weights.safetensors
+# rm -rf laion-45w
+# rm -rf filelist_hwge1024_pwatermarkle0.5.txt
+# rm -rf laion-45w.tar.gz
 echo exit_code:${exit_code}
 exit ${exit_code}
