@@ -13,6 +13,7 @@ echo ${work_path}
 cd ${work_path}
 test_list=(
     "training-free/"
+    "flux_lightning/"
 )
 # 遍历当前目录下的子目录
 for subdir in */; do

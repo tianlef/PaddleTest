@@ -1,6 +1,6 @@
 python -u -m paddle.distributed.launch --gpus "0,1,2,3,4,5,6,7" train_flux_lightning_lora.py \
-    --data_path "./laion-45w" \
-    --file_list_path "./filelist_hwge1024_pwatermarkle0.5.txt" \
+    --data_path "./lain-10" \
+    --file_list_path "./file_list_10.txt" \
     --pretrained_teacher_model "black-forest-labs/FLUX.1-dev" \
     --output_dir outputs/lora_flux_lightning \
     --tracker_project_name lora_flux_lightning \
