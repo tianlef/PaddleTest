@@ -7,9 +7,7 @@ work_path=${root_path}/PaddleMIX
 echo ${work_path}
 
 
-log_dir=${root_path}/ppdiffusers_log
-pip install diffusers
-pip install imageio-ffmpeg
+log_dir=${root_path}/paddlemix_log
 if [ ! -d "$log_dir" ]; then
     mkdir -p "$log_dir"
 fi
@@ -18,7 +16,7 @@ fi
 
 cd ${work_path}
 exit_code=0
-bash prepare.sh
+# bash prepare.sh
 
 model_name="qwen25vl"
 
