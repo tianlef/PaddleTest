@@ -12,7 +12,7 @@ echo ${work_path}
 
 cd ${work_path}
 test_list=(
-    "qwen2.5vl/"
+    "qwen2.5_vl/"
 )
 # 遍历当前目录下的子目录
 for subdir in */; do
