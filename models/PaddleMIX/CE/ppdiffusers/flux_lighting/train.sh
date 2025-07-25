@@ -1,4 +1,4 @@
-python -u -m paddle.distributed.launch --gpus "0,1,2,3,4,5,6,7" train_flux_lightning_lora.py \
+python -u -m paddle.distributed.launch --gpus "0" train_flux_lightning_lora.py \
     --data_path "./lain-10" \
     --file_list_path "./file_list_10.txt" \
     --pretrained_teacher_model "black-forest-labs/FLUX.1-dev" \
