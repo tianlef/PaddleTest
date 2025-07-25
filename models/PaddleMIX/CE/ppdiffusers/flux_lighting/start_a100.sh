@@ -41,8 +41,8 @@ else
 fi
 echo "*******${model_name}_${case_name} end***********"
 
-rm -rf paddle_lora_weights.safetensors
-wget https://dataset.bj.bcebos.com/PaddleMIX/flux-lightning/202507112228_latest/paddle_lora_weights.safetensors
+# rm -rf paddle_lora_weights.safetensors
+# wget https://dataset.bj.bcebos.com/PaddleMIX/flux-lightning/202507112228_latest/paddle_lora_weights.safetensors
 
 case_name="infer" 
 
