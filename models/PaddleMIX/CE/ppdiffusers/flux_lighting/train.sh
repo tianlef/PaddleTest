@@ -13,10 +13,10 @@ python -u -m paddle.distributed.launch --gpus "4,5,6,7" train_flux_lightning_lor
     --learning_rate "5e-6" \
     --loss_type "huber" \
     --adam_weight_decay "1e-3" \
-    --max_train_steps "28652" \
+    --max_train_steps "2865" \
     --dataloader_num_workers "32" \
     --guidance_scale "3.5" \
-    --validation_steps "20000" \
+    --validation_steps "2000" \
     --checkpointing_steps "1000" \
     --checkpoints_total_limit "30" \
     --train_batch_size "1" \
