@@ -27,7 +27,7 @@ cd ..
 pip install -e .
 pip install -r requirements.txt
 
-
-pip uninstall -y paddlenlp
-pip install -e PaddleNLP
+# PaddleMIX不支持PaddleNLP develop分支
+# pip uninstall -y paddlenlp
+# pip install -e PaddleNLP
 
